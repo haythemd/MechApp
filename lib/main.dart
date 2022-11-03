@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mechalodon_mobile/services/injectable.dart';
 
 void main() {
+  initServiceLocator();
   runApp(const MyApp());
 }
 
