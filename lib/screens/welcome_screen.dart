@@ -22,10 +22,12 @@ class WelcomeScreen extends StatelessWidget {
                         Icons.chair,
                         size: 153,
                       ),
+                      SizedBox(height: 18,),
                       Text(
                         "Welcome",
                         style: MechTextStyle.subtitle,
                       ),
+                      SizedBox(height: 10,),
                       Text(
                         "Make your ads work",
                         style: MechTextStyle.title,
@@ -38,20 +40,31 @@ class WelcomeScreen extends StatelessWidget {
                     children: [
                       MechActionButton(
                         title: "Register",
-                        onTap: () {},
+                        onTap: () {
+                          print("Register");
+                        },
                       ),
                       const SizedBox(
                         height: 15,
                       ),
                       MechActionButton(
                         title: "Login",
-                        onTap: () {},
+                        onTap: () {
+                          print("login");
+                        },
                         isPrimary: false,
                       ),
-                      const SizedBox(height: 19,),
+                      const SizedBox(
+                        height: 19,
+                      ),
                       TextButton(
-                        child: const Text("Try it out now!",style: MechTextStyle.secondaryButton,),
-                        onPressed: () {},
+                        child: const Text(
+                          "Try it out now!",
+                          style: MechTextStyle.secondaryButton,
+                        ),
+                        onPressed: () {
+                          print("Try it out");
+                        },
                       )
                     ],
                   )

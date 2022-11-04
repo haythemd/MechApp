@@ -16,12 +16,12 @@ class MechActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      decoration: isPrimary ? MechButtonStyle.primary : MechButtonStyle.secondary,
-      child: Center(
-        child: GestureDetector(
-          onTap: onTap,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 60,
+        decoration: isPrimary ? MechButtonStyle.primary : MechButtonStyle.secondary,
+        child: Center(
           child: Text(
             title,
             style: isPrimary ? MechTextStyle.primaryButton : MechTextStyle.secondaryButton,
