@@ -52,22 +52,22 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 15,
                         ),
-                        Text("Email Address"),
-                        SizedBox(
+                        const Text("Email Address"),
+                        const SizedBox(
                           height: 6,
                         ),
                         TextFormField(
                           decoration: MechBorder.inputField('Email'),
                           validator: isEmail,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15,
                         ),
-                        Text("Password"),
-                        SizedBox(
+                        const Text("Password"),
+                        const SizedBox(
                           height: 6,
                         ),
                         TextFormField(
@@ -114,15 +114,14 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text('or'),
+                          const Text('or'),
                           TextButton(
                             child: const Text(
                               "Create Account",
                               style: MechTextStyle.secondaryButton,
                             ),
                             onPressed: () {
-                              _formKey.currentState!.validate();
-                              print("Try it out");
+                              _formKey.currentState!.validate();;
                             },
                           ),
                         ],
