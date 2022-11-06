@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mechalodon_mobile/components/buttons/primary_button.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+class WelcomeViewMobile extends StatelessWidget {
+  const WelcomeViewMobile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +22,16 @@ class WelcomeScreen extends StatelessWidget {
                         Icons.chair,
                         size: 153,
                       ),
-                      SizedBox(height: 18,),
+                      SizedBox(
+                        height: 18,
+                      ),
                       Text(
                         "Welcome",
                         style: MechTextStyle.subtitle,
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Text(
                         "Make your ads work",
                         style: MechTextStyle.title,

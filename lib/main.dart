@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mechalodon_mobile/screens/welcome_screen.dart';
+import 'package:mechalodon_mobile/screens/welcome/welcome_view.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
+
+import 'screens/login/screens/login_screen.dart';
 
 void main() {
   initServiceLocator();
@@ -17,7 +19,7 @@ class MechalodonApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const WelcomeScreen(),
+      home: const LoginScreen(),
     );
   }
 }

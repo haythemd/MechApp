@@ -40,4 +40,15 @@ class MechBorderRadius {
 
 class MechBorder {
   static final primary = Border.all(width: 2, color: MechColor.primary);
+
+  static InputDecoration inputField(String hintText) {
+    return InputDecoration(
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      filled: true,
+      hintStyle: TextStyle(color: Colors.grey[800]),
+      hintText: hintText,
+      fillColor: Colors.white70);
+  }
 }
