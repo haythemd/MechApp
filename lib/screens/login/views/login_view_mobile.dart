@@ -5,6 +5,7 @@ import 'package:mechalodon_mobile/generated/l10n.dart';
 import 'package:mechalodon_mobile/screens/login/bloc/login_bloc.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
+import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
 
 class LoginViewMobile extends StatefulWidget {
   const LoginViewMobile({Key? key}) : super(key: key);
@@ -35,7 +36,6 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
         builder: (context, state) {
           return Stack(
             children: [
-              if (state is LoginLoading) const CircularProgressIndicator(),
               SafeArea(
                 child: Padding(
                     padding: const EdgeInsets.all(17.0),
@@ -81,8 +81,8 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
                                 ),
                                 TextFormField(
                                   controller: emailController,
-                                  decoration:
-                                      MechBorder.inputStyle(s.emailAddressInputFieldHintText),
+                                  decoration: MechBorder.inputStyle(
+                                      s.emailAddressInputFieldHintText),
                                   validator: isEmail,
                                 ),
                                 const SizedBox(
@@ -93,6 +93,7 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
                                   height: 6,
                                 ),
                                 TextFormField(
+                                  validator: isValidPassword,
                                   controller: passwordController,
                                   obscureText: _passwordVisible,
                                   decoration: InputDecoration(
@@ -132,17 +133,17 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
                                       },
                                       child: Text(
                                         s.resetPasswordButtonText,
-                                        style: TextStyle(color: MechColor.link),
+                                        style: const TextStyle(color: MechColor.link),
                                       )),
                                 ),
                                 const SizedBox(
                                   height: 16,
                                 ),
-                                const Text(
-                                  'Error account doesnt exist try entering other credentials',
-                                  style: TextStyle(
+                                (state is LoginError) ? Text(
+                                  state.message,
+                                  style: const TextStyle(
                                       color: MechColor.error, fontSize: 15),
-                                )
+                                ) : Container()
                               ],
                             ),
                           ),
@@ -181,6 +182,14 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
                           )
                         ])),
               ),
+              (state is LoginLoading)
+                  ? Container(
+                      color: Colors.black.withOpacity(0.5),
+                      child: const Center(
+                        child: MechLoadingWidget(),
+                      ),
+                    )
+                  : Container(),
             ],
           );
         },
@@ -189,8 +198,15 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
   }
 
   String? isEmail(String? email) {
-    if (email == null) return s.blankEmailErrorMessage;
-    if (email.contains('@')) return null;
+    if (email == null || email == "") return s.blankEmailErrorMessage;
+    if (RegExp(
+            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+        .hasMatch(email)) return null;
     return s.invalidEmailError;
+  }
+
+  String? isValidPassword(String? password) {
+    if (password == null || password == "") return s.blankPasswordErrorMessage;
+    return null;
   }
 }

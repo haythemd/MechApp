@@ -169,6 +169,16 @@ class S {
       args: [],
     );
   }
+
+  /// `A password must be provided`
+  String get blankPasswordErrorMessage {
+    return Intl.message(
+      'A password must be provided',
+      name: 'blankPasswordErrorMessage',
+      desc: 'blank password error message',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

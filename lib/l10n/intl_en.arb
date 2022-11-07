@@ -46,5 +46,9 @@
     "invalidEmailError": "Please provide a valid email",
     "@invalidEmailError": {
         "description": "error message for email field"
+    },
+    "blankPasswordErrorMessage" : "A password must be provided",
+    "@blankPasswordErrorMessage" : {
+        "description": "blank password error message"
     }
 }

@@ -24,6 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "blankEmailErrorMessage":
             MessageLookupByLibrary.simpleMessage("An email must be provided"),
+        "blankPasswordErrorMessage":
+            MessageLookupByLibrary.simpleMessage("A password must be provided"),
         "createAccountButtonTitle":
             MessageLookupByLibrary.simpleMessage("Create Account"),
         "emailAddressInputFieldHintText":
