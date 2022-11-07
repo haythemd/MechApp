@@ -1,0 +1,50 @@
+{
+    "loginViewTitle": "Make your ads work",
+    "@loginViewTitle": {
+        "description": "LoginView title"
+    },
+    "welcomeTitle": "Welcome",
+    "@welcomeTitle": {
+        "description": "Welcome title"
+    },
+    "emailAddressInputFieldTitle": "Email Address",
+    "@emailAddressInputFieldTitle": {
+        "description": "Password input field title"
+    },
+    "passwordInputFieldTitle": "Password",
+    "@passwordInputFieldTitle": {
+        "description": "Password input field title"
+    },
+    "emailAddressInputFieldHintText": "Enter Your Email",
+    "@emailAddressInputFieldHintText": {
+        "description": "hint text for email input field"
+    },    
+    "passwordInputFieldHintText": "**************",
+    "@passwordInputFieldHintText": {
+        "description": "hint text for password input field"
+    },    
+    "resetPasswordButtonText": "Forgot Password?",
+    "@resetPasswordButtonText": {
+        "description": "reset password button text"
+    },  
+    "loginButtonTitle": "Login",
+    "@loginButtonTitle": {
+        "description": "Login button title"
+    },  
+    "createAccountButtonTitle": "Create Account",
+    "@createAccountButtonTitle": {
+        "description": "Create account button title"
+    },    
+    "or": "or",
+    "@or": {
+        "description": "the word 'or' to be added to Or Create Account"
+    },
+    "blankEmailErrorMessage": "An email must be provided",
+    "@blankEmailErrorMessage": {
+        "description": "error message for email field"
+    },
+    "invalidEmailError": "Please provide a valid email",
+    "@invalidEmailError": {
+        "description": "error message for email field"
+    }
+}

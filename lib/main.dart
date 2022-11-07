@@ -3,6 +3,8 @@ import 'package:mechalodon_mobile/screens/welcome/welcome_view.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 
 import 'screens/login/screens/login_screen.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'generated/l10n.dart';
 
 void main() {
   initServiceLocator();
@@ -15,6 +17,13 @@ class MechalodonApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
