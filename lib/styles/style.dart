@@ -21,6 +21,10 @@ class MechTextStyle {
 class MechColor {
   static const primary = Colors.black;
   static const lightPrimary = Colors.white;
+  static const foreground = Color.fromRGBO(244, 244, 248, 1);
+  static const error = Color.fromRGBO(255, 0, 0, 1);
+  static const inactive = Colors.grey;
+  static const link = Colors.black87;
 }
 
 class MechButtonStyle {
@@ -34,21 +38,32 @@ class MechButtonStyle {
 }
 
 class MechBorderRadius {
-  static const int value = 20;
-  static const BorderRadius radius = BorderRadius.all(Radius.circular(20));
+  static const int value = 15;
+  static const BorderRadius radius = BorderRadius.all(Radius.circular(15));
 }
 
 class MechBorder {
   static final primary = Border.all(width: 2, color: MechColor.primary);
 
-  static InputDecoration inputField(String hintText) {
+  static InputDecoration inputStyle(String hintText) {
     return InputDecoration(
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      filled: true,
-      hintStyle: TextStyle(color: Colors.grey[800]),
-      hintText: hintText,
-      fillColor: Colors.white70);
+        border: MechBorder.enabledBorder,
+        enabledBorder: MechBorder.enabledBorder,
+        errorBorder: MechBorder.errorBorder,
+        focusedBorder: MechBorder.enabledBorder,
+        filled: true,
+        hintStyle: const TextStyle(color: MechColor.inactive),
+        hintText: hintText,
+        fillColor: MechColor.foreground);
   }
+
+  static const enabledBorder = OutlineInputBorder(
+    borderRadius: MechBorderRadius.radius,
+    borderSide: BorderSide(color: Colors.transparent),
+  );
+
+  static const errorBorder = OutlineInputBorder(
+    borderRadius: MechBorderRadius.radius,
+    borderSide: BorderSide(color: MechColor.error),
+  );
 }
