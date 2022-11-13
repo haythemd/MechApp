@@ -56,7 +56,7 @@ class WelcomeViewMobile extends StatelessWidget {
                       MechActionButton(
                         title: "Login",
                         onTap: () {
-                          context.go(MechPage.login.path());
+                          context.push(MechPage.login.path());
                         },
                         isPrimary: false,
                       ),

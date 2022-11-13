@@ -39,7 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Make your ads work"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
         "passwordInputFieldHintText":
-            MessageLookupByLibrary.simpleMessage("**************"),
+            MessageLookupByLibrary.simpleMessage("••••••••••••••"),
         "passwordInputFieldTitle":
             MessageLookupByLibrary.simpleMessage("Password"),
         "resetPasswordButtonText":

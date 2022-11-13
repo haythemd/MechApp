@@ -100,10 +100,10 @@ class S {
     );
   }
 
-  /// `**************`
+  /// `••••••••••••••`
   String get passwordInputFieldHintText {
     return Intl.message(
-      '**************',
+      '••••••••••••••',
       name: 'passwordInputFieldHintText',
       desc: 'hint text for password input field',
       args: [],

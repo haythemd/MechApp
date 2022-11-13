@@ -22,9 +22,11 @@ class MechColor {
   static const primary = Colors.black;
   static const lightPrimary = Colors.white;
   static const foreground = Color.fromRGBO(244, 244, 248, 1);
+  static const background = Colors.white;
   static const error = Color.fromRGBO(255, 0, 0, 1);
   static const inactive = Colors.grey;
   static const link = Colors.black87;
+  static const backButtonBorder = Color.fromRGBO(0, 0, 0, .03);
 }
 
 class MechButtonStyle {

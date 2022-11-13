@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mechalodon_mobile/navigation/router.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mechalodon_mobile/styles/style.dart';
 import 'generated/l10n.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MechalodonApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        splashColor: Colors.transparent
       ),
       routeInformationProvider: router.infoProvider,
       routerDelegate: router.delegate,

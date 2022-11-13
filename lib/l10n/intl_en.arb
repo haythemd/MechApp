@@ -19,7 +19,7 @@
     "@emailAddressInputFieldHintText": {
         "description": "hint text for email input field"
     },    
-    "passwordInputFieldHintText": "**************",
+    "passwordInputFieldHintText": "••••••••••••••",
     "@passwordInputFieldHintText": {
         "description": "hint text for password input field"
     },    
