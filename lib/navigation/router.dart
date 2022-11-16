@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/navigation/app_link.dart';
 import 'package:mechalodon_mobile/screens/login/screens/login_screen.dart';
-import 'package:mechalodon_mobile/screens/welcome/welcome_screen.dart';
+import 'package:mechalodon_mobile/screens/reset_password/screens/reset_password_screen.dart';
 
 class MechRouter {
   MechRouter() {
@@ -28,7 +28,7 @@ class MechRouter {
       routes: [
         GoRoute(
           path: MechPage.welcome.path(),
-          builder: (context, state) => const WelcomeScreen(),
+          builder: (context, state) => const ResetPasswordScreen(),
         ),
         GoRoute(
           path: MechPage.login.path(),
