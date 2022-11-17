@@ -47,7 +47,7 @@ class WelcomeViewMobile extends StatelessWidget {
                       MechActionButton(
                         title: "Register",
                         onTap: () {
-                          print("Register");
+                          Router;
                         },
                       ),
                       const SizedBox(

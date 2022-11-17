@@ -17,6 +17,7 @@ class MechalodonApp extends StatelessWidget {
   Widget build(BuildContext context) {
     MechRouter router = MechRouter();
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
