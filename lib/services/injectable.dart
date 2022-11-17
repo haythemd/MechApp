@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:mechalodon_mobile/generated/l10n.dart';
+import 'package:mechalodon_mobile/screens/enter_phone-passwordReset/bloc/bloc/enter_phone_bloc.dart';
 import 'package:mechalodon_mobile/screens/login/bloc/login_bloc.dart';
 import 'package:mechalodon_mobile/services/auth_service.dart';
 
@@ -11,5 +12,6 @@ Future<void> initServiceLocator() async {
   serviceLocator.registerFactory<LoginBloc>(() => LoginBloc());
   serviceLocator.registerLazySingleton<S>(() => S());
   serviceLocator.registerLazySingleton<AuthService>(() => AuthService());
-  serviceLocator.registerFactory(() => ResetPasswordBloc());
+  serviceLocator.registerFactory<ResetPasswordBloc>(() => ResetPasswordBloc());
+  serviceLocator.registerFactory<EnterPhoneBloc>(() => EnterPhoneBloc());
 }

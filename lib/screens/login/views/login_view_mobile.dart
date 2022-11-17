@@ -39,7 +39,7 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
         elevation: 0,
         backgroundColor: MechColor.background,
         leading: Padding(
-          padding: const EdgeInsets.fromLTRB(17,0,0,0),
+          padding: const EdgeInsets.fromLTRB(17, 0, 0, 0),
           child: Row(
             children: [
               Container(
@@ -169,7 +169,7 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
                                   alignment: Alignment.topRight,
                                   child: TextButton(
                                       onPressed: () {
-                                        print('forgot password');
+                                        context.push(MechPage.enterPhone.path());
                                       },
                                       child: Text(
                                         s.resetPasswordButtonText,

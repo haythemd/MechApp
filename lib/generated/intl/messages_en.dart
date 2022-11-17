@@ -32,6 +32,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter Your Email"),
         "emailAddressInputFieldTitle":
             MessageLookupByLibrary.simpleMessage("Email Address"),
+        "enterPhoneNumberFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Enter your phone Num."),
+        "enterPhoneNumberSubtitle":
+            MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "enterPhoneNumberTitle":
+            MessageLookupByLibrary.simpleMessage("Input Your Phone Number"),
         "invalidEmailError": MessageLookupByLibrary.simpleMessage(
             "Please provide a valid email"),
         "loginButtonTitle": MessageLookupByLibrary.simpleMessage("Login"),
@@ -42,8 +48,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("••••••••••••••"),
         "passwordInputFieldTitle":
             MessageLookupByLibrary.simpleMessage("Password"),
+        "phoneNumberExample":
+            MessageLookupByLibrary.simpleMessage("e.g. 808-445-3444"),
         "resetPasswordButtonText":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+        "sendCodeButtonTitle":
+            MessageLookupByLibrary.simpleMessage("Send Code"),
         "welcomeTitle": MessageLookupByLibrary.simpleMessage("Welcome")
       };
 }
