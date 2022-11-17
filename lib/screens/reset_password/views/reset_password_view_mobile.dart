@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 
+import '../../../utils/validators.dart';
+
 class ResetPasswordMobileView extends StatefulWidget {
   const ResetPasswordMobileView({Key? key}) : super(key: key);
 
@@ -12,6 +14,8 @@ class ResetPasswordMobileView extends StatefulWidget {
 class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
   final TextEditingController password = TextEditingController();
   final TextEditingController confirmPassword = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +65,7 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
               child: Padding(
                   padding: const EdgeInsets.only(top: 54),
                   child: Form(
+                    key: _formKey,
                       child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,6 +82,8 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                               decoration: MechInputStyle.primary,
                               child: Center(
                                 child: TextFormField(
+                                  style: MechTextStyle.label.copyWith(height: 2.0),
+                                  validator: MechValidators.isValidPassword,
                                   controller: password,
                                   decoration: const InputDecoration.collapsed(
                                       hintText: ''),
@@ -91,10 +98,18 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                         Container(
                             margin: const EdgeInsets.only(right: 18, top: 8),
                             padding: const EdgeInsets.only(left: 18,top: 8),
-                            decoration: MechInputStyle.primary,
+                            decoration: MechInputStyle.primary.copyWith(border: Border.all(color: const Color(0xFFFF0000),width: 1.5)),
                             height: 60,
                             child: Center(
                               child: TextFormField(
+                                style: MechTextStyle.label.copyWith(height: 2.0),
+
+                                validator: (String? value){
+                                  if (value!=password.text){
+                                    return "Please make sure your passwords match";
+                                  }
+                                  return null;
+                                },
                                 controller: confirmPassword,
 
                                 decoration:
@@ -103,7 +118,7 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                               ),
                             )),
                         GestureDetector(
-                          onTap: ()=> print('Aaslema'),
+                          onTap: ()=> _formKey.currentState!.validate(),
                           child: Container(
                             width: 340,
                             height: 60,
