@@ -41,7 +41,7 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
           builder: (context, state) {
         if (state is ResetPasswordSuccess) {
           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-            print(state.runtimeType);
+
             context.go(MechPage.login.path());
           });
         }
@@ -55,7 +55,7 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                       children: [
                         GestureDetector(
                             onTap: () {
-                              /*Handle Navigating back*/ print("tapped");
+                              // Pop Page here
                             },
                             child: Container(
                                 width: 32,
@@ -76,14 +76,14 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                         const SizedBox(
                           height: 56,
                         ),
-                        const Text(
-                          'Reset Password',
+                         Text(
+                          s.resetPasswordText,
                           style: MechTextStyle.subtitle,
                         ),
-                        const Padding(
+                         Padding(
                           padding: EdgeInsets.only(top: 10.0),
                           child: Text(
-                            'Input Your\nAccount Details',
+                            s.resetPasswordBannerText,
                             style: MechTextStyle.title,
                           ),
                         ),
@@ -97,8 +97,8 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        const Text(
-                                          "Enter New Password",
+                                         Text(
+                                         s.enterNewPasswordText,
                                           style: MechTextStyle.label,
                                         ),
                                         Stack(
@@ -133,10 +133,10 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                             ),
                                           ],
                                         ),
-                                        const Padding(
+                                         Padding(
                                           padding: EdgeInsets.only(top: 18.0),
                                           child: Text(
-                                            "Re Enter New Password",
+                                            s.reEnterNewPasswordText,
                                             style: MechTextStyle.label,
                                           ),
                                         ),
@@ -169,7 +169,7 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                                   });
                                                   return s.passwordMatched;
                                                 }
-                                                return null;
+
                                               },
                                               controller: confirmPassword,
                                               decoration: InputDecoration(
@@ -215,12 +215,12 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                                 () async {
                                               if (password.text ==
                                                   confirmPassword.text) {
-                                                print('invoking function ! ');
+
                                                 resetPassword(
                                                     'userID', password.text);
                                                 await Future.delayed(
                                                     Duration(seconds: 2), () {
-                                                  print(state.runtimeType);
+
                                                 });
                                               }
                                             })
@@ -231,9 +231,9 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                             margin: const EdgeInsets.symmetric(
                                                 horizontal: 18, vertical: 100),
                                             decoration: MechButtonStyle.primary,
-                                            child: const Center(
+                                            child:  Center(
                                               child: Text(
-                                                'Submit',
+                                                s.submitButtonText,
                                                 style:
                                                     MechTextStyle.primaryButton,
                                                 textAlign: TextAlign.center,

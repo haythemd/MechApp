@@ -199,6 +199,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Input Your\nAccount Details`
+  String get resetPasswordBannerText {
+    return Intl.message(
+      'Input Your\nAccount Details',
+      name: 'resetPasswordBannerText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter New Password`
+  String get enterNewPasswordText {
+    return Intl.message(
+      'Enter New Password',
+      name: 'enterNewPasswordText',
+      desc: ' Enter New Password text',
+      args: [],
+    );
+  }
+
+  /// `Re Enter New Password`
+  String get reEnterNewPasswordText {
+    return Intl.message(
+      'Re Enter New Password',
+      name: 'reEnterNewPasswordText',
+      desc: 'Re Enter New Password text',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get submitButtonText {
+    return Intl.message(
+      'Submit',
+      name: 'submitButtonText',
+      desc: 'Submit Button Text',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get resetPasswordText {
+    return Intl.message(
+      'Reset Password',
+      name: 'resetPasswordText',
+      desc: 'Reset Password text',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
