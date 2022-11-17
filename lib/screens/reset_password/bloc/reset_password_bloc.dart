@@ -8,18 +8,19 @@ part 'reset_password_state.dart';
 
 class ResetPasswordBloc extends Bloc<ResetPasswordEvent,ResetPasswordState>{
   ResetPasswordBloc() : super(ResetPasswordInitial()) {
-    on((event, emit) => onReset);
+    on<ResetPassword>(onReset);
   }
 
   void onReset(ResetPassword event, Emitter<ResetPasswordState> emit) async {
 
     emit(ResetPasswordLoading());
-    var repo = serviceLocator<ResetPasswordRepository>();
-    var response = await repo.ResetPassword(event.userID, event.password);
-    if (response == null){
+    if (event.password =="" || event.password == null){
+
       emit(ResetPasswordError('Something Wrong Happened'));
       return;
     }
+    var repo = serviceLocator<ResetPasswordRepository>();
+    var response = await repo.resetPassword(event.email, event.password);
     emit(ResetPasswordSuccess());
   }
 }

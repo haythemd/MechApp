@@ -19,6 +19,7 @@ class MechValidators{
   static String? isValidPassword(String? password) {
     var s = serviceLocator<S>();
     if (password == null || password == "") return s.blankPasswordErrorMessage;
+
     return null;
   }
 }

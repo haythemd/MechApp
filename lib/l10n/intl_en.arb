@@ -26,7 +26,15 @@
     "resetPasswordButtonText": "Forgot Password?",
     "@resetPasswordButtonText": {
         "description": "reset password button text"
-    },  
+    },
+    "passwordConfirmationError": "Please make sure your password match",
+    "@passwordConfirmationError": {
+        "description": "password Confirmation Error message"
+    },
+    "passwordMatched": "Password Matched",
+    "@passwordMatched": {
+        "description": "Confirm Password success message"
+    },
     "loginButtonTitle": "Login",
     "@loginButtonTitle": {
         "description": "Login button title"

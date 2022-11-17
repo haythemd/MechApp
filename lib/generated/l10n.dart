@@ -60,12 +60,29 @@ class S {
     );
   }
 
+  String get passwordConfirmationSuccessMessage {
+    return Intl.message(
+      'Password Matched',
+      name: 'passwordMatched',
+      desc: 'Password Matched',
+      args: [],
+    );
+  }
+
   /// `Welcome`
   String get welcomeTitle {
     return Intl.message(
       'Welcome',
       name: 'welcomeTitle',
       desc: 'Welcome title',
+      args: [],
+    );
+  }
+  String get passwordConfirmationErrorMessage{
+    return Intl.message(
+      'Please make sure your password match',
+      name: 'passwordConfirmationError',
+      desc: 'Password confirmation error',
       args: [],
     );
   }

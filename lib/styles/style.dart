@@ -37,6 +37,7 @@ class MechColor {
   static const inactive = Colors.grey;
   static const link = Colors.black87;
   static const labelColor = Color(0xFF515151);
+  static const success = Color(0xFF3C9705);
 }
 
 class MechInputStyle {
@@ -83,9 +84,14 @@ class MechBorder {
     borderRadius: MechBorderRadius.radius,
     borderSide: BorderSide(color: MechColor.error),
   );
+  static const successBorder = OutlineInputBorder(
+    borderRadius: MechBorderRadius.radius,
+    borderSide: BorderSide(color: MechColor.success),
+  );
 }
 
 class MechPadding {
   static const defaultLeftPadding = EdgeInsets.only(left: 18);
   static const defaultVerticalPadding = EdgeInsets.symmetric(vertical: 18);
+  static const defaultGlobalPadding = EdgeInsets.symmetric(horizontal: 18);
 }

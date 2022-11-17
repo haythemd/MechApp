@@ -76,6 +76,7 @@ flutter:
   assets:
     - assets/fonts/helvetica/
     - assets/fonts/urbanist/
+    - assets/icons/
 
 
   fonts:
