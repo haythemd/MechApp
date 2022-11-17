@@ -92,157 +92,159 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                               padding: const EdgeInsets.only(top: 54),
                               child: Form(
                                   key: _formKey,
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                         Text(
-                                         s.enterNewPasswordText,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                       Text(
+                                       s.enterNewPasswordText,
+                                        style: MechTextStyle.label,
+                                      ),
+                                      Stack(
+                                        children: [
+                                          Container(
+                                              height: 60,
+                                              padding: const EdgeInsets.only(
+                                                  left: 18, top: 8),
+                                              decoration: BoxDecoration(
+                                                color: Colors.grey.shade200,
+                                                borderRadius:
+                                                    MechBorderRadius.radius,
+                                              )),
+                                          TextFormField(
+                                            style: MechTextStyle.label
+                                                .copyWith(height: 2.0),
+                                            validator: MechValidators
+                                                .isValidPassword,
+                                            controller: password,
+                                            decoration: const InputDecoration(
+                                              border: InputBorder.none,
+                                              errorBorder:
+                                                  MechBorder.errorBorder,
+                                              focusedBorder:
+                                                  MechBorder.enabledBorder,
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      vertical: 15,
+                                                      horizontal: 20),
+                                            ),
+                                            obscureText: true,
+                                          ),
+                                        ],
+                                      ),
+                                       Padding(
+                                        padding: const EdgeInsets.only(top: 18.0),
+                                        child: Text(
+                                          s.reEnterNewPasswordText,
                                           style: MechTextStyle.label,
                                         ),
-                                        Stack(
-                                          children: [
-                                            Container(
-                                                height: 60,
-                                                padding: const EdgeInsets.only(
-                                                    left: 18, top: 8),
-                                                decoration: BoxDecoration(
-                                                  color: Colors.grey.shade200,
-                                                  borderRadius:
-                                                      MechBorderRadius.radius,
-                                                )),
-                                            TextFormField(
-                                              style: MechTextStyle.label
-                                                  .copyWith(height: 2.0),
-                                              validator: MechValidators
-                                                  .isValidPassword,
-                                              controller: password,
-                                              decoration: const InputDecoration(
-                                                border: InputBorder.none,
-                                                errorBorder:
-                                                    MechBorder.errorBorder,
-                                                focusedBorder:
-                                                    MechBorder.enabledBorder,
-                                                contentPadding:
-                                                    EdgeInsets.symmetric(
-                                                        vertical: 15,
-                                                        horizontal: 20),
-                                              ),
-                                              obscureText: true,
-                                            ),
-                                          ],
-                                        ),
-                                         Padding(
-                                          padding: EdgeInsets.only(top: 18.0),
-                                          child: Text(
-                                            s.reEnterNewPasswordText,
-                                            style: MechTextStyle.label,
-                                          ),
-                                        ),
-                                        Stack(
-                                          children: [
-                                            Container(
-                                                height: 60,
-                                                padding: const EdgeInsets.only(
-                                                    left: 18, top: 8),
-                                                decoration: BoxDecoration(
-                                                  color: Colors.grey.shade200,
-                                                  borderRadius:
-                                                      MechBorderRadius.radius,
-                                                )),
-                                            TextFormField(
-                                              style: MechTextStyle.label
-                                                  .copyWith(height: 2.0),
-                                              validator: (String? value) {
-                                                if (value != password.text) {
-                                                  setState(() {
-                                                    noMatch = true;
-                                                    print(noMatch);
-                                                  });
-                                                  return s
-                                                      .passwordConfirmationError;
-                                                } else {
-                                                  setState(() {
-                                                    noMatch = false;
-                                                    print(noMatch);
-                                                  });
-                                                  return s.passwordMatched;
-                                                }
-
-                                              },
-                                              controller: confirmPassword,
-                                              decoration: InputDecoration(
-                                                errorStyle: MechTextStyle.label
-                                                    .copyWith(
-                                                        color: noMatch
-                                                            ? MechColor.error
-                                                            : MechColor
-                                                                .success),
-                                                border: InputBorder.none,
-                                                errorBorder: noMatch
-                                                    ? MechBorder.errorBorder
-                                                    : MechBorder.successBorder,
-                                                contentPadding:
-                                                    const EdgeInsets.symmetric(
-                                                        vertical: 15,
-                                                        horizontal: 20),
-                                              ),
-                                              obscureText: true,
-                                            ),
-                                            Positioned(
-                                              right: 24,
-                                              top: 20,
-                                              child: noMatch
-                                                  ? SvgPicture.asset(
-                                                      'assets/icons/alert_icon.svg',
-                                                      color: MechColor.error)
-                                                  : SvgPicture.asset(
-                                                      "assets/icons/success_icon.svg",
-                                                      color: confirmPassword
-                                                                  .text ==
-                                                              ''
-                                                          ? Colors.transparent
-                                                          : MechColor.success,
-                                                    ),
-                                            )
-                                          ],
-                                        ),
-                                        GestureDetector(
-                                          onTap: () async => {
-                                            _formKey.currentState!.validate(),
-                                            Future.delayed(Duration(seconds: 1),
-                                                () async {
-                                              if (password.text ==
-                                                  confirmPassword.text) {
-
-                                                resetPassword(
-                                                    'userID', password.text);
-                                                await Future.delayed(
-                                                    Duration(seconds: 2), () {
-
+                                      ),
+                                      Stack(
+                                        children: [
+                                          Container(
+                                              height: 60,
+                                              padding: const EdgeInsets.only(
+                                                  left: 18, top: 8),
+                                              decoration: BoxDecoration(
+                                                color: Colors.grey.shade200,
+                                                borderRadius:
+                                                    MechBorderRadius.radius,
+                                              )),
+                                          TextFormField(
+                                            style: MechTextStyle.label
+                                                .copyWith(height: 2.0),
+                                            validator: (String? value) {
+                                              if (value =="") {
+                                                setState(() {
+                                                  noMatch =true;
                                                 });
+                                                return s.blankPasswordErrorMessage;
                                               }
-                                            })
-                                          },
-                                          child: Container(
-                                            width: 340,
-                                            height: 60,
-                                            margin: const EdgeInsets.symmetric(
-                                                horizontal: 18, vertical: 100),
-                                            decoration: MechButtonStyle.primary,
-                                            child:  Center(
-                                              child: Text(
-                                                s.submitButtonText,
-                                                style:
-                                                    MechTextStyle.primaryButton,
-                                                textAlign: TextAlign.center,
-                                              ),
+                                              if (value != password.text) {
+                                                setState(() {
+                                                  noMatch = true;
+                                                });
+                                                return s
+                                                    .passwordConfirmationError;
+                                              } else {
+                                                setState(() {
+                                                  noMatch = false;
+                                                });
+                                                return s.passwordMatched;
+                                              }
+
+                                            },
+                                            controller: confirmPassword,
+                                            decoration: InputDecoration(
+                                              errorStyle: MechTextStyle.label
+                                                  .copyWith(
+                                                      color: noMatch
+                                                          ? MechColor.error
+                                                          : MechColor
+                                                              .success),
+                                              border: InputBorder.none,
+                                              errorBorder: noMatch
+                                                  ? MechBorder.errorBorder
+                                                  : MechBorder.successBorder,
+                                              contentPadding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 15,
+                                                      horizontal: 20),
+                                            ),
+                                            obscureText: true,
+                                          ),
+                                          Positioned(
+                                            right: 24,
+                                            top: 20,
+                                            child: noMatch
+                                                ? SvgPicture.asset(
+                                                    'assets/icons/alert_icon.svg',
+                                                    color: MechColor.error)
+                                                : SvgPicture.asset(
+                                                    "assets/icons/success_icon.svg",
+                                                    color: confirmPassword
+                                                                .text ==
+                                                            ''
+                                                        ? Colors.transparent
+                                                        : MechColor.success,
+                                                  ),
+                                          )
+                                        ],
+                                      ),
+                                      GestureDetector(
+                                        onTap: () async => {
+                                          _formKey.currentState!.validate(),
+                                          Future.delayed(Duration(seconds: 1),
+                                              () async {
+                                            if (password.text ==
+                                                confirmPassword.text && password.text!="") {
+
+                                              resetPassword(
+                                                  'userID', password.text);
+                                              await Future.delayed(
+                                                  Duration(seconds: 2), () {
+
+                                              });
+                                            }
+                                          })
+                                        },
+                                        child: Container(
+                                          width: 340,
+                                          height: 60,
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 18, vertical: 60),
+                                          decoration: MechButtonStyle.primary,
+                                          child:  Center(
+                                            child: Text(
+                                              s.submitButtonText,
+                                              style:
+                                                  MechTextStyle.primaryButton,
+                                              textAlign: TextAlign.center,
                                             ),
                                           ),
-                                        )
-                                      ],
-                                    ),
+                                        ),
+                                      )
+                                    ],
                                   ))),
                         )
                       ],

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:mechalodon_mobile/screens/login/models/user_model.dart';
 
 class LoginRepository {
