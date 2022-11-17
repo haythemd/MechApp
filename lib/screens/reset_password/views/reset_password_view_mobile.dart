@@ -161,14 +161,13 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                                     print(noMatch);
                                                   });
                                                   return s
-                                                      .passwordConfirmationErrorMessage;
+                                                      .passwordConfirmationError;
                                                 } else {
                                                   setState(() {
                                                     noMatch = false;
                                                     print(noMatch);
                                                   });
-                                                  return s
-                                                      .passwordConfirmationSuccessMessage;
+                                                  return s.passwordMatched;
                                                 }
                                                 return null;
                                               },

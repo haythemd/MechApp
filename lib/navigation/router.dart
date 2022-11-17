@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/navigation/app_link.dart';
 import 'package:mechalodon_mobile/screens/login/screens/login_screen.dart';
 import 'package:mechalodon_mobile/screens/reset_password/screens/reset_password_screen.dart';
+import 'package:mechalodon_mobile/screens/welcome/welcome_screen.dart';
 
 class MechRouter {
   MechRouter() {
@@ -28,12 +29,15 @@ class MechRouter {
       routes: [
         GoRoute(
           path: MechPage.welcome.path(),
-          builder: (context, state) => const ResetPasswordScreen(),
+          builder: (context, state) => const WelcomeScreen(),
         ),
         GoRoute(
           path: MechPage.login.path(),
           builder: (context, state) => const LoginScreen(),
         ),
+        GoRoute(
+            path: MechPage.resetPassword.path(),
+            builder: (context, state) => const ResetPasswordScreen())
       ],
       redirect: (state) {
         return AppLink.shouldRedirect(mechPageFromLocation(state.location));

@@ -60,29 +60,12 @@ class S {
     );
   }
 
-  String get passwordConfirmationSuccessMessage {
-    return Intl.message(
-      'Password Matched',
-      name: 'passwordMatched',
-      desc: 'Password Matched',
-      args: [],
-    );
-  }
-
   /// `Welcome`
   String get welcomeTitle {
     return Intl.message(
       'Welcome',
       name: 'welcomeTitle',
       desc: 'Welcome title',
-      args: [],
-    );
-  }
-  String get passwordConfirmationErrorMessage{
-    return Intl.message(
-      'Please make sure your password match',
-      name: 'passwordConfirmationError',
-      desc: 'Password confirmation error',
       args: [],
     );
   }
@@ -133,6 +116,26 @@ class S {
       'Forgot Password?',
       name: 'resetPasswordButtonText',
       desc: 'reset password button text',
+      args: [],
+    );
+  }
+
+  /// `Please make sure your password match`
+  String get passwordConfirmationError {
+    return Intl.message(
+      'Please make sure your password match',
+      name: 'passwordConfirmationError',
+      desc: 'password Confirmation Error message',
+      args: [],
+    );
+  }
+
+  /// `Password Matched`
+  String get passwordMatched {
+    return Intl.message(
+      'Password Matched',
+      name: 'passwordMatched',
+      desc: 'Confirm Password success message',
       args: [],
     );
   }

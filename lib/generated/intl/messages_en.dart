@@ -38,10 +38,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginViewTitle":
             MessageLookupByLibrary.simpleMessage("Make your ads work"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
+        "passwordConfirmationError": MessageLookupByLibrary.simpleMessage(
+            "Please make sure your password match"),
         "passwordInputFieldHintText":
             MessageLookupByLibrary.simpleMessage("**************"),
         "passwordInputFieldTitle":
             MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordMatched":
+            MessageLookupByLibrary.simpleMessage("Password Matched"),
         "resetPasswordButtonText":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "welcomeTitle": MessageLookupByLibrary.simpleMessage("Welcome")

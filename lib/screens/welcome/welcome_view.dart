@@ -47,7 +47,8 @@ class WelcomeViewMobile extends StatelessWidget {
                       MechActionButton(
                         title: "Register",
                         onTap: () {
-                          Router;
+                          // Adding navigation here ** To be removed later **
+                          context.go(MechPage.resetPassword.path());
                         },
                       ),
                       const SizedBox(

@@ -13,4 +13,5 @@ Future<void> initServiceLocator() async {
   serviceLocator.registerLazySingleton<S>(() => S());
   serviceLocator.registerLazySingleton<AuthService>(() => AuthService());
   serviceLocator.registerFactory(() => ResetPasswordBloc());
+  serviceLocator.registerLazySingleton(() => ResetPasswordRepository());
 }
