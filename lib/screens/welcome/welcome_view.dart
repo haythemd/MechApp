@@ -46,10 +46,7 @@ class WelcomeViewMobile extends StatelessWidget {
                     children: [
                       MechActionButton(
                         title: "Register",
-                        onTap: () {
-                          // Adding navigation here ** To be removed later **
-                          context.go(MechPage.resetPassword.path());
-                        },
+                        onTap: () {},
                       ),
                       const SizedBox(
                         height: 15,
