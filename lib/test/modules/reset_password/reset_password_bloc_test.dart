@@ -6,8 +6,8 @@ import 'package:test/test.dart';
 import 'package:mechalodon_mobile/screens/reset_password/repository/reset_password_repository.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mechalodon_mobile/screens/reset_password/models/reset_password_request_model.dart';
-import '../../../services/injectable.dart';
-import '../../test_utils.dart';
+import 'package:mechalodon_mobile/services/injectable.dart';
+import 'package:mechalodon_mobile/test/test_utils.dart';
 
 @GenerateMocks([ResetPasswordRepository])
 void main() async {
