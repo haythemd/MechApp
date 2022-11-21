@@ -6,10 +6,10 @@ import 'package:mechalodon_mobile/screens/reset_password/bloc/reset_password_blo
 import 'package:mechalodon_mobile/styles/style.dart';
 
 import '../../../generated/l10n.dart';
-import '../../../navigation/app_link.dart';
-import '../../../services/injectable.dart';
-import '../../../utils/mech_loading_widget.dart';
-import '../../../utils/validators.dart';
+import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/services/injectable.dart';
+import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
+import 'package:mechalodon_mobile/utils/validators.dart';
 
 class ResetPasswordMobileView extends StatefulWidget {
   const ResetPasswordMobileView({Key? key}) : super(key: key);
