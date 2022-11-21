@@ -46,9 +46,7 @@ class WelcomeViewMobile extends StatelessWidget {
                     children: [
                       MechActionButton(
                         title: "Register",
-                        onTap: () {
-                          print("Register");
-                        },
+                        onTap: () {},
                       ),
                       const SizedBox(
                         height: 15,

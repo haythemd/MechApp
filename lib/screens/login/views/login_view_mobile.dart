@@ -6,6 +6,7 @@ import 'package:mechalodon_mobile/screens/login/bloc/login_bloc.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
+import 'package:mechalodon_mobile/utils/validators.dart';
 
 class LoginViewMobile extends StatefulWidget {
   const LoginViewMobile({Key? key}) : super(key: key);
@@ -83,7 +84,7 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
                                   controller: emailController,
                                   decoration: MechBorder.inputStyle(
                                       s.emailAddressInputFieldHintText),
-                                  validator: isEmail,
+                                  validator: MechValidators.isEmail,
                                 ),
                                 const SizedBox(
                                   height: 15,
@@ -93,7 +94,7 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
                                   height: 6,
                                 ),
                                 TextFormField(
-                                  validator: isValidPassword,
+                                  validator: MechValidators.isValidPassword,
                                   controller: passwordController,
                                   obscureText: _passwordVisible,
                                   decoration: InputDecoration(
@@ -197,16 +198,5 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
     );
   }
 
-  String? isEmail(String? email) {
-    if (email == null || email == "") return s.blankEmailErrorMessage;
-    if (RegExp(
-            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-        .hasMatch(email)) return null;
-    return s.invalidEmailError;
-  }
 
-  String? isValidPassword(String? password) {
-    if (password == null || password == "") return s.blankPasswordErrorMessage;
-    return null;
-  }
 }

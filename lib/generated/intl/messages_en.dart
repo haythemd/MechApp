@@ -32,18 +32,31 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter Your Email"),
         "emailAddressInputFieldTitle":
             MessageLookupByLibrary.simpleMessage("Email Address"),
+        "enterNewPasswordText":
+            MessageLookupByLibrary.simpleMessage("Enter New Password"),
         "invalidEmailError": MessageLookupByLibrary.simpleMessage(
             "Please provide a valid email"),
         "loginButtonTitle": MessageLookupByLibrary.simpleMessage("Login"),
         "loginViewTitle":
             MessageLookupByLibrary.simpleMessage("Make your ads work"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
+        "passwordConfirmationError": MessageLookupByLibrary.simpleMessage(
+            "Please make sure your password match"),
         "passwordInputFieldHintText":
             MessageLookupByLibrary.simpleMessage("**************"),
         "passwordInputFieldTitle":
             MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordMatched":
+            MessageLookupByLibrary.simpleMessage("Password Matched"),
+        "reEnterNewPasswordText":
+            MessageLookupByLibrary.simpleMessage("Re Enter New Password"),
+        "resetPasswordBannerText":
+            MessageLookupByLibrary.simpleMessage("Input Your\nAccount Details"),
         "resetPasswordButtonText":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+        "resetPasswordText":
+            MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "submitButtonText": MessageLookupByLibrary.simpleMessage("Submit"),
         "welcomeTitle": MessageLookupByLibrary.simpleMessage("Welcome")
       };
 }

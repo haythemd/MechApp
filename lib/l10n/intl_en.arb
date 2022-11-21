@@ -26,7 +26,15 @@
     "resetPasswordButtonText": "Forgot Password?",
     "@resetPasswordButtonText": {
         "description": "reset password button text"
-    },  
+    },
+    "passwordConfirmationError": "Please make sure your password match",
+    "@passwordConfirmationError": {
+        "description": "password Confirmation Error message"
+    },
+    "passwordMatched": "Password Matched",
+    "@passwordMatched": {
+        "description": "Confirm Password success message"
+    },
     "loginButtonTitle": "Login",
     "@loginButtonTitle": {
         "description": "Login button title"
@@ -50,5 +58,26 @@
     "blankPasswordErrorMessage" : "A password must be provided",
     "@blankPasswordErrorMessage" : {
         "description": "blank password error message"
+    },
+    "resetPasswordBannerText" : "Input Your\nAccount Details",
+    "@resetPassworBannerText" : {
+        "description": " Reset page banner text"
+    },
+
+    "enterNewPasswordText" : "Enter New Password",
+    "@enterNewPasswordText" : {
+        "description": " Enter New Password text"
+    },
+    "reEnterNewPasswordText" : "Re Enter New Password",
+    "@reEnterNewPasswordText" : {
+        "description": "Re Enter New Password text"
+    },
+    "submitButtonText" : "Submit",
+    "@submitButtonText" : {
+        "description": "Submit Button Text"
+    },
+    "resetPasswordText" : "Reset Password",
+    "@resetPasswordText" : {
+        "description" : "Reset Password text"
     }
 }
