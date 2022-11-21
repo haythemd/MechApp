@@ -1,6 +1,6 @@
 
-import '../generated/l10n.dart';
-import '../services/injectable.dart';
+import 'package:mechalodon_mobile/generated/l10n.dart';
+import 'package:mechalodon_mobile/services/injectable.dart';
 
 class MechValidators{
 
