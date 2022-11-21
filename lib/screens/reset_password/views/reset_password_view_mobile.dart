@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/screens/reset_password/bloc/reset_password_bloc.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 
-import '../../../generated/l10n.dart';
+import 'package:mechalodon_mobile/generated/l10n.dart';
 import 'package:mechalodon_mobile/navigation/app_link.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
