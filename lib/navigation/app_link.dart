@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/screens/enter_phone-passwordReset/screens/enter_phone_screen.dart';
 import 'package:mechalodon_mobile/screens/login/screens/login_screen.dart';
+import 'package:mechalodon_mobile/screens/reset_password/screens/reset_password_screen.dart';
 import 'package:mechalodon_mobile/screens/welcome/welcome_screen.dart';
 import 'package:mechalodon_mobile/services/auth_service.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
@@ -8,7 +9,8 @@ import 'package:mechalodon_mobile/services/injectable.dart';
 enum MechPage {
   welcome,
   login,
-  enterPhone
+  enterPhone,
+  resetPassword,
   // logout,
   // forgotPassword,
   // campaign,
@@ -28,6 +30,8 @@ extension PageExt on MechPage {
         return '/login';
       case MechPage.enterPhone:
         return '/enterPhone';
+      case MechPage.resetPassword:
+        return '/resetPassword';
       // case MechPage.logout:
       //   return '/logout';
       // case MechPage.forgotPassword:
@@ -64,6 +68,8 @@ extension PageExt on MechPage {
           path: path(),
           builder: (context, state) => const EnterPhoneScreen(),
         );
+      case MechPage.resetPassword:
+        return GoRoute(path: path(), builder:  (context, state) => const ResetPasswordScreen());
       // case MechPage.logout:
       //   return GoRoute(
       //     path: path(),

@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mechalodon_mobile/screens/reset_password/bloc/reset_password_bloc.dart';
 import 'package:mechalodon_mobile/screens/reset_password/views/reset_password_view_mobile.dart';
 
-import '../../../services/injectable.dart';
-import '../../../utils/responsive.dart';
+import 'package:mechalodon_mobile/services/injectable.dart';
+import 'package:mechalodon_mobile/utils/responsive.dart';
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({Key? key}) : super(key: key);
 

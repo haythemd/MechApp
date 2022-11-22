@@ -40,6 +40,9 @@ class MechRouter {
           path: MechPage.enterPhone.path(),
           builder: (context, state) => const EnterPhoneScreen(),
         ),
+        GoRoute(
+            path: MechPage.resetPassword.path(),
+            builder: (context, state) => const ResetPasswordScreen())
       ],
       redirect: (state) {
         return AppLink.shouldRedirect(mechPageFromLocation(state.location));

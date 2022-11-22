@@ -38,12 +38,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "enterPhoneNumberTitle":
             MessageLookupByLibrary.simpleMessage("Input Your Phone Number"),
+        "enterNewPasswordText":
+            MessageLookupByLibrary.simpleMessage("Enter New Password"),
         "invalidEmailError": MessageLookupByLibrary.simpleMessage(
             "Please provide a valid email"),
         "loginButtonTitle": MessageLookupByLibrary.simpleMessage("Login"),
         "loginViewTitle":
             MessageLookupByLibrary.simpleMessage("Make your ads work"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
+        "passwordConfirmationError": MessageLookupByLibrary.simpleMessage(
+            "Please make sure your password match"),
         "passwordInputFieldHintText":
             MessageLookupByLibrary.simpleMessage("••••••••••••••"),
         "passwordInputFieldTitle":
@@ -54,6 +58,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "sendCodeButtonTitle":
             MessageLookupByLibrary.simpleMessage("Send Code"),
+        "passwordMatched":
+            MessageLookupByLibrary.simpleMessage("Password Matched"),
+        "reEnterNewPasswordText":
+            MessageLookupByLibrary.simpleMessage("Re Enter New Password"),
+        "resetPasswordBannerText":
+            MessageLookupByLibrary.simpleMessage("Input Your\nAccount Details"),
+        "resetPasswordText":
+            MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "submitButtonText": MessageLookupByLibrary.simpleMessage("Submit"),
         "welcomeTitle": MessageLookupByLibrary.simpleMessage("Welcome")
       };
 }
