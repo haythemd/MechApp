@@ -15,11 +15,31 @@
     "@passwordInputFieldTitle": {
         "description": "Password input field title"
     },
+    "enterPhoneNumberTitle": "Input Your Phone Number",
+    "@enterPhoneNumberTitle": {
+        "description": "input field title"
+    },
+    "phoneNumberExample": "e.g. 808-445-3444",
+    "@phoneNumberExample": {
+        "description": "An example of the country's phone number"
+    },
+    "sendCodeButtonTitle": "Send Code",
+    "@sendCodeButtonTitle": {
+        "description": "send Code"
+    },
+    "enterPhoneNumberFieldTitle": "Enter your phone Num.",
+    "@enterPhoneNumberFieldTitle": {
+        "description": "input field title"
+    },
+    "enterPhoneNumberSubtitle": "Forgot Password",
+    "@enterPhoneNumberSubtitle": {
+        "description": "forgot password title"
+    },
     "emailAddressInputFieldHintText": "Enter Your Email",
     "@emailAddressInputFieldHintText": {
         "description": "hint text for email input field"
     },    
-    "passwordInputFieldHintText": "**************",
+    "passwordInputFieldHintText": "••••••••••••••",
     "@passwordInputFieldHintText": {
         "description": "hint text for password input field"
     },    

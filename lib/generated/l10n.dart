@@ -90,6 +90,56 @@ class S {
     );
   }
 
+  /// `Input Your Phone Number`
+  String get enterPhoneNumberTitle {
+    return Intl.message(
+      'Input Your Phone Number',
+      name: 'enterPhoneNumberTitle',
+      desc: 'input field title',
+      args: [],
+    );
+  }
+
+  /// `e.g. 808-445-3444`
+  String get phoneNumberExample {
+    return Intl.message(
+      'e.g. 808-445-3444',
+      name: 'phoneNumberExample',
+      desc: 'An example of the country\'s phone number',
+      args: [],
+    );
+  }
+
+  /// `Send Code`
+  String get sendCodeButtonTitle {
+    return Intl.message(
+      'Send Code',
+      name: 'sendCodeButtonTitle',
+      desc: 'send Code',
+      args: [],
+    );
+  }
+
+  /// `Enter your phone Num.`
+  String get enterPhoneNumberFieldTitle {
+    return Intl.message(
+      'Enter your phone Num.',
+      name: 'enterPhoneNumberFieldTitle',
+      desc: 'input field title',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password`
+  String get enterPhoneNumberSubtitle {
+    return Intl.message(
+      'Forgot Password',
+      name: 'enterPhoneNumberSubtitle',
+      desc: 'forgot password title',
+      args: [],
+    );
+  }
+
   /// `Enter Your Email`
   String get emailAddressInputFieldHintText {
     return Intl.message(
@@ -100,10 +150,10 @@ class S {
     );
   }
 
-  /// `**************`
+  /// `••••••••••••••`
   String get passwordInputFieldHintText {
     return Intl.message(
-      '**************',
+      '••••••••••••••',
       name: 'passwordInputFieldHintText',
       desc: 'hint text for password input field',
       args: [],

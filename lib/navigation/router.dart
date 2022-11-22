@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/navigation/app_link.dart';
 import 'package:mechalodon_mobile/screens/login/screens/login_screen.dart';
-import 'package:mechalodon_mobile/screens/reset_password/screens/reset_password_screen.dart';
+import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/screens/reset_password_screen.dart';
+import 'package:mechalodon_mobile/screens/reset_password/send_reset_sms/screens/send_reset_sms_screen.dart';
 import 'package:mechalodon_mobile/screens/welcome/welcome_screen.dart';
 
 class MechRouter {
@@ -34,6 +35,10 @@ class MechRouter {
         GoRoute(
           path: MechPage.login.path(),
           builder: (context, state) => const LoginScreen(),
+        ),
+        GoRoute(
+          path: MechPage.enterPhone.path(),
+          builder: (context, state) => const SendResetSMSScreen(),
         ),
         GoRoute(
             path: MechPage.resetPassword.path(),

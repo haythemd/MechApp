@@ -1,11 +1,11 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:mechalodon_mobile/screens/reset_password/bloc/reset_password_bloc.dart';
+import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/bloc/reset_password_bloc.dart';
+import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/models/reset_password_request_model.dart';
+import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/repository/reset_password_repository.dart';
 import 'package:mechalodon_mobile/test/modules/reset_password/reset_password_bloc_test.mocks.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
-import 'package:mechalodon_mobile/screens/reset_password/repository/reset_password_repository.dart';
 import 'package:mockito/annotations.dart';
-import 'package:mechalodon_mobile/screens/reset_password/models/reset_password_request_model.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/test/test_utils.dart';
 

@@ -1,4 +1,6 @@
-import 'package:mechalodon_mobile/screens/reset_password/models/reset_password_request_model.dart';
+
+
+import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/models/reset_password_request_model.dart';
 
 class ResetPasswordRepository {
   Future<ResetPasswordRequest?> resetPassword(String email,

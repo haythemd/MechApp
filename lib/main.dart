@@ -26,7 +26,7 @@ class MechalodonApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        splashColor: Colors.transparent
       ),
       routeInformationProvider: router.infoProvider,
       routerDelegate: router.delegate,

@@ -34,6 +34,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Email Address"),
         "enterNewPasswordText":
             MessageLookupByLibrary.simpleMessage("Enter New Password"),
+        "enterPhoneNumberFieldTitle":
+            MessageLookupByLibrary.simpleMessage("Enter your phone Num."),
+        "enterPhoneNumberSubtitle":
+            MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "enterPhoneNumberTitle":
+            MessageLookupByLibrary.simpleMessage("Input Your Phone Number"),
         "invalidEmailError": MessageLookupByLibrary.simpleMessage(
             "Please provide a valid email"),
         "loginButtonTitle": MessageLookupByLibrary.simpleMessage("Login"),
@@ -43,11 +49,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordConfirmationError": MessageLookupByLibrary.simpleMessage(
             "Please make sure your password match"),
         "passwordInputFieldHintText":
-            MessageLookupByLibrary.simpleMessage("**************"),
+            MessageLookupByLibrary.simpleMessage("••••••••••••••"),
         "passwordInputFieldTitle":
             MessageLookupByLibrary.simpleMessage("Password"),
         "passwordMatched":
             MessageLookupByLibrary.simpleMessage("Password Matched"),
+        "phoneNumberExample":
+            MessageLookupByLibrary.simpleMessage("e.g. 808-445-3444"),
         "reEnterNewPasswordText":
             MessageLookupByLibrary.simpleMessage("Re Enter New Password"),
         "resetPasswordBannerText":
@@ -56,6 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "resetPasswordText":
             MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "sendCodeButtonTitle":
+            MessageLookupByLibrary.simpleMessage("Send Code"),
         "submitButtonText": MessageLookupByLibrary.simpleMessage("Submit"),
         "welcomeTitle": MessageLookupByLibrary.simpleMessage("Welcome")
       };
