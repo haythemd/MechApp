@@ -32,14 +32,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter Your Email"),
         "emailAddressInputFieldTitle":
             MessageLookupByLibrary.simpleMessage("Email Address"),
+        "enterNewPasswordText":
+            MessageLookupByLibrary.simpleMessage("Enter New Password"),
         "enterPhoneNumberFieldTitle":
             MessageLookupByLibrary.simpleMessage("Enter your phone Num."),
         "enterPhoneNumberSubtitle":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "enterPhoneNumberTitle":
             MessageLookupByLibrary.simpleMessage("Input Your Phone Number"),
-        "enterNewPasswordText":
-            MessageLookupByLibrary.simpleMessage("Enter New Password"),
         "invalidEmailError": MessageLookupByLibrary.simpleMessage(
             "Please provide a valid email"),
         "loginButtonTitle": MessageLookupByLibrary.simpleMessage("Login"),
@@ -52,20 +52,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("••••••••••••••"),
         "passwordInputFieldTitle":
             MessageLookupByLibrary.simpleMessage("Password"),
-        "phoneNumberExample":
-            MessageLookupByLibrary.simpleMessage("e.g. 808-445-3444"),
-        "resetPasswordButtonText":
-            MessageLookupByLibrary.simpleMessage("Forgot Password?"),
-        "sendCodeButtonTitle":
-            MessageLookupByLibrary.simpleMessage("Send Code"),
         "passwordMatched":
             MessageLookupByLibrary.simpleMessage("Password Matched"),
+        "phoneNumberExample":
+            MessageLookupByLibrary.simpleMessage("e.g. 808-445-3444"),
         "reEnterNewPasswordText":
             MessageLookupByLibrary.simpleMessage("Re Enter New Password"),
         "resetPasswordBannerText":
             MessageLookupByLibrary.simpleMessage("Input Your\nAccount Details"),
+        "resetPasswordButtonText":
+            MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "resetPasswordText":
             MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "sendCodeButtonTitle":
+            MessageLookupByLibrary.simpleMessage("Send Code"),
         "submitButtonText": MessageLookupByLibrary.simpleMessage("Submit"),
         "welcomeTitle": MessageLookupByLibrary.simpleMessage("Welcome")
       };

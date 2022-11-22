@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/repository/reset_password_repository.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
-
-import 'package:mechalodon_mobile/screens/reset_password/repository/reset_password_repository.dart';
 
 part 'reset_password_event.dart';
 part 'reset_password_state.dart';

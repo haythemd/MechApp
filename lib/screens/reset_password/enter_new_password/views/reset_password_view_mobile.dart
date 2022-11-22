@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mechalodon_mobile/screens/reset_password/bloc/reset_password_bloc.dart';
+import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/bloc/reset_password_bloc.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 
 import 'package:mechalodon_mobile/generated/l10n.dart';

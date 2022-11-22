@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mechalodon_mobile/screens/reset_password/bloc/reset_password_bloc.dart';
-import 'package:mechalodon_mobile/screens/reset_password/views/reset_password_view_mobile.dart';
+import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/bloc/reset_password_bloc.dart';
+import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/views/reset_password_view_mobile.dart';
 
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/utils/responsive.dart';
