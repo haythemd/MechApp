@@ -5,6 +5,7 @@ import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/bloc
 import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/repository/reset_password_repository.dart';
 import 'package:mechalodon_mobile/screens/reset_password/send_reset_sms/bloc/bloc/send_reset_sms_bloc.dart';
 import 'package:mechalodon_mobile/services/auth_service.dart';
+import 'package:mechalodon_mobile/services/graphql_service.dart';
 
 final serviceLocator = GetIt.instance;
 
@@ -14,5 +15,7 @@ Future<void> initServiceLocator() async {
   serviceLocator.registerLazySingleton<AuthService>(() => AuthService());
   serviceLocator.registerFactory<ResetPasswordBloc>(() => ResetPasswordBloc());
   serviceLocator.registerFactory<SendResetSMSBloc>(() => SendResetSMSBloc());
-  serviceLocator.registerFactory<ResetPasswordRepository>(() => ResetPasswordRepository());
+  serviceLocator.registerFactory<ResetPasswordRepository>(
+      () => ResetPasswordRepository());
+  serviceLocator.registerLazySingleton<GraphQLService>(() => GraphQLService());
 }

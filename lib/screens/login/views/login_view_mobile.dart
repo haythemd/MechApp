@@ -47,7 +47,7 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
                 height: 32,
                 width: 32,
                 decoration: BoxDecoration(
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         color: MechColor.backButtonBorder,
                         spreadRadius: 1,
