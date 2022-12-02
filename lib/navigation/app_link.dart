@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:mechalodon_mobile/screens/dashboard/dashboard_screen.dart';
 import 'package:mechalodon_mobile/screens/login/screens/login_screen.dart';
 import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/screens/reset_password_screen.dart';
 import 'package:mechalodon_mobile/screens/reset_password/send_reset_sms/screens/send_reset_sms_screen.dart';
@@ -11,6 +12,7 @@ enum MechPage {
   login,
   enterPhone,
   resetPassword,
+  dashboard
   // logout,
   // forgotPassword,
   // campaign,
@@ -32,6 +34,8 @@ extension PageExt on MechPage {
         return '/enterPhone';
       case MechPage.resetPassword:
         return '/resetPassword';
+      case MechPage.dashboard:
+        return '/dashboard';
       // case MechPage.logout:
       //   return '/logout';
       // case MechPage.forgotPassword:
@@ -64,12 +68,17 @@ extension PageExt on MechPage {
           builder: (context, state) => const LoginScreen(),
         );
       case MechPage.enterPhone:
-         return GoRoute(
+        return GoRoute(
           path: path(),
           builder: (context, state) => const SendResetSMSScreen(),
         );
       case MechPage.resetPassword:
-        return GoRoute(path: path(), builder:  (context, state) => const ResetPasswordScreen());
+        return GoRoute(
+            path: path(),
+            builder: (context, state) => const ResetPasswordScreen());
+      case MechPage.dashboard:
+        return GoRoute(
+            path: path(), builder: (context, state) => const DashBoardScreen());
       // case MechPage.logout:
       //   return GoRoute(
       //     path: path(),
@@ -112,34 +121,4 @@ extension PageExt on MechPage {
       //   );
     }
   }
-}
-
-class AppLink {
-  AppLink.fromLocation(String location)
-      : currentPath = mechPageFromLocation(location);
-  MechPage currentPath;
-
-  /// Checks if link is okay to navigate to and redirects if not.
-  ///
-  /// Returns [String?] with the path to be redirected to.
-  /// This function is called each time a route is navigated to checking if any
-  /// redirection needs to happen.
-  static String? shouldRedirect(MechPage page) {
-    switch (page) {
-      case MechPage.welcome:
-        if (serviceLocator<AuthService>().userHasBeenOnboarded) {
-          return MechPage.login.path();
-        }
-        return null;
-      case MechPage.login:
-        return null;
-      default:
-        return null;
-    }
-  }
-}
-
-MechPage mechPageFromLocation(String location) {
-  return MechPage.values.firstWhere(
-      (page) => "/${page.name}" == location);
 }

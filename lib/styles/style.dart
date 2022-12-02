@@ -22,6 +22,14 @@ class MechTextStyle {
   static const primaryButton = TextStyle(
       fontFamily: 'Helvetica',
       fontSize: 17,
+      
+      fontWeight: FontWeight.w700,
+      color: MechColor.lightPrimary);
+
+    static const h5 = TextStyle(
+      fontFamily: 'Helvetica',
+      fontSize: 12,
+      letterSpacing: .5,
       fontWeight: FontWeight.w700,
       color: MechColor.lightPrimary);
 

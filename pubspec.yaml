@@ -82,6 +82,10 @@ flutter:
 
 
   fonts:
+    - family:  MechIcons
+      fonts:
+       - asset: assets/icons/MechIcons.ttf
+
     - family: Helvetica
       fonts:
         - asset: assets/fonts/helvetica/Helvetica.ttf
