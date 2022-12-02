@@ -6,12 +6,30 @@ class MechTextStyle {
       fontWeight: FontWeight.w700,
       fontFamily: 'Urbanist',
       color: Colors.black);
+  
+    static const titleMetric = TextStyle(
+      fontSize: 28,
+      fontWeight: FontWeight.w700,
+      fontFamily: 'Helvetica',
+      color: Colors.black);
+
+    static const titleBodyMetric = TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.w700,
+      fontFamily: 'Helvetica',
+      color: Colors.black);
 
   static const subtitle = TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.normal,
       fontFamily: 'Urbanist',
       color: Colors.black);
+  
+  static const subheading5 = TextStyle(
+    fontFamily: 'Helvetica',
+    fontWeight: FontWeight.normal,
+    fontSize: 14,
+    color: MechColor.labelColor);
 
   static const label = TextStyle(
       fontFamily: 'Helvetica',
@@ -42,7 +60,7 @@ class MechColor {
   static const lightPrimary = Colors.white;
   static const foreground = Color.fromRGBO(244, 244, 248, 1);
   static const background = Colors.white;
-  static const error = Color.fromRGBO(255, 0, 0, 1);
+  static const error = Color.fromRGBO(245, 44, 86, 1);
   static const inactive = Colors.grey;
   static const link = Colors.black87;
   static const backButtonBorder = Color.fromRGBO(0, 0, 0, .03);

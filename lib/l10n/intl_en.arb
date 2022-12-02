@@ -99,5 +99,15 @@
     "resetPasswordText" : "Reset Password",
     "@resetPasswordText" : {
         "description" : "Reset Password text"
+    },
+    "navBarDashboardButton" : "Dashboard",
+    "@navBarDashboardButton" : {
+        "description" : "Dashboard - button description navbar"
+    }, "navBarCampaignButton" : "Campaign",
+    "@navBarCampaignButton" : {
+        "description" : "Campaign - button description navbar"
+    }, "navBarProfileButton" : "Profile",
+    "@navBarProfileButton" : {
+        "description" : "Profile - button description navbar"
     }
 }

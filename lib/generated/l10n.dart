@@ -299,6 +299,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Dashboard`
+  String get navBarDashboardButton {
+    return Intl.message(
+      'Dashboard',
+      name: 'navBarDashboardButton',
+      desc: 'Dashboard - button description navbar',
+      args: [],
+    );
+  }
+
+  /// `Campaign`
+  String get navBarCampaignButton {
+    return Intl.message(
+      'Campaign',
+      name: 'navBarCampaignButton',
+      desc: 'Campaign - button description navbar',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get navBarProfileButton {
+    return Intl.message(
+      'Profile',
+      name: 'navBarProfileButton',
+      desc: 'Profile - button description navbar',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

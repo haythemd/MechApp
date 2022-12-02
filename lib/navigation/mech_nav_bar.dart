@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mechalodon_mobile/generated/l10n.dart';
 import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 
@@ -16,6 +18,8 @@ class MechNavBar extends StatefulWidget {
 }
 
 class _MechNavBarState extends State<MechNavBar> {
+  final s = serviceLocator<S>();
+
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -34,17 +38,17 @@ class _MechNavBarState extends State<MechNavBar> {
                   children: [
                     _MechNavItem(
                         icon: MechIcons.apps,
-                        title: "Dashboard",
+                        title: s.navBarDashboardButton,
                         isSelected: widget.selectedIndex == 0,
                         page: MechPage.dashboard),
                     _MechNavItem(
                         icon: MechIcons.megaphone,
-                        title: "Campaign",
+                        title: s.navBarCampaignButton,
                         isSelected: widget.selectedIndex == 1,
                         page: MechPage.dashboard),
                     _MechNavItem(
                         icon: MechIcons.user,
-                        title: "Profile",
+                        title: s.navBarProfileButton,
                         isSelected: widget.selectedIndex == 2,
                         page: MechPage.dashboard),
                   ],
