@@ -2,39 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 
 class DateSwitcherWidget extends StatefulWidget {
-  const DateSwitcherWidget({
+  DateSwitcherWidget({
     Key? key,
-    required this.periodChanged,
+    required this.numberOfDaysChanged,
+    required this.selectedPeriod,
   }) : super(key: key);
 
-  /// [periodChanged] int index values represent the following periods
-  /// 0 = 1 day,
-  /// 1 = 7 days,
-  /// 2 = 1 month
-  final ValueChanged<int> periodChanged;
-
+  /// [numberOfDaysChanged] The number of days the reports should show for.
+  /// 1, 7, or 30 days.
+  final ValueChanged<int> numberOfDaysChanged;
+  int selectedPeriod;
   @override
   State<DateSwitcherWidget> createState() => _DateSwitcherWidgetState();
 }
 
 class _DateSwitcherWidgetState extends State<DateSwitcherWidget> {
-  int selectedItem = 0;
-
   @override
   Widget build(BuildContext context) {
+    print(widget.selectedPeriod);
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         InkWell(
           onTap: () {
             setState(() {
-              widget.periodChanged(0);
-              selectedItem = 0;
+              widget.numberOfDaysChanged(0);
+              widget.selectedPeriod = 0;
             });
           },
           child: Text("1D",
               style: TextStyle(
-                  color: (selectedItem == 0)
+                  color: (widget.selectedPeriod == 0)
                       ? MechColor.error
                       : MechColor.primary)),
         ),
@@ -44,13 +42,13 @@ class _DateSwitcherWidgetState extends State<DateSwitcherWidget> {
         InkWell(
           onTap: () {
             setState(() {
-              widget.periodChanged(1);
-              selectedItem = 1;
+              widget.numberOfDaysChanged(1);
+              widget.selectedPeriod = 1;
             });
           },
           child: Text("7D",
               style: TextStyle(
-                  color: (selectedItem == 1)
+                  color: (widget.selectedPeriod == 1)
                       ? MechColor.error
                       : MechColor.primary)),
         ),
@@ -60,13 +58,13 @@ class _DateSwitcherWidgetState extends State<DateSwitcherWidget> {
         InkWell(
           onTap: () {
             setState(() {
-              widget.periodChanged(2);
-              selectedItem = 2;
+              widget.numberOfDaysChanged(2);
+              widget.selectedPeriod = 2;
             });
           },
           child: Text("1M",
               style: TextStyle(
-                  color: (selectedItem == 2)
+                  color: (widget.selectedPeriod == 2)
                       ? MechColor.error
                       : MechColor.primary)),
         )

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mechalodon_mobile/navigation/mech_nav_bar.dart';
 import 'package:mechalodon_mobile/screens/dashboard/bloc/dashboard_bloc.dart';
+import 'package:mechalodon_mobile/screens/dashboard/models/dashboard_model.dart';
 import 'package:mechalodon_mobile/screens/dashboard/widgets/date_switcher_widget.dart';
 import 'package:mechalodon_mobile/screens/dashboard/widgets/metric_widget.dart';
 import 'package:mechalodon_mobile/screens/dashboard/widgets/title_metric_widget.dart';
@@ -21,6 +22,7 @@ class DashBoardMobileView extends StatefulWidget {
 class _DashBoardScreenState extends State<DashBoardMobileView> {
   // 1. The navbar can take an arbitrary number of navMenuItems and build a bar from it.
   // 2. The user defines which Mechpage they want to go to when they define the item.
+  int selectedPeriodInDays = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -48,85 +50,109 @@ class _DashBoardScreenState extends State<DashBoardMobileView> {
             selectedIndex: 0,
             body: BlocBuilder<DashboardBloc, DashboardState>(
                 builder: (context, state) {
-              return Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    _headerTotals(),
-                    const Padding(
-                      padding: EdgeInsets.all(23.0),
-                      child: Icon(
-                        MechIcons.facebook,
-                        size: 40,
+              if (state is DashboardInitial) {
+                BlocProvider.of<DashboardBloc>(context)
+                    .add(LoadDashboardData(selectedPeriodInDays));
+              }
+              if (state is DashboardLoading) {
+                return Center(child: const MechLoadingWidget());
+              } else if (state is DashboardSuccess) {
+                return Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      _headerTotals(state.data),
+                      const Padding(
+                        padding: EdgeInsets.all(23.0),
+                        child: Icon(
+                          MechIcons.facebook,
+                          size: 40,
+                        ),
                       ),
-                    ),
-                    DateSwitcherWidget(
-                      periodChanged: (i) {
-                        // Todo fetch new relavent data from bloc based on the
-                        // give time period here.
-                      },
-                    ),
-                    Expanded(child: _bottomMetrics())
-                  ],
-                ),
-              );
+                      DateSwitcherWidget(
+                        selectedPeriod: state.reportingPeriod,
+                        numberOfDaysChanged: (i) {
+                          print(i);
+                          print(state.reportingPeriod);
+                          print('---');
+                          print(i != state.reportingPeriod);
+                          if (selectedPeriodInDays != i) {
+                            // if the time period changes load new data.
+                            selectedPeriodInDays = i;
+                            BlocProvider.of<DashboardBloc>(context)
+                                .add(LoadDashboardData(selectedPeriodInDays));
+                          }
+                        },
+                      ),
+                      Expanded(child: _bottomMetrics(state.data))
+                    ],
+                  ),
+                );
+              } else {
+                return Container();
+              }
             })));
   }
 
-  Widget _headerTotals() {
+  Widget _headerTotals(DashboardModel model) {
     return Container(
       decoration: const BoxDecoration(
           color: MechColor.foreground,
           borderRadius: BorderRadius.all(Radius.circular(15))),
       child: Padding(
         padding: const EdgeInsets.all(25),
-        child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              TitleMetricWidget(
-                title: 'Spend',
-                type: MetricType.moneyShort,
-                value: 15000.20,
-              ),
-              TitleMetricWidget(
-                title: 'Orders',
-                type: MetricType.int,
-                value: 22,
-              ),
-              TitleMetricWidget(
-                title: 'Revenue',
-                type: MetricType.moneyShort,
-                value: 543.20,
-              )
-            ]),
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          TitleMetricWidget(
+            title: 'Spend',
+            type: MetricType.moneyShort,
+            value: model.spend ?? 0,
+          ),
+          TitleMetricWidget(
+            title: 'Orders',
+            type: MetricType.int,
+            value: model.orders?.toDouble() ?? 0,
+          ),
+          TitleMetricWidget(
+            title: 'Revenue',
+            type: MetricType.moneyShort,
+            value: model.revenue ?? 0,
+          )
+        ]),
       ),
     );
   }
 
-  Widget _bottomMetrics() {
+  Widget _bottomMetrics(DashboardModel model) {
     return GridView.count(
       shrinkWrap: true,
       mainAxisSpacing: 10,
       crossAxisCount: 2,
       crossAxisSpacing: 10,
       childAspectRatio: 2,
-      children: const [
-        MechMetricWidget(title: "ROAS", value: 2344, type: MetricType.int),
+      children: [
         MechMetricWidget(
-            title: "Spent", value: 2344.22, type: MetricType.moneyDecimal),
+            title: "ROAS", value: model.roas ?? 0, type: MetricType.int),
         MechMetricWidget(
-            title: "CPP", value: 2.22, type: MetricType.moneyDecimal),
-        MechMetricWidget(title: "Revenue", value: 2344, type: MetricType.int),
+            title: "Spent",
+            value: model.spend ?? 0,
+            type: MetricType.moneyDecimal),
         MechMetricWidget(
-            title: "CPM", value: 1.22, type: MetricType.moneyDecimal),
-        MechMetricWidget(title: "CPC", value: 7.64, type: MetricType.moneyDecimal),
+            title: "CPP", value: model.cpp ?? 0, type: MetricType.moneyDecimal),
         MechMetricWidget(
-            title: "CTR", value: 4.22, type: MetricType.moneyDecimal),
-                MechMetricWidget(
-            title: "Checkouts", value: 2344.22, type: MetricType.moneyDecimal),
-       
+            title: "Revenue", value: model.revenue ?? 0, type: MetricType.int),
+        MechMetricWidget(
+            title: "CPM", value: model.cpm ?? 0, type: MetricType.moneyDecimal),
+        MechMetricWidget(
+            title: "CPC", value: model.cpc ?? 0, type: MetricType.moneyDecimal),
+        MechMetricWidget(
+            title: "CTR", value: model.ctr ?? 0, type: MetricType.moneyDecimal),
+        MechMetricWidget(
+            title: "Checkouts",
+            value: model.checkouts ?? 0,
+            type: MetricType.moneyDecimal),
       ],
     );
   }
