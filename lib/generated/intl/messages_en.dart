@@ -45,6 +45,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginButtonTitle": MessageLookupByLibrary.simpleMessage("Login"),
         "loginViewTitle":
             MessageLookupByLibrary.simpleMessage("Make your ads work"),
+        "navBarCampaignButton":
+            MessageLookupByLibrary.simpleMessage("Campaign"),
+        "navBarDashboardButton":
+            MessageLookupByLibrary.simpleMessage("Dashboard"),
+        "navBarProfileButton": MessageLookupByLibrary.simpleMessage("Profile"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
         "passwordConfirmationError": MessageLookupByLibrary.simpleMessage(
             "Please make sure your password match"),

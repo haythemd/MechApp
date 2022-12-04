@@ -44,4 +44,27 @@ class MockLoginRepository extends _i1.Mock implements _i2.LoginRepository {
         ),
         returnValue: _i3.Future<_i4.User?>.value(),
       ) as _i3.Future<_i4.User?>);
+  @override
+  String getUserDataQuery() => (super.noSuchMethod(
+        Invocation.method(
+          #getUserDataQuery,
+          [],
+        ),
+        returnValue: '',
+      ) as String);
+  @override
+  _i3.Future<_i4.User?> login(
+    String? email,
+    String? password,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #login,
+          [
+            email,
+            password,
+          ],
+        ),
+        returnValue: _i3.Future<_i4.User?>.value(),
+      ) as _i3.Future<_i4.User?>);
 }

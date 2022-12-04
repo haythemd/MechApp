@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:mechalodon_mobile/screens/dashboard/dashboard_screen.dart';
+import 'package:mechalodon_mobile/screens/dashboard/screens/dashboard_screen.dart';
 import 'package:mechalodon_mobile/screens/login/screens/login_screen.dart';
 import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/screens/reset_password_screen.dart';
 import 'package:mechalodon_mobile/screens/reset_password/send_reset_sms/screens/send_reset_sms_screen.dart';
@@ -78,7 +78,7 @@ extension PageExt on MechPage {
             builder: (context, state) => const ResetPasswordScreen());
       case MechPage.dashboard:
         return GoRoute(
-            path: path(), builder: (context, state) => const DashBoardScreen());
+            path: path(), builder: (context, state) => const DashboardScreen());
       // case MechPage.logout:
       //   return GoRoute(
       //     path: path(),

@@ -25,4 +25,5 @@ class MechIcons {
   static const IconData apps = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData user = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData download = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData facebook = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
