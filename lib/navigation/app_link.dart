@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:mechalodon_mobile/screens/campaign/sceens/campaign_screen.dart';
 import 'package:mechalodon_mobile/screens/dashboard/screens/dashboard_screen.dart';
 import 'package:mechalodon_mobile/screens/login/screens/login_screen.dart';
 import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/screens/reset_password_screen.dart';
@@ -12,7 +13,8 @@ enum MechPage {
   login,
   enterPhone,
   resetPassword,
-  dashboard
+  dashboard,
+  campaign
   // logout,
   // forgotPassword,
   // campaign,
@@ -36,6 +38,8 @@ extension PageExt on MechPage {
         return '/resetPassword';
       case MechPage.dashboard:
         return '/dashboard';
+      case MechPage.campaign:
+        return '/campaign';
       // case MechPage.logout:
       //   return '/logout';
       // case MechPage.forgotPassword:
@@ -79,46 +83,11 @@ extension PageExt on MechPage {
       case MechPage.dashboard:
         return GoRoute(
             path: path(), builder: (context, state) => const DashboardScreen());
-      // case MechPage.logout:
-      //   return GoRoute(
-      //     path: path(),
-      //     builder: (context, state) => const LoginScreen(),
-      //   );
-      // case MechPage.forgotPassword:
-      //   return GoRoute(
-      //     path: path(),
-      //     builder: (context, state) => const LoginScreen(),
-      //   );
-      // case MechPage.campaign:
-      //   return GoRoute(
-      //     path: path(),
-      //     builder: (context, state) => const LoginScreen(),
-      //   );
-      // case MechPage.adset:
-      //   return GoRoute(
-      //     path: path(),
-      //     builder: (context, state) => const LoginScreen(),
-      //   );
-      // case MechPage.ad:
-      //   return GoRoute(
-      //     path: path(),
-      //     builder: (context, state) => const LoginScreen(),
-      //   );
-      // case MechPage.creative:
-      //   return GoRoute(
-      //     path: path(),
-      //     builder: (context, state) => const LoginScreen(),
-      //   );
-      // case MechPage.settings:
-      //   return GoRoute(
-      //     path: path(),
-      //     builder: (context, state) => const LoginScreen(),
-      //   );
-      // case MechPage.splash:
-      //   return GoRoute(
-      //     path: path(),
-      //     builder: (context, state) => const LoginScreen(),
-      //   );
+      case MechPage.campaign:
+        return GoRoute(
+            path: path(),
+            builder: ((context, state) => const CampaignScreen()));
+
     }
   }
 }

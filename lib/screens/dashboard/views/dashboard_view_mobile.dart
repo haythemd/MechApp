@@ -16,10 +16,10 @@ class DashBoardMobileView extends StatefulWidget {
   const DashBoardMobileView({Key? key}) : super(key: key);
 
   @override
-  State<DashBoardMobileView> createState() => _DashBoardScreenState();
+  State<DashBoardMobileView> createState() => _DashBoardMobileViewState();
 }
 
-class _DashBoardScreenState extends State<DashBoardMobileView> {
+class _DashBoardMobileViewState extends State<DashBoardMobileView> {
   // 1. The navbar can take an arbitrary number of navMenuItems and build a bar from it.
   // 2. The user defines which Mechpage they want to go to when they define the item.
   int selectedPeriodInDays = 1;
@@ -35,7 +35,7 @@ class _DashBoardScreenState extends State<DashBoardMobileView> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: 18.0),
+              padding: const EdgeInsets.only(right: 8.0),
               child: IconButton(
                   onPressed: () {},
                   icon: const Icon(
@@ -74,10 +74,6 @@ class _DashBoardScreenState extends State<DashBoardMobileView> {
                       DateSwitcherWidget(
                         selectedPeriod: state.reportingPeriod,
                         numberOfDaysChanged: (i) {
-                          print(i);
-                          print(state.reportingPeriod);
-                          print('---');
-                          print(i != state.reportingPeriod);
                           if (selectedPeriodInDays != i) {
                             // if the time period changes load new data.
                             selectedPeriodInDays = i;
@@ -93,7 +89,8 @@ class _DashBoardScreenState extends State<DashBoardMobileView> {
               } else {
                 return Container();
               }
-            })));
+              })),
+    );
   }
 
   Widget _headerTotals(DashboardModel model) {
