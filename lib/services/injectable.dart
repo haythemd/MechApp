@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:mechalodon_mobile/generated/l10n.dart';
+import 'package:mechalodon_mobile/screens/campaign/bloc/bloc/campaign_bloc.dart';
 import 'package:mechalodon_mobile/screens/dashboard/bloc/dashboard_bloc.dart';
 import 'package:mechalodon_mobile/screens/login/bloc/login_bloc.dart';
 import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/bloc/reset_password_bloc.dart';
@@ -20,4 +21,5 @@ Future<void> initServiceLocator() async {
       () => ResetPasswordRepository());
   serviceLocator.registerLazySingleton<GraphQLService>(() => GraphQLService());
   serviceLocator.registerFactory<DashboardBloc>(() => DashboardBloc());
+  serviceLocator.registerFactory<CampaignBloc>(() => CampaignBloc());
 }

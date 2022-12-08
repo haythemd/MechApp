@@ -1,4 +1,3 @@
-import 'package:injectable/injectable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'dashboard_model.g.dart';

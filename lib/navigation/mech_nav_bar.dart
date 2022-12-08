@@ -45,7 +45,7 @@ class _MechNavBarState extends State<MechNavBar> {
                         icon: MechIcons.megaphone,
                         title: s.navBarCampaignButton,
                         isSelected: widget.selectedIndex == 1,
-                        page: MechPage.dashboard),
+                        page: MechPage.campaign),
                     _MechNavItem(
                         icon: MechIcons.user,
                         title: s.navBarProfileButton,
@@ -100,7 +100,7 @@ class _MechNavItem extends StatelessWidget {
                 ? Theme.of(context).unselectedWidgetColor
                 : Theme.of(context).textSelectionTheme.selectionColor,
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Text(
             title,
             style: MechTextStyle.h5.copyWith(
@@ -108,7 +108,7 @@ class _MechNavItem extends StatelessWidget {
                 color: !isSelected
                     ? Theme.of(context).unselectedWidgetColor
                     : Theme.of(context).textSelectionTheme.selectionColor),
-          )
+          ),
         ],
       ),
     );

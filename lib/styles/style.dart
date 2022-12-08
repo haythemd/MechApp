@@ -25,6 +25,13 @@ class MechTextStyle {
       fontFamily: 'Urbanist',
       color: Colors.black);
   
+    
+  static const subheading3 = TextStyle(
+    fontFamily: 'Helvetica',
+    fontWeight: FontWeight.bold,
+    fontSize: 20,
+    color: MechColor.labelColor);
+
   static const subheading5 = TextStyle(
     fontFamily: 'Helvetica',
     fontWeight: FontWeight.normal,
