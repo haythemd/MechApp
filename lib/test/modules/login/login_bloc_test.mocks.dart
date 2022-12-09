@@ -5,8 +5,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:mechalodon_mobile/screens/login/models/user_model.dart' as _i4;
-import 'package:mechalodon_mobile/screens/login/repository/login_repository.dart'
+import 'package:mechalodon_mobile/modules/login/models/user_model.dart' as _i4;
+import 'package:mechalodon_mobile/modules/login/repository/login_repository.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 

@@ -1,10 +1,10 @@
 import 'package:go_router/go_router.dart';
-import 'package:mechalodon_mobile/screens/campaign/sceens/campaign_screen.dart';
-import 'package:mechalodon_mobile/screens/dashboard/screens/dashboard_screen.dart';
-import 'package:mechalodon_mobile/screens/login/screens/login_screen.dart';
-import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/screens/reset_password_screen.dart';
-import 'package:mechalodon_mobile/screens/reset_password/send_reset_sms/screens/send_reset_sms_screen.dart';
-import 'package:mechalodon_mobile/screens/welcome/welcome_screen.dart';
+import 'package:mechalodon_mobile/modules/campaign/sceens/campaign_screen.dart';
+import 'package:mechalodon_mobile/modules/dashboard/screens/dashboard_screen.dart';
+import 'package:mechalodon_mobile/modules/login/screens/login_screen.dart';
+import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/screens/reset_password_screen.dart';
+import 'package:mechalodon_mobile/modules/reset_password/send_reset_sms/screens/send_reset_sms_screen.dart';
+import 'package:mechalodon_mobile/modules/welcome/welcome_screen.dart';
 import 'package:mechalodon_mobile/services/auth_service.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 
