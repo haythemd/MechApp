@@ -73,175 +73,181 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
           ),
         ),
       ),
-      body: BlocBuilder<LoginBloc, LoginState>(
-        builder: (context, state) {
-          return Stack(
-            children: [
-              SafeArea(
-                child: Padding(
-                    padding: const EdgeInsets.all(17.0),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Icon(
-                                Icons.chair,
-                                size: 153,
-                              ),
-                              const SizedBox(
-                                height: 18,
-                              ),
-                              Text(
-                                s.welcomeTitle,
-                                style: MechTextStyle.subtitle,
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                s.loginViewTitle,
-                                style: MechTextStyle.title,
-                              )
-                            ],
-                          ),
-                          Form(
-                            key: _formKey,
-                            child: Column(
+      body: BlocListener<LoginBloc, LoginState>(
+        listener: (context, state) {
+           if (state is LoginSuccess) {
+            context.go("/dashboard");
+          }
+        },
+        child: BlocBuilder<LoginBloc, LoginState>(
+          builder: (context, state) {
+            return Stack(
+              children: [
+                SafeArea(
+                  child: Padding(
+                      padding: const EdgeInsets.all(17.0),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                Text(s.emailAddressInputFieldTitle),
-                                const SizedBox(
-                                  height: 6,
-                                ),
-                                TextFormField(
-                                  controller: emailController,
-                                  decoration: MechBorder.inputStyle(
-                                      s.emailAddressInputFieldHintText),
-                                  validator: MechValidators.isEmail,
+                                const Icon(
+                                  Icons.chair,
+                                  size: 153,
                                 ),
                                 const SizedBox(
-                                  height: 15,
+                                  height: 18,
                                 ),
-                                Text(s.passwordInputFieldTitle),
-                                const SizedBox(
-                                  height: 6,
-                                ),
-                                TextFormField(
-                                  validator: MechValidators.isValidPassword,
-                                  controller: passwordController,
-                                  obscureText: _passwordVisible,
-                                  decoration: InputDecoration(
-                                      border: MechBorder.enabledBorder,
-                                      enabledBorder: MechBorder.enabledBorder,
-                                      focusedBorder: MechBorder.enabledBorder,
-                                      errorBorder: MechBorder.errorBorder,
-                                      filled: true,
-                                      hintStyle: const TextStyle(
-                                          color: MechColor.inactive),
-                                      hintText: s.passwordInputFieldHintText,
-                                      fillColor: MechColor.foreground,
-                                      suffixIcon: IconButton(
-                                        icon: Icon(
-                                          // Based on passwordVisible state choose the icon
-                                          _passwordVisible
-                                              ? Icons.visibility_off_outlined
-                                              : Icons.visibility_outlined,
-                                          color: MechColor.inactive,
-                                        ),
-                                        onPressed: () {
-                                          setState(() {
-                                            _passwordVisible =
-                                                !_passwordVisible;
-                                          });
-                                        },
-                                      )),
+                                Text(
+                                  s.welcomeTitle,
+                                  style: MechTextStyle.subtitle,
                                 ),
                                 const SizedBox(
-                                  height: 15,
+                                  height: 10,
                                 ),
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: TextButton(
-                                      onPressed: () {
-                                        context.push(MechPage.enterPhone.path());
-                                      },
-                                      child: Text(
-                                        s.resetPasswordButtonText,
-                                        style: const TextStyle(
-                                            color: MechColor.link),
-                                      )),
-                                ),
-                                const SizedBox(
-                                  height: 16,
-                                ),
-                                (state is LoginError)
-                                    ? Text(
-                                        state.message,
-                                        style: const TextStyle(
-                                            color: MechColor.error,
-                                            fontSize: 15),
-                                      )
-                                    : Container()
+                                Text(
+                                  s.loginViewTitle,
+                                  style: MechTextStyle.title,
+                                )
                               ],
                             ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              MechActionButton(
-                                title: s.loginButtonTitle,
-                                onTap: () {
-                                  if (_formKey.currentState!.validate()) {
-                                    login(emailController.text,
-                                        passwordController.text);
-                                  }
-                                },
-                              ),
-                              const SizedBox(
-                                height: 19,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                            Form(
+                              key: _formKey,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(s.or),
-                                  TextButton(
-                                    child: Text(
-                                      s.createAccountButtonTitle,
-                                      style: MechTextStyle.secondaryButton,
-                                    ),
-                                    onPressed: () {
-                                      print("Register");
-                                    },
+                                  const SizedBox(
+                                    height: 15,
                                   ),
+                                  Text(s.emailAddressInputFieldTitle),
+                                  const SizedBox(
+                                    height: 6,
+                                  ),
+                                  TextFormField(
+                                    controller: emailController,
+                                    decoration: MechBorder.inputStyle(
+                                        s.emailAddressInputFieldHintText),
+                                    validator: MechValidators.isEmail,
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  Text(s.passwordInputFieldTitle),
+                                  const SizedBox(
+                                    height: 6,
+                                  ),
+                                  TextFormField(
+                                    validator: MechValidators.isValidPassword,
+                                    controller: passwordController,
+                                    obscureText: _passwordVisible,
+                                    decoration: InputDecoration(
+                                        border: MechBorder.enabledBorder,
+                                        enabledBorder: MechBorder.enabledBorder,
+                                        focusedBorder: MechBorder.enabledBorder,
+                                        errorBorder: MechBorder.errorBorder,
+                                        filled: true,
+                                        hintStyle: const TextStyle(
+                                            color: MechColor.inactive),
+                                        hintText: s.passwordInputFieldHintText,
+                                        fillColor: MechColor.foreground,
+                                        suffixIcon: IconButton(
+                                          icon: Icon(
+                                            // Based on passwordVisible state choose the icon
+                                            _passwordVisible
+                                                ? Icons.visibility_off_outlined
+                                                : Icons.visibility_outlined,
+                                            color: MechColor.inactive,
+                                          ),
+                                          onPressed: () {
+                                            setState(() {
+                                              _passwordVisible =
+                                                  !_passwordVisible;
+                                            });
+                                          },
+                                        )),
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.topRight,
+                                    child: TextButton(
+                                        onPressed: () {
+                                          context.push(MechPage.enterPhone
+                                              .pathWithId(""));
+                                        },
+                                        child: Text(
+                                          s.resetPasswordButtonText,
+                                          style: const TextStyle(
+                                              color: MechColor.link),
+                                        )),
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  (state is LoginError)
+                                      ? Text(
+                                          state.message,
+                                          style: const TextStyle(
+                                              color: MechColor.error,
+                                              fontSize: 15),
+                                        )
+                                      : Container()
                                 ],
-                              )
-                            ],
-                          )
-                        ])),
-              ),
-              (state is LoginLoading)
-                  ? Container(
-                      color: Colors.black.withOpacity(0.5),
-                      child: const Center(
-                        child: MechLoadingWidget(),
-                      ),
-                    )
-                  : Container(),
-            ],
-          );
-        },
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                MechActionButton(
+                                  title: s.loginButtonTitle,
+                                  onTap: () {
+                                    if (_formKey.currentState!.validate()) {
+                                      login(emailController.text,
+                                          passwordController.text);
+                                    }
+                                  },
+                                ),
+                                const SizedBox(
+                                  height: 19,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(s.or),
+                                    TextButton(
+                                      child: Text(
+                                        s.createAccountButtonTitle,
+                                        style: MechTextStyle.secondaryButton,
+                                      ),
+                                      onPressed: () {
+                                        print("Register");
+                                      },
+                                    ),
+                                  ],
+                                )
+                              ],
+                            )
+                          ])),
+                ),
+                (state is LoginLoading)
+                    ? Container(
+                        color: Colors.black.withOpacity(0.5),
+                        child: const Center(
+                          child: MechLoadingWidget(),
+                        ),
+                      )
+                    : Container(),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
-
-
 }

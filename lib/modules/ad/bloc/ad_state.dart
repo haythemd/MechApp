@@ -11,3 +11,9 @@ class AdSuccess extends AdState {
 
   AdSuccess({required this.marketing});
 }
+
+class AdError extends AdState {
+  final String message;
+
+  AdError(this.message);
+}

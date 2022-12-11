@@ -60,7 +60,7 @@ class SendResetSMSView extends StatelessWidget {
         builder: (context, state) {
           if (state is TextMessageSentSuccess) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              context.push(MechPage.resetPassword.path());
+              context.push(MechPage.resetPassword.pathWithId("1"));
               // TODO replace with confirmation page
             });
           }

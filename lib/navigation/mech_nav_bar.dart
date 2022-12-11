@@ -86,8 +86,8 @@ class _MechNavItem extends StatelessWidget {
     return InkWell(
       onTap: () {
         if (!isSelected) {
-          print("navigaTING TO $Page");
-          context.go(page.path());
+          print(page.pathWithId("1"));
+          context.go(page.pathWithId("1"));
         }
       },
       child: Column(

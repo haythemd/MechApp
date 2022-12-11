@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/modules/ad/bloc/ad_event.dart';
 import 'package:mechalodon_mobile/modules/ad/bloc/ad_state.dart';
 import 'package:mechalodon_mobile/modules/ad/models/ad_model.dart';
@@ -11,15 +12,20 @@ import 'package:mechalodon_mobile/styles/style.dart';
 
 // This same view will be used for campaigns, ads, and adsets.
 
-class AdsMobileView<B extends Bloc<AdEvent,AdState>> extends StatefulWidget {
-  const AdsMobileView({Key? key}) : super(key: key);
+class CampaignsMobileView<B extends Bloc<AdEvent, AdState>,
+    C extends Bloc<AdEvent, AdState>> extends StatefulWidget {
+  const CampaignsMobileView({Key? key, this.adId}) : super(key: key);
+
+  final String? adId;
 
   @override
-  State<AdsMobileView<B>> createState() =>
-      _AdsMobileViewState();
+  State<CampaignsMobileView<B, C>> createState() => _CampaignsMobileViewState();
 }
 
-class _AdsMobileViewState<B extends Bloc<AdEvent,AdState>> extends State<AdsMobileView<B>> {
+class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
+        C extends Bloc<AdEvent, AdState>>
+    extends State<CampaignsMobileView<B, C>>
+    with AutomaticKeepAliveClientMixin {
   // 1. The navbar can take an arbitrary number of navMenuItems and build a bar from it.
   // 2. The user defines which Mechpage they want to go to when they define the item.
 
@@ -47,10 +53,9 @@ class _AdsMobileViewState<B extends Bloc<AdEvent,AdState>> extends State<AdsMobi
         ),
         body: MechNavBar(
             selectedIndex: 1,
-            body: BlocBuilder<B, AdState>(
-                builder: (context, state) {
+            body: BlocBuilder<B, AdState>(builder: (context, state) {
               if (state is AdInitial) {
-                BlocProvider.of<B>(context).add(LoadAds());
+                BlocProvider.of<B>(context).add(LoadAds(adId: widget.adId));
               } else if (state is AdLoading) {
                 return const Center(
                   child: CircularProgressIndicator(),
@@ -89,7 +94,10 @@ class _AdsMobileViewState<B extends Bloc<AdEvent,AdState>> extends State<AdsMobi
                             Expanded(
                                 child: Padding(
                               padding: const EdgeInsets.only(top: 20.0),
-                              child: _statCardBuilder(state.marketing.stats),
+                              child: _statCardBuilder(state.marketing.stats,
+                                  (value) {
+                                context.push('/campaign/adSets/${value.name}');
+                              }),
                             ))
                           ],
                         ),
@@ -102,20 +110,20 @@ class _AdsMobileViewState<B extends Bloc<AdEvent,AdState>> extends State<AdsMobi
             })));
   }
 
-
-
-  Widget _statCardBuilder(List<AdModel> stats) {
-    // builds a list of cards that show the campaign model's orders, cpp, and spend
+  Widget _statCardBuilder(
+      List<AdModel> stats, ValueChanged<AdModel> onStatCardPressed) {
+    super.build(context);
     return ListView.builder(
         shrinkWrap: true,
         itemCount: stats.length,
         itemBuilder: (context, index) {
           return StatCard(
-            onStatCardPressed: (value) {
-              print(value.toJson());
-            },
+            onStatCardPressed: onStatCardPressed,
             model: stats[index],
           );
         });
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

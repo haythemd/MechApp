@@ -42,7 +42,7 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
         if (state is ResetPasswordSuccess) {
           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
 
-            context.go(MechPage.login.path());
+            context.go(MechPage.login.pathWithId("id"));
           });
         }
         return Stack(

@@ -22,27 +22,27 @@ class LoginRepository {
   }
 
   Future<User?> login(String email, String password) async {
-    GraphQLService qlService = serviceLocator<GraphQLService>();
-    final query = getUserDataQuery();
-    final userCredentials = {'email': email, 'password': password};
+    // GraphQLService qlService = serviceLocator<GraphQLService>();
+    // final query = getUserDataQuery();
+    // final userCredentials = {'email': email, 'password': password};
 
-    try {
-      final result = await qlService.query(query, variables: userCredentials);
+    // try {
+    //   final result = await qlService.query(query, variables: userCredentials);
 
-      if (result.hasException) {
-        print('graphQLErrors: ${result.exception?.graphqlErrors.toString()}');
-        print('clientErrors: ${result.exception?.linkException.toString()}');
-        return null;
-      } else {
-        if (result.data != null) {
-          User.fromJson(result.data!);
-        } else {
-          return null;
-        }
-      }
-    } catch (e) {
-      print(e);
-    }
-    return null;
+    //   if (result.hasException) {
+    //     print('graphQLErrors: ${result.exception?.graphqlErrors.toString()}');
+    //     print('clientErrors: ${result.exception?.linkException.toString()}');
+    //     return null;
+    //   } else {
+    //     if (result.data != null) {
+    //       User.fromJson(result.data!);
+    //     } else {
+    //       return null;
+    //     }
+    //   }
+    // } catch (e) {
+    //   print(e);
+    // }
+    return User(email, "s)", password);
   }
 }

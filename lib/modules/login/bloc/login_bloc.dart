@@ -12,6 +12,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   void onLogin(LoginUser event, Emitter<LoginState> emit) async {
+    if (state is LoginLoading) return;
     emit(LoginLoading());
     var repo = serviceLocator<LoginRepository>();
     var user =
