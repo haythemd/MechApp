@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:mechalodon_mobile/screens/login/bloc/login_bloc.dart';
-import 'package:mechalodon_mobile/screens/login/models/user_model.dart';
-import 'package:mechalodon_mobile/screens/login/repository/login_repository.dart';
+import 'package:mechalodon_mobile/modules/login/bloc/login_bloc.dart';
+import 'package:mechalodon_mobile/modules/login/models/user_model.dart';
+import 'package:mechalodon_mobile/modules/login/repository/login_repository.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/test/modules/login/login_bloc_test.mocks.dart';
 import 'package:mechalodon_mobile/test/test_utils.dart';

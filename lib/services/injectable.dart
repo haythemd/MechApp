@@ -1,11 +1,15 @@
 import 'package:get_it/get_it.dart';
 import 'package:mechalodon_mobile/generated/l10n.dart';
-import 'package:mechalodon_mobile/screens/campaign/bloc/bloc/campaign_bloc.dart';
-import 'package:mechalodon_mobile/screens/dashboard/bloc/dashboard_bloc.dart';
-import 'package:mechalodon_mobile/screens/login/bloc/login_bloc.dart';
-import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/bloc/reset_password_bloc.dart';
-import 'package:mechalodon_mobile/screens/reset_password/enter_new_password/repository/reset_password_repository.dart';
-import 'package:mechalodon_mobile/screens/reset_password/send_reset_sms/bloc/bloc/send_reset_sms_bloc.dart';
+import 'package:mechalodon_mobile/modules/campaign/bloc/campaign_bloc.dart';
+import 'package:mechalodon_mobile/modules/campaign/repo/campaign_repository.dart';
+import 'package:mechalodon_mobile/modules/campaigns/repository/campaigns_repository.dart';
+import 'package:mechalodon_mobile/modules/dashboard/bloc/dashboard_bloc.dart';
+import 'package:mechalodon_mobile/modules/campaigns/bloc/bloc/campaigns_bloc.dart';
+import 'package:mechalodon_mobile/modules/login/bloc/login_bloc.dart';
+import 'package:mechalodon_mobile/modules/login/repository/login_repository.dart';
+import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/bloc/reset_password_bloc.dart';
+import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/repository/reset_password_repository.dart';
+import 'package:mechalodon_mobile/modules/reset_password/send_reset_sms/bloc/bloc/send_reset_sms_bloc.dart';
 import 'package:mechalodon_mobile/services/auth_service.dart';
 import 'package:mechalodon_mobile/services/graphql_service.dart';
 
@@ -21,5 +25,11 @@ Future<void> initServiceLocator() async {
       () => ResetPasswordRepository());
   serviceLocator.registerLazySingleton<GraphQLService>(() => GraphQLService());
   serviceLocator.registerFactory<DashboardBloc>(() => DashboardBloc());
+  serviceLocator.registerFactory<CampaignsBloc>(() => CampaignsBloc());
+  serviceLocator
+      .registerFactory<CampaignsRepository>(() => CampaignsRepository());
+  serviceLocator
+      .registerFactory<CampaignRepository>(() => CampaignRepository());
   serviceLocator.registerFactory<CampaignBloc>(() => CampaignBloc());
+  serviceLocator.registerFactory<LoginRepository>(() => LoginRepository());
 }
