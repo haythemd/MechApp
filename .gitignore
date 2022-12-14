@@ -12,6 +12,7 @@
 android/fastlane/Fastfile
 **/android/fastlane/
 **/android/app/release/
+**/test-resources/
 
 /android/key.properties
 
