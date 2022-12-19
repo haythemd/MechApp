@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mechalodon_mobile/modules/ad/models/ads_models.dart';
-import 'package:mechalodon_mobile/modules/ad/widgets/campaign_metric.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/title_metric_widget.dart';
+import 'package:mechalodon_mobile/modules/marketing/models/ads_models.dart';
+import 'package:mechalodon_mobile/modules/marketing/widgets/campaign_metric.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 
 class OverAllStats extends StatefulWidget {

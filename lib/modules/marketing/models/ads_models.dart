@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mechalodon_mobile/modules/ad/models/ad_model.dart';
+import 'package:mechalodon_mobile/modules/marketing/models/ad_model.dart';
 
 part 'ads_models.g.dart';
 

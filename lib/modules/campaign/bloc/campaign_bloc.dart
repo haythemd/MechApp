@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:mechalodon_mobile/modules/ad/bloc/ad_event.dart';
-import 'package:mechalodon_mobile/modules/ad/bloc/ad_state.dart';
+import 'package:mechalodon_mobile/modules/marketing/bloc/ad_event.dart';
+import 'package:mechalodon_mobile/modules/marketing/bloc/ad_state.dart';
 import 'package:mechalodon_mobile/modules/campaign/repo/campaign_repository.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:meta/meta.dart';

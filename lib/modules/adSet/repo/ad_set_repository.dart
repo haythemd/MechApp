@@ -5,10 +5,10 @@ import 'package:mechalodon_mobile/modules/marketing/models/ads_models.dart';
 import 'package:mechalodon_mobile/services/graphql_service.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 
-class CampaignsRepository {
-  final GraphQLService _campaignApiClient = serviceLocator<GraphQLService>();
+class AdSetRepository {
+  final GraphQLService _apiClient = serviceLocator<GraphQLService>();
 
-  CampaignsRepository();
+  AdSetRepository();
 
   String _query() {
     return """
@@ -37,7 +37,7 @@ class CampaignsRepository {
     """;
   }
 
-  Future<AdsModels?> fetchCampaigns() async {
+  Future<AdsModels?> fetchAdSets() async {
     //   var response = await _campaignApiClient.query(_query());
     //   if (response.data == null) {
     //     return null;

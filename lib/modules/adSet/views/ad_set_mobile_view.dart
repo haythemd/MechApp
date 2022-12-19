@@ -12,30 +12,54 @@ import 'package:mechalodon_mobile/styles/style.dart';
 
 // This same view will be used for campaigns, ads, and adsets.
 
-class CampaignsMobileView<B extends Bloc<AdEvent, AdState>,
+class AdSetMobileView<B extends Bloc<AdEvent, AdState>,
     C extends Bloc<AdEvent, AdState>> extends StatefulWidget {
-  const CampaignsMobileView({Key? key, this.adId}) : super(key: key);
+  const AdSetMobileView({Key? key, this.adId}) : super(key: key);
 
   final String? adId;
 
   @override
-  State<CampaignsMobileView<B, C>> createState() => _CampaignsMobileViewState();
+  State<AdSetMobileView<B, C>> createState() => _AdSetMobileViewState();
 }
 
-class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
+class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
         C extends Bloc<AdEvent, AdState>>
-    extends State<CampaignsMobileView<B, C>>
-    with AutomaticKeepAliveClientMixin {
+    extends State<AdSetMobileView<B, C>> with AutomaticKeepAliveClientMixin {
   // 1. The navbar can take an arbitrary number of navMenuItems and build a bar from it.
   // 2. The user defines which Mechpage they want to go to when they define the item.
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
         backgroundColor: MechColor.background,
         appBar: AppBar(
-          title: const Text(
-            "CAMPAIGN",
+          leading:
+              // rounded back button with chevron left icon and an elavation of 2
+              Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: InkWell(
+                onTap: () {
+                  context.pop();
+                },
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  decoration: const BoxDecoration(
+                      color: MechColor.foreground,
+                      borderRadius: BorderRadius.all(Radius.circular(50))),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(
+                      Icons.chevron_left,
+                      color: MechColor.labelColor,
+                      size: 20,
+                    ),
+                  ),
+                )),
+          ),
+          title: Text(
+            widget.adId ?? 'Adsets',
             style: MechTextStyle.subtitle,
           ),
           actions: [
@@ -77,7 +101,7 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
-                                  "Campaigns",
+                                  "AdSets",
                                   style: MechTextStyle.subheading3,
                                 ),
                                 InkWell(
@@ -96,7 +120,7 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
                               padding: const EdgeInsets.only(top: 20.0),
                               child: _statCardBuilder(state.marketing.stats,
                                   (value) {
-                                context.push('/campaign/adSets/${value.name}');
+                                context.go('/campaigns/${value.id}/adSets');
                               }),
                             ))
                           ],
