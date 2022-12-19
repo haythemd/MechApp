@@ -59,7 +59,7 @@ class _AdsMobileViewState<B extends Bloc<AdEvent, AdState>,
                 )),
           ),
           title: Text(
-            widget.adId ?? 'Adsets',
+            widget.adId ?? 'Ads',
             style: MechTextStyle.subtitle,
           ),
           actions: [
@@ -101,7 +101,7 @@ class _AdsMobileViewState<B extends Bloc<AdEvent, AdState>,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
-                                  "AdSets",
+                                  "Ads",
                                   style: MechTextStyle.subheading3,
                                 ),
                                 InkWell(

@@ -17,13 +17,13 @@ class AdsScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => serviceLocator<AdsBloc>(),
       child: Responsive(
-          mobile: AdsMobileView<AdSetBloc, AdsBloc>(
+          mobile: AdsMobileView<AdsBloc, AdsBloc>(
             adId: adsId,
           ),
-          desktop: AdsMobileView<AdSetBloc, AdsBloc>(
+          desktop: AdsMobileView<AdsBloc, AdsBloc>(
             adId: adsId,
           ),
-          tablet: AdsMobileView<AdSetBloc, AdsBloc>(
+          tablet: AdsMobileView<AdsBloc, AdsBloc>(
             adId: adsId,
           )),
     );

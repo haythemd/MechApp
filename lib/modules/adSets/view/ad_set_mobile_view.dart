@@ -122,7 +122,7 @@ class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
                               child: _statCardBuilder(state.marketing.stats,
                                   (value) {
                                 context.go(
-                                    '${MechPage.campaigns.path()}${MechPage.adSets.path()}/${widget.adId}${MechPage.ads.path()}/${value.id}');
+                                    '${MechPage.campaigns.path()}${MechPage.adSets.path()}/${widget.adId}${MechPage.ads.path()}/${value.name}');
                               }),
                             ))
                           ],
