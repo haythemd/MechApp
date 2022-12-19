@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mechalodon_mobile/modules/campaign/screens/campaign_screen.dart';
+import 'package:mechalodon_mobile/modules/adSets/screens/ad_set_screen.dart';
+import 'package:mechalodon_mobile/modules/ads/screens/ads_screen.dart';
 import 'package:mechalodon_mobile/modules/campaigns/sceens/campaigns_screen.dart';
 import 'package:mechalodon_mobile/modules/dashboard/screens/dashboard_screen.dart';
 import 'package:mechalodon_mobile/modules/login/screens/login_screen.dart';
@@ -8,6 +9,7 @@ import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/scre
 import 'package:mechalodon_mobile/modules/reset_password/send_reset_sms/screens/send_reset_sms_screen.dart';
 import 'package:mechalodon_mobile/modules/welcome/welcome_screen.dart';
 import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/styles/style.dart';
 
 class MechRouter {
   MechRouter() {
@@ -29,44 +31,54 @@ class MechRouter {
 
   GoRouter _initializeRouter() {
     return GoRouter(
-      initialLocation: "/dashboard",
+      initialLocation: MechPage.dashboard.path(),
       routes: [
         GoRoute(
-          name: "welcome",
-          path: "/",
+          name: MechPage.welcome.name(),
+          path: MechPage.welcome.path(),
           builder: (context, state) => const WelcomeScreen(),
         ),
         GoRoute(
-          name: "login",
-          path: "/login",
+          name: MechPage.login.name(),
+          path: MechPage.login.path(),
           builder: (context, state) => const LoginScreen(),
         ),
         GoRoute(
-          name: "sendResetSMS",
-          path: "/sendResetSMS",
+          name: MechPage.sms.name(),
+          path: MechPage.sms.path(),
           builder: (context, state) => const SendResetSMSScreen(),
         ),
         GoRoute(
-            name: "resetPassword",
-            path: "/resetPassword",
+            name: MechPage.resetPassword.name(),
+            path: MechPage.resetPassword.path(),
             builder: (context, state) => const ResetPasswordScreen()),
         GoRoute(
-            path: "/dashboard",
+            name: MechPage.dashboard.name(),
+            path: MechPage.dashboard.path(),
             builder: (context, state) => const DashboardScreen()),
         GoRoute(
-            path: "/campaign",
+            name: MechPage.campaigns.name(),
+            path: MechPage.campaigns.path(),
             builder: ((context, state) => const CampaignsScreen()),
             routes: [
               GoRoute(
-                  path: "adSets/:id",
+                  path: "${MechPage.adSets.name()}/:campaignId",
                   builder: ((context, state) {
-                    var id = state.params["id"] ?? "";
-                    print(id);
-                    print(state.fullpath);
-                    return CampaignScreen(
+                    var id = state.params["campaignId"] ?? "";
+                    return AdSetScreen(
                       adSetId: id,
                     );
-                  }))
+                  }),
+                  routes: [
+                    GoRoute(
+                        path: "${MechPage.ads.name()}/:adSetId",
+                        builder: ((context, state) {
+                          var id = state.params["adSetId"] ?? "";
+                          return AdsScreen(
+                            adsId: id,
+                          );
+                        }))
+                  ])
             ])
       ],
     );

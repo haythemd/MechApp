@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mechalodon_mobile/modules/adSet/bloc/bloc/ad_set_bloc.dart';
-import 'package:mechalodon_mobile/modules/adSet/views/ad_set_mobile_view.dart';
-import 'package:mechalodon_mobile/modules/campaign/bloc/campaign_bloc.dart';
+import 'package:mechalodon_mobile/modules/adSets/view/ad_set_mobile_view.dart';
+import 'package:mechalodon_mobile/modules/adSets/bloc/ad_set_bloc.dart';
+import 'package:mechalodon_mobile/modules/ads/bloc/bloc/ads_bloc.dart';
+import 'package:mechalodon_mobile/modules/campaigns/bloc/bloc/campaigns_bloc.dart';
 
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/utils/responsive.dart';
@@ -17,13 +18,13 @@ class AdSetScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => serviceLocator<AdSetBloc>(),
       child: Responsive(
-          mobile: AdSetMobileView<CampaignBloc, AdSetBloc>(
+          mobile: AdSetMobileView<AdSetBloc, AdsBloc>(
             adId: adSetId,
           ),
-          desktop: AdSetMobileView<CampaignBloc, AdSetBloc>(
+          desktop: AdSetMobileView<AdSetBloc, AdsBloc>(
             adId: adSetId,
           ),
-          tablet: AdSetMobileView<CampaignBloc, AdSetBloc>(
+          tablet: AdSetMobileView<AdSetBloc, AdsBloc>(
             adId: adSetId,
           )),
     );

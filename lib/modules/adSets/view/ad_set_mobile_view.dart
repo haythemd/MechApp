@@ -6,6 +6,7 @@ import 'package:mechalodon_mobile/modules/marketing/bloc/ad_state.dart';
 import 'package:mechalodon_mobile/modules/marketing/models/ad_model.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/overall_stats_widget.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/stat_card_widget.dart';
+import 'package:mechalodon_mobile/navigation/app_link.dart';
 import 'package:mechalodon_mobile/navigation/mech_nav_bar.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
@@ -23,8 +24,8 @@ class AdSetMobileView<B extends Bloc<AdEvent, AdState>,
 }
 
 class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
-        C extends Bloc<AdEvent, AdState>>
-    extends State<AdSetMobileView<B, C>> with AutomaticKeepAliveClientMixin {
+        C extends Bloc<AdEvent, AdState>> extends State<AdSetMobileView<B, C>>
+    with AutomaticKeepAliveClientMixin {
   // 1. The navbar can take an arbitrary number of navMenuItems and build a bar from it.
   // 2. The user defines which Mechpage they want to go to when they define the item.
 
@@ -120,7 +121,8 @@ class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
                               padding: const EdgeInsets.only(top: 20.0),
                               child: _statCardBuilder(state.marketing.stats,
                                   (value) {
-                                context.go('/campaigns/${value.id}/adSets');
+                                context.go(
+                                    '${MechPage.campaigns.path()}${MechPage.adSets.path()}/${widget.adId}${MechPage.ads.path()}/${value.id}');
                               }),
                             ))
                           ],

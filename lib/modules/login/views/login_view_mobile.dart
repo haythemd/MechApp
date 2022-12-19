@@ -75,7 +75,7 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
       ),
       body: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
-           if (state is LoginSuccess) {
+          if (state is LoginSuccess) {
             context.go("/dashboard");
           }
         },
@@ -176,8 +176,8 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
                                     alignment: Alignment.topRight,
                                     child: TextButton(
                                         onPressed: () {
-                                          context.push(MechPage.enterPhone
-                                              .pathWithId(""));
+                                          context.push(
+                                              MechPage.enterPhone.path());
                                         },
                                         child: Text(
                                           s.resetPasswordButtonText,
