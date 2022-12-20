@@ -68,6 +68,7 @@ class MechColor {
   static const foreground = Color.fromRGBO(244, 244, 248, 1);
   static const background = Colors.white;
   static const error = Color.fromRGBO(245, 44, 86, 1);
+  static const darkRed = Color(0xFFD93C3C);
   static const inactive = Colors.grey;
   static const link = Colors.black87;
   static const backButtonBorder = Color.fromRGBO(0, 0, 0, .03);

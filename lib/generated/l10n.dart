@@ -310,6 +310,16 @@ class S {
     );
   }
 
+  /// `Send code reload in`
+  String get sendCodeReloadText {
+    return Intl.message(
+      'Send code reload in',
+      name: 'sendCodeReloadText',
+      desc: ' Send Code Reloads in text',
+      args: [],
+    );
+  }
+
   /// `Resend`
   String get resendButtonText {
     return Intl.message(

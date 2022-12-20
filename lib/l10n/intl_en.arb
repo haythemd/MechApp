@@ -104,6 +104,10 @@
     "@didntGetCodeText" : {
         "description" : "Didn't get a code text"
     },
+    "sendCodeReloadText": "Send code reload in",
+    "@sendCodeReloadText" : {
+        "description": " Send Code Reloads in text"
+    },
     "resendButtonText" : "Resend",
     "@resendButtonText" : {
         "description": "RESEND Button Text"

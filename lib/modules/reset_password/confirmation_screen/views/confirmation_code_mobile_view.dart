@@ -13,6 +13,8 @@ import 'package:mechalodon_mobile/generated/l10n.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 
+import '../../../../utils/mech_widgets.dart';
+
 class ConfirmationCodeMobileView extends StatefulWidget {
   const ConfirmationCodeMobileView({Key? key}) : super(key: key);
 
@@ -36,9 +38,7 @@ class _ConfirmationCodeMobileViewState
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight),
-          child: Container()),
+      appBar: MechWidgets.appBar(title: '', context: context),
       body: BlocBuilder<ConfirmationCodeBloc, ConfirmationCodeState>(
         builder: (context, state) {
           return Padding(
@@ -46,29 +46,7 @@ class _ConfirmationCodeMobileViewState
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
-                    onTap: () {
-                      context.canPop() ? context.pop() : null;
-                    },
-                    child: Container(
-                        width: 32,
-                        height: 32,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: MechBorderRadius.radius,
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 11,
-                                  color:
-                                      const Color(0x425BFD0D).withOpacity(0.05))
-                            ]),
-                        child: const Icon(
-                          Icons.arrow_back_ios_new_outlined,
-                          color: Colors.black,
-                        ))),
-                const SizedBox(
-                  height: 56,
-                ),
+
                 Text(
                   s.resetPasswordText,
                   style: MechTextStyle.subtitle,
@@ -84,7 +62,7 @@ class _ConfirmationCodeMobileViewState
                   key: formKey,
                   child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 8.0, horizontal: 18),
+                          vertical: 8.0),
                       child: PinCodeTextField(
                         appContext: context,
                         pastedTextStyle: MechTextStyle.primaryButton,
@@ -100,9 +78,10 @@ class _ConfirmationCodeMobileViewState
                             inactiveFillColor: const Color(0xFFF4F4F8),
                             selectedFillColor: const Color(0xFFF4F4F8),
                             activeFillColor: const Color(0xFFF4F4F8),
-                            inactiveColor: const Color(0xFFF4F4F8),
-                            activeColor: const Color(0xFFF4F4F8),
-                            selectedColor: const Color(0xFFF4F4F8)),
+                            inactiveColor: hasError?MechColor.darkRed:const Color(0xFFF4F4F8),
+                            activeColor: hasError?MechColor.darkRed:const Color(0xFFF4F4F8),
+                            errorBorderColor: MechColor.darkRed,
+                            selectedColor: hasError?MechColor.darkRed:const Color(0xFFF4F4F8)),
                         cursorColor: Colors.black,
                         animationDuration: const Duration(milliseconds: 300),
                         enableActiveFill: true,
@@ -121,7 +100,8 @@ class _ConfirmationCodeMobileViewState
                         beforeTextPaste: (text) {
                           return true;
                         },
-                      )),
+                      ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
@@ -141,8 +121,8 @@ class _ConfirmationCodeMobileViewState
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      "Didn't get a code? ",
+                     Text(codeResent?s.sendCodeReloadText:
+                      s.didntGetCodeText,
                       style: MechTextStyle.subheading5,
                     ),
                     !codeResent

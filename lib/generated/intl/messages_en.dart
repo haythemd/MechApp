@@ -80,6 +80,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Reset Password"),
         "sendCodeButtonTitle":
             MessageLookupByLibrary.simpleMessage("Send Code"),
+        "sendCodeReloadText":
+            MessageLookupByLibrary.simpleMessage("Send code reload in"),
         "submitButtonText": MessageLookupByLibrary.simpleMessage("Submit"),
         "welcomeTitle": MessageLookupByLibrary.simpleMessage("Welcome")
       };
