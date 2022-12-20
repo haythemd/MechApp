@@ -10,6 +10,7 @@ import 'package:mechalodon_mobile/navigation/app_link.dart';
 import 'package:mechalodon_mobile/navigation/mech_nav_bar.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
+import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
 // This same view will be used for campaigns, ads, and adsets.
 
@@ -39,18 +40,6 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
             "CAMPAIGN",
             style: MechTextStyle.subtitle,
           ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    MechIcons.download,
-                    color: MechColor.inactive,
-                    size: 23,
-                  )),
-            )
-          ],
         ),
         body: MechNavBar(
             selectedIndex: 1,

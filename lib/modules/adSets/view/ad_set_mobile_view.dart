@@ -10,6 +10,7 @@ import 'package:mechalodon_mobile/navigation/app_link.dart';
 import 'package:mechalodon_mobile/navigation/mech_nav_bar.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
+import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
 // This same view will be used for campaigns, ads, and adsets.
 
@@ -34,48 +35,7 @@ class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
     super.build(context);
     return Scaffold(
         backgroundColor: MechColor.background,
-        appBar: AppBar(
-          leading:
-              // rounded back button with chevron left icon and an elavation of 2
-              Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: InkWell(
-                onTap: () {
-                  context.pop();
-                },
-                child: Container(
-                  height: 30,
-                  width: 30,
-                  decoration: const BoxDecoration(
-                      color: MechColor.foreground,
-                      borderRadius: BorderRadius.all(Radius.circular(50))),
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.chevron_left,
-                      color: MechColor.labelColor,
-                      size: 20,
-                    ),
-                  ),
-                )),
-          ),
-          title: Text(
-            widget.adId ?? 'Adsets',
-            style: MechTextStyle.subtitle,
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    MechIcons.download,
-                    color: MechColor.inactive,
-                    size: 23,
-                  )),
-            )
-          ],
-        ),
+        appBar: MechWidgets.appBar(title: widget.adId ?? "Adsets", context: context),
         body: MechNavBar(
             selectedIndex: 1,
             body: BlocBuilder<B, AdState>(builder: (context, state) {
