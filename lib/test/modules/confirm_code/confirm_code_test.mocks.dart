@@ -5,7 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:mechalodon_mobile/modules/confirmation_screen/repository/reset_password_code_repository.dart'
+import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/repository/reset_password_code_repository.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
