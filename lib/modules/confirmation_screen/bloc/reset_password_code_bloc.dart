@@ -8,12 +8,12 @@ import 'package:mechalodon_mobile/modules/confirmation_screen/repository/reset_p
 part 'reset_password_code_event.dart';
 part 'reset_password_code_state.dart';
 
-class ConfirmationCodeBloc extends Bloc<ConfirmationCodeEvent,ConfirmationCodeState> {
+class ConfirmationCodeBloc extends Bloc<ConfirmCode,ConfirmationCodeState> {
 
   ConfirmationCodeBloc() : super(ConfirmationCodeInitial()){
-    on<ConfirmationCodeEvent>( onCodeConfirmation);
+    on<ConfirmCode>( onCodeConfirmation);
   }
-  void onCodeConfirmation(ConfirmationCodeEvent event, Emitter<ConfirmationCodeState> emit) async {
+  void onCodeConfirmation(ConfirmCode event, Emitter<ConfirmationCodeState> emit) async {
 
     emit(ConfirmationCodeLoading());
     var repo = serviceLocator<ConfirmationCodeRepository>();

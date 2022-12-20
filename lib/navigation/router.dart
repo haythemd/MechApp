@@ -3,13 +3,13 @@ import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/modules/adSets/screens/ad_set_screen.dart';
 import 'package:mechalodon_mobile/modules/ads/screens/ads_screen.dart';
 import 'package:mechalodon_mobile/modules/campaigns/sceens/campaigns_screen.dart';
+import 'package:mechalodon_mobile/modules/confirmation_screen/screens/reset_password_confirmation_code_mobile.dart';
 import 'package:mechalodon_mobile/modules/dashboard/screens/dashboard_screen.dart';
 import 'package:mechalodon_mobile/modules/login/screens/login_screen.dart';
 import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/screens/reset_password_screen.dart';
 import 'package:mechalodon_mobile/modules/reset_password/send_reset_sms/screens/send_reset_sms_screen.dart';
 import 'package:mechalodon_mobile/modules/welcome/welcome_screen.dart';
 import 'package:mechalodon_mobile/navigation/app_link.dart';
-import 'package:mechalodon_mobile/styles/style.dart';
 
 class MechRouter {
   MechRouter() {
@@ -56,6 +56,10 @@ class MechRouter {
             name: MechPage.dashboard.name(),
             path: MechPage.dashboard.path(),
             builder: (context, state) => const DashboardScreen()),
+        GoRoute(
+            name: MechPage.confirmCode.name(),
+            path: MechPage.confirmCode.path(),
+            builder: (context, state)=> const ResetPasswordCodeConfirmationScreen()),
         GoRoute(
             name: MechPage.campaigns.name(),
             path: MechPage.campaigns.path(),

@@ -300,6 +300,66 @@ class S {
     );
   }
 
+  /// `Didn't get a code?`
+  String get didntGetCodeText {
+    return Intl.message(
+      'Didn\'t get a code?',
+      name: 'didntGetCodeText',
+      desc: 'Didn\'t get a code text',
+      args: [],
+    );
+  }
+
+  /// `Resend`
+  String get resendButtonText {
+    return Intl.message(
+      'Resend',
+      name: 'resendButtonText',
+      desc: 'RESEND Button Text',
+      args: [],
+    );
+  }
+
+  /// `back`
+  String get backButtonText {
+    return Intl.message(
+      'back',
+      name: 'backButtonText',
+      desc: 'back Button Text',
+      args: [],
+    );
+  }
+
+  /// `Incorrect Code! Please input the code again`
+  String get incorrectCodeAlertText {
+    return Intl.message(
+      'Incorrect Code! Please input the code again',
+      name: 'incorrectCodeAlertText',
+      desc: 'Incorrect Code Alert Text',
+      args: [],
+    );
+  }
+
+  /// `Check Your Phone For Verification`
+  String get confirmCodePageTitle {
+    return Intl.message(
+      'Check Your Phone For Verification',
+      name: 'confirmCodePageTitle',
+      desc: 'Confirm Code Page title',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get nextButtonText {
+    return Intl.message(
+      'Next',
+      name: 'nextButtonText',
+      desc: 'Next Button Text',
+      args: [],
+    );
+  }
+
   /// `Dashboard`
   String get navBarDashboardButton {
     return Intl.message(

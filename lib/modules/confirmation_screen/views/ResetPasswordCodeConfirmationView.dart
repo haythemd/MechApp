@@ -2,6 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_countdown_timer/countdown_timer_controller.dart';
+import 'package:flutter_countdown_timer/current_remaining_time.dart';
+import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/modules/confirmation_screen/bloc/reset_password_code_bloc.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -20,7 +24,9 @@ class ConfirmationCodeMobileView extends StatefulWidget {
 class _ConfirmationCodeMobileViewState
     extends State<ConfirmationCodeMobileView> {
   Timer timer = Timer(Duration(seconds: 2),(){});
+  late CountdownTimerController controller ;
   bool hasError = false;
+  bool codeResent = false;
   String currentText = '';
   var s = serviceLocator<S>();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -29,6 +35,7 @@ class _ConfirmationCodeMobileViewState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
           child: Container()),
@@ -41,7 +48,7 @@ class _ConfirmationCodeMobileViewState
               children: [
                 GestureDetector(
                     onTap: () {
-                      // Pop Page here
+                      context.canPop()?context.pop():null;
                     },
                     child: Container(
                         width: 32,
@@ -67,9 +74,9 @@ class _ConfirmationCodeMobileViewState
                   style: MechTextStyle.subtitle,
                 ),
                  Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
+                  padding: const EdgeInsets.only(top: 10.0,bottom: 30),
                   child: Text(
-                    s.resetPasswordBannerText,
+                    s.confirmCodePageTitle,
                     style: MechTextStyle.title,
                   ),
                 ),
@@ -77,7 +84,7 @@ class _ConfirmationCodeMobileViewState
                   key: formKey,
                   child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 8.0, horizontal: 30),
+                          vertical: 8.0, horizontal: 18),
                       child: PinCodeTextField(
                         appContext: context,
                         pastedTextStyle: MechTextStyle.primaryButton,
@@ -90,8 +97,8 @@ class _ConfirmationCodeMobileViewState
                         pinTheme: PinTheme(
                             shape: PinCodeFieldShape.box,
                             borderRadius: MechBorderRadius.radius,
-                            fieldHeight: 76,
-                            fieldWidth: 60,
+                            fieldHeight: 60,
+                            fieldWidth: 75,
                             inactiveFillColor: const Color(0xFFF4F4F8),
                             selectedFillColor: const Color(0xFFF4F4F8),
                             activeFillColor: const Color(0xFFF4F4F8),
@@ -106,11 +113,8 @@ class _ConfirmationCodeMobileViewState
 
                         onCompleted: (v) {
                           debugPrint("Completed");
-                          //Send Request Here!!!!! Alter State and do some shit!
+                          //Send Request Here!!!!! !
                         },
-                        // onTap: () {
-                        //   print("Pressed");
-                        // },
                         onChanged: (value) {
                           debugPrint(value);
                           setState(() {
@@ -118,21 +122,19 @@ class _ConfirmationCodeMobileViewState
                           });
                         },
                         beforeTextPaste: (text) {
-                          debugPrint("Allowing to paste $text");
-                          //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
-                          //but you can show anything you want here, like your pop up saying wrong paste format or etc
                           return true;
                         },
                       )),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   child: Text(
-                    hasError ? "*Please fill up all the cells properly" : "",
+                    hasError ? s.incorrectCodeAlertText : "",
                     style: const TextStyle(
-                        color: Colors.red,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400),
+                        color: MechColor.error,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                    fontFamily: "Helvetica",),
                   ),
                 ),
                 const SizedBox(
@@ -143,12 +145,18 @@ class _ConfirmationCodeMobileViewState
                   children: [
                     const Text(
                       "Didn't get a code? ",
-                      style: TextStyle(color: Colors.black54, fontSize: 15),
+                      style: MechTextStyle.subheading5,
                     ),
-                    TextButton(
-                        onPressed: () => print("OTP resend!!"),
+                   !codeResent? TextButton(
+                        onPressed: () {
+                          setState(() {
+                            controller = CountdownTimerController(endTime: DateTime.now().millisecondsSinceEpoch + 1000*180)..start();
+                            codeResent = true;
+                          });
+                        },
                         child: Text(s.resendButtonText,
-                            style: MechTextStyle.secondaryButton.copyWith()))
+                            style: MechTextStyle.secondaryButton.copyWith(decoration: TextDecoration.underline,))) : CountdownTimer(controller: controller,
+                   widgetBuilder: (BuildContext ctx, CurrentRemainingTime? time)=> Text("0${time!.min} : ${time.sec}"))
                   ],
                 ),
                 Expanded(
@@ -165,12 +173,17 @@ class _ConfirmationCodeMobileViewState
                           borderRadius: MechBorderRadius.radius),
                         child:  Center(child: Text(s.backButtonText)),
                       ),
-                    Container(
-                      height: 60,
-                      width: 165,
-                      decoration: const BoxDecoration(color: Colors.black,
-                          borderRadius: MechBorderRadius.radius),
-                      child:  Center(child: Text(s.nextButtonText,style: MechTextStyle.primaryButton,)),
+                    GestureDetector(
+                      onTap: ()=> setState(() {
+                        hasError=true;
+                      }),
+                      child: Container(
+                        height: 60,
+                        width: 165,
+                        decoration: const BoxDecoration(color: Colors.black,
+                            borderRadius: MechBorderRadius.radius),
+                        child:  Center(child: Text(s.nextButtonText,style: MechTextStyle.primaryButton,)),
+                      ),
                     )
                   ],
                 )

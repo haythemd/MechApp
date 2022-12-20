@@ -100,6 +100,30 @@
     "@resetPasswordText" : {
         "description" : "Reset Password text"
     },
+    "didntGetCodeText" : "Didn't get a code?",
+    "@didntGetCodeText" : {
+        "description" : "Didn't get a code text"
+    },
+    "resendButtonText" : "Resend",
+    "@resendButtonText" : {
+        "description": "RESEND Button Text"
+    },
+    "backButtonText" : "back",
+    "@backButtonText" : {
+        "description": "back Button Text"
+    },
+    "incorrectCodeAlertText" : "Incorrect Code! Please input the code again",
+    "@incorrectCodeAlertText" : {
+        "description": "Incorrect Code Alert Text"
+    },
+    "confirmCodePageTitle" : "Check Your Phone For Verification",
+    "@confirmCodePageTitle": {
+        "description" : "Confirm Code Page title"
+    },
+    "nextButtonText" : "Next",
+    "@nextButtonText" : {
+        "description": "Next Button Text"
+    },
     "navBarDashboardButton" : "Dashboard",
     "@navBarDashboardButton" : {
         "description" : "Dashboard - button description navbar"

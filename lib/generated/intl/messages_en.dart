@@ -22,12 +22,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "backButtonText": MessageLookupByLibrary.simpleMessage("back"),
         "blankEmailErrorMessage":
             MessageLookupByLibrary.simpleMessage("An email must be provided"),
         "blankPasswordErrorMessage":
             MessageLookupByLibrary.simpleMessage("A password must be provided"),
+        "confirmCodePageTitle": MessageLookupByLibrary.simpleMessage(
+            "Check Your Phone For Verification"),
         "createAccountButtonTitle":
             MessageLookupByLibrary.simpleMessage("Create Account"),
+        "didntGetCodeText":
+            MessageLookupByLibrary.simpleMessage("Didn\'t get a code?"),
         "emailAddressInputFieldHintText":
             MessageLookupByLibrary.simpleMessage("Enter Your Email"),
         "emailAddressInputFieldTitle":
@@ -40,6 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "enterPhoneNumberTitle":
             MessageLookupByLibrary.simpleMessage("Input Your Phone Number"),
+        "incorrectCodeAlertText": MessageLookupByLibrary.simpleMessage(
+            "Incorrect Code! Please input the code again"),
         "invalidEmailError": MessageLookupByLibrary.simpleMessage(
             "Please provide a valid email"),
         "loginButtonTitle": MessageLookupByLibrary.simpleMessage("Login"),
@@ -50,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "navBarDashboardButton":
             MessageLookupByLibrary.simpleMessage("Dashboard"),
         "navBarProfileButton": MessageLookupByLibrary.simpleMessage("Profile"),
+        "nextButtonText": MessageLookupByLibrary.simpleMessage("Next"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
         "passwordConfirmationError": MessageLookupByLibrary.simpleMessage(
             "Please make sure your password match"),
@@ -63,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("e.g. 808-445-3444"),
         "reEnterNewPasswordText":
             MessageLookupByLibrary.simpleMessage("Re Enter New Password"),
+        "resendButtonText": MessageLookupByLibrary.simpleMessage("Resend"),
         "resetPasswordBannerText":
             MessageLookupByLibrary.simpleMessage("Input Your\nAccount Details"),
         "resetPasswordButtonText":
