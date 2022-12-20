@@ -2,7 +2,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 
-import 'package:mechalodon_mobile/modules/confirmation_screen/repository/reset_password_code_repository.dart';
+import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/repository/reset_password_code_repository.dart';
+
 
 
 part 'reset_password_code_event.dart';

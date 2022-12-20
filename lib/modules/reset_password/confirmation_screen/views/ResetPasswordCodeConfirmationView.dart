@@ -6,7 +6,7 @@ import 'package:flutter_countdown_timer/countdown_timer_controller.dart';
 import 'package:flutter_countdown_timer/current_remaining_time.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mechalodon_mobile/modules/confirmation_screen/bloc/reset_password_code_bloc.dart';
+import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/bloc/reset_password_code_bloc.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import 'package:mechalodon_mobile/generated/l10n.dart';
