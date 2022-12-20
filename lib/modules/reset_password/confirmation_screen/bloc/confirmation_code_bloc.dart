@@ -8,9 +8,9 @@ part 'confirmation_code_state.dart';
 
 class ConfirmationCodeBloc extends Bloc<ConfirmCode, ConfirmationCodeState> {
   ConfirmationCodeBloc() : super(ConfirmationCodeInitial()) {
-    on<ConfirmCode>(onCodeConfirmation);
+    on<ConfirmCode>(_onCodeConfirmation);
   }
-  void onCodeConfirmation(
+  void _onCodeConfirmation(
       ConfirmCode event, Emitter<ConfirmationCodeState> emit) async {
     emit(ConfirmationCodeLoading());
     var repo = serviceLocator<ConfirmationCodeRepository>();
