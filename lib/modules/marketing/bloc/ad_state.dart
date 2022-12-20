@@ -1,4 +1,4 @@
-import 'package:mechalodon_mobile/modules/ad/models/ads_models.dart';
+import 'package:mechalodon_mobile/modules/marketing/models/ads_models.dart';
 
 abstract class AdState {}
 

@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mechalodon_mobile/modules/ad/bloc/ad_event.dart';
-import 'package:mechalodon_mobile/modules/ad/bloc/ad_state.dart';
-import 'package:mechalodon_mobile/modules/ad/models/ad_model.dart';
-import 'package:mechalodon_mobile/modules/ad/widgets/overall_stats_widget.dart';
-import 'package:mechalodon_mobile/modules/ad/widgets/stat_card_widget.dart';
+import 'package:mechalodon_mobile/modules/marketing/bloc/ad_event.dart';
+import 'package:mechalodon_mobile/modules/marketing/bloc/ad_state.dart';
+import 'package:mechalodon_mobile/modules/marketing/models/ad_model.dart';
+import 'package:mechalodon_mobile/modules/marketing/widgets/overall_stats_widget.dart';
+import 'package:mechalodon_mobile/modules/marketing/widgets/stat_card_widget.dart';
 import 'package:mechalodon_mobile/navigation/mech_nav_bar.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
+import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
 // This same view will be used for campaigns, ads, and adsets.
 
-class CampaignMobileView<B extends Bloc<AdEvent, AdState>,
+class AdsMobileView<B extends Bloc<AdEvent, AdState>,
     C extends Bloc<AdEvent, AdState>> extends StatefulWidget {
-  const CampaignMobileView({Key? key, this.adId}) : super(key: key);
+  const AdsMobileView({Key? key, this.adId}) : super(key: key);
 
   final String? adId;
 
   @override
-  State<CampaignMobileView<B, C>> createState() => _CampaignMobileViewState();
+  State<AdsMobileView<B, C>> createState() => _AdsMobileViewState();
 }
 
-class _CampaignMobileViewState<B extends Bloc<AdEvent, AdState>,
-        C extends Bloc<AdEvent, AdState>>
-    extends State<CampaignMobileView<B, C>> with AutomaticKeepAliveClientMixin {
+class _AdsMobileViewState<B extends Bloc<AdEvent, AdState>,
+        C extends Bloc<AdEvent, AdState>> extends State<AdsMobileView<B, C>>
+    with AutomaticKeepAliveClientMixin {
   // 1. The navbar can take an arbitrary number of navMenuItems and build a bar from it.
   // 2. The user defines which Mechpage they want to go to when they define the item.
 
@@ -33,48 +34,7 @@ class _CampaignMobileViewState<B extends Bloc<AdEvent, AdState>,
     super.build(context);
     return Scaffold(
         backgroundColor: MechColor.background,
-        appBar: AppBar(
-          leading:
-              // rounded back button with chevron left icon and an elavation of 2
-              Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: InkWell(
-                onTap: () {
-                  context.pop();
-                },
-                child: Container(
-                  height: 30,
-                  width: 30,
-                  decoration: const BoxDecoration(
-                      color: MechColor.foreground,
-                      borderRadius: BorderRadius.all(Radius.circular(50))),
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.chevron_left,
-                      color: MechColor.labelColor,
-                      size: 20,
-                    ),
-                  ),
-                )),
-          ),
-          title: Text(
-            widget.adId ?? 'Adsets',
-            style: MechTextStyle.subtitle,
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    MechIcons.download,
-                    color: MechColor.inactive,
-                    size: 23,
-                  )),
-            )
-          ],
-        ),
+        appBar: MechWidgets.appBar(title: widget.adId ?? "Ads", context: context),
         body: MechNavBar(
             selectedIndex: 1,
             body: BlocBuilder<B, AdState>(builder: (context, state) {
@@ -101,7 +61,7 @@ class _CampaignMobileViewState<B extends Bloc<AdEvent, AdState>,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
-                                  "AdSets",
+                                  "Ads",
                                   style: MechTextStyle.subheading3,
                                 ),
                                 InkWell(

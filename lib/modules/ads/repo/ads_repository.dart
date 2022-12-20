@@ -1,30 +1,35 @@
 import 'dart:convert';
 
-import 'package:mechalodon_mobile/modules/ad/models/ad_model.dart';
-import 'package:mechalodon_mobile/modules/ad/models/ads_models.dart';
+import 'package:mechalodon_mobile/modules/marketing/models/ad_model.dart';
+import 'package:mechalodon_mobile/modules/marketing/models/ads_models.dart';
 import 'package:mechalodon_mobile/services/graphql_service.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 
-class CampaignRepository {
-  final GraphQLService _campaignApiClient = serviceLocator<GraphQLService>();
+class AdsRepository {
+  final GraphQLService _apiClient = serviceLocator<GraphQLService>();
 
-  CampaignRepository();
+  AdsRepository();
 
   String _query() {
     return """
       query {
-        adsets {
+        campaigns {
           id
           name
           status
-          ads {
+          adsets {
             id
             name
             status
-            creative {
+            ads {
               id
               name
               status
+              creative {
+                id
+                name
+                status
+              }
             }
           }
         }
@@ -32,7 +37,7 @@ class CampaignRepository {
     """;
   }
 
-  Future<AdsModels?> fetchAdsets() async {
+  Future<AdsModels?> fetchAdSets() async {
     //   var response = await _campaignApiClient.query(_query());
     //   if (response.data == null) {
     //     return null;
@@ -57,7 +62,7 @@ class CampaignRepository {
     for (var i = 0; i < n; i++) {
       ads.add(AdModel(
         id: i.toString(),
-        name: 'name',
+        name: _randomNameGenerator()[i],
         spend: i.toDouble(),
         orders: i,
         //generate random number between 0 and 100
@@ -65,5 +70,15 @@ class CampaignRepository {
       ));
     }
     return ads;
+  }
+
+  List<String> _randomNameGenerator() {
+    return [
+      "Divine Designs",
+      "Elegant Expressions",
+      "Glorious Gems",
+      "Heavenly Creations",
+      "Radiant Treasures",
+    ];
   }
 }

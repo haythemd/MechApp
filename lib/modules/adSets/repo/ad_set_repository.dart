@@ -5,31 +5,26 @@ import 'package:mechalodon_mobile/modules/marketing/models/ads_models.dart';
 import 'package:mechalodon_mobile/services/graphql_service.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 
-class CampaignsRepository {
+class AdSetRepository {
   final GraphQLService _campaignApiClient = serviceLocator<GraphQLService>();
 
-  CampaignsRepository();
+  AdSetRepository();
 
   String _query() {
     return """
       query {
-        campaigns {
+        adsets {
           id
           name
           status
-          adsets {
+          ads {
             id
             name
             status
-            ads {
+            creative {
               id
               name
               status
-              creative {
-                id
-                name
-                status
-              }
             }
           }
         }
@@ -37,7 +32,7 @@ class CampaignsRepository {
     """;
   }
 
-  Future<AdsModels?> fetchCampaigns() async {
+  Future<AdsModels?> fetchAdsets() async {
     //   var response = await _campaignApiClient.query(_query());
     //   if (response.data == null) {
     //     return null;
@@ -62,7 +57,7 @@ class CampaignsRepository {
     for (var i = 0; i < n; i++) {
       ads.add(AdModel(
         id: i.toString(),
-        name: _randomNameGenerator()[i],
+        name: 'name',
         spend: i.toDouble(),
         orders: i,
         //generate random number between 0 and 100
@@ -70,15 +65,5 @@ class CampaignsRepository {
       ));
     }
     return ads;
-  }
-
-  List<String> _randomNameGenerator() {
-    return [
-      "Divine Designs",
-      "Elegant Expressions",
-      "Glorious Gems",
-      "Heavenly Creations",
-      "Radiant Treasures",
-    ];
   }
 }

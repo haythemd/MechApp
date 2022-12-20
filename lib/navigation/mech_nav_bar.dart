@@ -45,7 +45,7 @@ class _MechNavBarState extends State<MechNavBar> {
                         icon: MechIcons.megaphone,
                         title: s.navBarCampaignButton,
                         isSelected: widget.selectedIndex == 1,
-                        page: MechPage.campaign),
+                        page: MechPage.campaigns),
                     _MechNavItem(
                         icon: MechIcons.user,
                         title: s.navBarProfileButton,
@@ -86,8 +86,8 @@ class _MechNavItem extends StatelessWidget {
     return InkWell(
       onTap: () {
         if (!isSelected) {
-          print(page.pathWithId("1"));
-          context.go(page.pathWithId("1"));
+          print(page.path());
+          context.go(page.path());
         }
       },
       child: Column(

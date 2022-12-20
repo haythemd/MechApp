@@ -41,8 +41,7 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
           builder: (context, state) {
         if (state is ResetPasswordSuccess) {
           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-
-            context.go(MechPage.login.pathWithId("id"));
+            context.go(MechPage.login.path());
           });
         }
         return Stack(
@@ -76,11 +75,11 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                         const SizedBox(
                           height: 56,
                         ),
-                         Text(
+                        Text(
                           s.resetPasswordText,
                           style: MechTextStyle.subtitle,
                         ),
-                         Padding(
+                        Padding(
                           padding: EdgeInsets.only(top: 10.0),
                           child: Text(
                             s.resetPasswordBannerText,
@@ -96,8 +95,8 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                       Text(
-                                       s.enterNewPasswordText,
+                                      Text(
+                                        s.enterNewPasswordText,
                                         style: MechTextStyle.label,
                                       ),
                                       Stack(
@@ -114,8 +113,8 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                           TextFormField(
                                             style: MechTextStyle.label
                                                 .copyWith(height: 2.0),
-                                            validator: MechValidators
-                                                .isValidPassword,
+                                            validator:
+                                                MechValidators.isValidPassword,
                                             controller: password,
                                             decoration: const InputDecoration(
                                               border: InputBorder.none,
@@ -132,8 +131,9 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                           ),
                                         ],
                                       ),
-                                       Padding(
-                                        padding: const EdgeInsets.only(top: 18.0),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 18.0),
                                         child: Text(
                                           s.reEnterNewPasswordText,
                                           style: MechTextStyle.label,
@@ -154,11 +154,12 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                             style: MechTextStyle.label
                                                 .copyWith(height: 2.0),
                                             validator: (String? value) {
-                                              if (value =="") {
+                                              if (value == "") {
                                                 setState(() {
-                                                  noMatch =true;
+                                                  noMatch = true;
                                                 });
-                                                return s.blankPasswordErrorMessage;
+                                                return s
+                                                    .blankPasswordErrorMessage;
                                               }
                                               if (value != password.text) {
                                                 setState(() {
@@ -172,7 +173,6 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                                 });
                                                 return s.passwordMatched;
                                               }
-
                                             },
                                             controller: confirmPassword,
                                             decoration: InputDecoration(
@@ -180,8 +180,7 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                                   .copyWith(
                                                       color: noMatch
                                                           ? MechColor.error
-                                                          : MechColor
-                                                              .success),
+                                                          : MechColor.success),
                                               border: InputBorder.none,
                                               errorBorder: noMatch
                                                   ? MechBorder.errorBorder
@@ -202,11 +201,11 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                                     color: MechColor.error)
                                                 : SvgPicture.asset(
                                                     "assets/icons/success_icon.svg",
-                                                    color: confirmPassword
-                                                                .text ==
-                                                            ''
-                                                        ? Colors.transparent
-                                                        : MechColor.success,
+                                                    color:
+                                                        confirmPassword.text ==
+                                                                ''
+                                                            ? Colors.transparent
+                                                            : MechColor.success,
                                                   ),
                                           )
                                         ],
@@ -217,14 +216,12 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                           Future.delayed(Duration(seconds: 1),
                                               () async {
                                             if (password.text ==
-                                                confirmPassword.text && password.text!="") {
-
+                                                    confirmPassword.text &&
+                                                password.text != "") {
                                               resetPassword(
                                                   'userID', password.text);
                                               await Future.delayed(
-                                                  Duration(seconds: 2), () {
-
-                                              });
+                                                  Duration(seconds: 2), () {});
                                             }
                                           })
                                         },
@@ -234,7 +231,7 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
                                           margin: const EdgeInsets.symmetric(
                                               horizontal: 18, vertical: 60),
                                           decoration: MechButtonStyle.primary,
-                                          child:  Center(
+                                          child: Center(
                                             child: Text(
                                               s.submitButtonText,
                                               style:

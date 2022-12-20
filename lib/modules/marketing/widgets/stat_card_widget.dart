@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:mechalodon_mobile/modules/ad/models/ad_model.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/title_metric_widget.dart';
+import 'package:mechalodon_mobile/modules/marketing/models/ad_model.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 
 class StatCard extends StatelessWidget {

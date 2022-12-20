@@ -14,33 +14,28 @@ import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
 // This same view will be used for campaigns, ads, and adsets.
 
-class CampaignsMobileView<B extends Bloc<AdEvent, AdState>,
+class AdSetMobileView<B extends Bloc<AdEvent, AdState>,
     C extends Bloc<AdEvent, AdState>> extends StatefulWidget {
-  const CampaignsMobileView({Key? key, this.adId}) : super(key: key);
+  const AdSetMobileView({Key? key, this.adId}) : super(key: key);
 
   final String? adId;
 
   @override
-  State<CampaignsMobileView<B, C>> createState() => _CampaignsMobileViewState();
+  State<AdSetMobileView<B, C>> createState() => _AdSetMobileViewState();
 }
 
-class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
-        C extends Bloc<AdEvent, AdState>>
-    extends State<CampaignsMobileView<B, C>>
+class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
+        C extends Bloc<AdEvent, AdState>> extends State<AdSetMobileView<B, C>>
     with AutomaticKeepAliveClientMixin {
   // 1. The navbar can take an arbitrary number of navMenuItems and build a bar from it.
   // 2. The user defines which Mechpage they want to go to when they define the item.
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
         backgroundColor: MechColor.background,
-        appBar: AppBar(
-          title: const Text(
-            "CAMPAIGN",
-            style: MechTextStyle.subtitle,
-          ),
-        ),
+        appBar: MechWidgets.appBar(title: widget.adId ?? "Adsets", context: context),
         body: MechNavBar(
             selectedIndex: 1,
             body: BlocBuilder<B, AdState>(builder: (context, state) {
@@ -67,7 +62,7 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
-                                  "Campaigns",
+                                  "AdSets",
                                   style: MechTextStyle.subheading3,
                                 ),
                                 InkWell(
@@ -86,7 +81,8 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
                               padding: const EdgeInsets.only(top: 20.0),
                               child: _statCardBuilder(state.marketing.stats,
                                   (value) {
-                                context.push('${MechPage.campaigns.path()}${MechPage.adSets.path()}/${value.name}');
+                                context.go(
+                                    '${MechPage.campaigns.path()}${MechPage.adSets.path()}/${widget.adId}${MechPage.ads.path()}/${value.name}');
                               }),
                             ))
                           ],

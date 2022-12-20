@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mechalodon_mobile/modules/campaign/bloc/campaign_bloc.dart';
+import 'package:mechalodon_mobile/modules/adSets/bloc/ad_set_bloc.dart';
 import 'package:mechalodon_mobile/modules/campaigns/bloc/bloc/campaigns_bloc.dart';
 import 'package:mechalodon_mobile/modules/campaigns/views/campaigns_view_mobile.dart';
 
@@ -15,9 +15,9 @@ class CampaignsScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => serviceLocator<CampaignsBloc>(),
       child: const Responsive(
-          mobile: CampaignsMobileView<CampaignsBloc, CampaignBloc>(),
-          desktop: CampaignsMobileView<CampaignsBloc, CampaignBloc>(),
-          tablet: CampaignsMobileView<CampaignsBloc, CampaignBloc>()),
+          mobile: CampaignsMobileView<CampaignsBloc, AdSetBloc>(),
+          desktop: CampaignsMobileView<CampaignsBloc, AdSetBloc>(),
+          tablet: CampaignsMobileView<CampaignsBloc, AdSetBloc>()),
     );
   }
 }
