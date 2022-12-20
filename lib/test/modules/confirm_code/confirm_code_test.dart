@@ -1,5 +1,5 @@
-import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/bloc/reset_password_code_bloc.dart';
-import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/repository/reset_password_code_repository.dart';
+import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/bloc/confirmation_code_bloc.dart';
+import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/repository/confirmation_code_repository.dart';
 import 'package:mechalodon_mobile/modules/login/bloc/login_bloc.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mockito/annotations.dart';

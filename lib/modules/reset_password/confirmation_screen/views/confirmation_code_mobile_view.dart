@@ -6,7 +6,7 @@ import 'package:flutter_countdown_timer/countdown_timer_controller.dart';
 import 'package:flutter_countdown_timer/current_remaining_time.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/bloc/reset_password_code_bloc.dart';
+import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/bloc/confirmation_code_bloc.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import 'package:mechalodon_mobile/generated/l10n.dart';
@@ -89,8 +89,7 @@ class _ConfirmationCodeMobileViewState
                         appContext: context,
                         pastedTextStyle: MechTextStyle.primaryButton,
                         length: 4,
-                        obscureText: true,
-                        obscuringCharacter: '*',
+                        obscureText: false,
                         blinkWhenObscuring: true,
                         animationType: AnimationType.fade,
                         pinTheme: PinTheme(
@@ -153,7 +152,10 @@ class _ConfirmationCodeMobileViewState
                                 controller = CountdownTimerController(
                                     endTime:
                                         DateTime.now().millisecondsSinceEpoch +
-                                            1000 * 180)
+                                            1000 * 180,
+                                onEnd: ()=>setState(() {
+                                  codeResent = false;
+                                }))
                                   ..start();
                                 codeResent = true;
                               });
@@ -165,8 +167,8 @@ class _ConfirmationCodeMobileViewState
                         : CountdownTimer(
                             controller: controller,
                             widgetBuilder: (BuildContext ctx,
-                                    CurrentRemainingTime? time) =>
-                                Text("0${time!.min} : ${time.sec}"))
+                                    CurrentRemainingTime? time) =>time!.sec!>9?Text('0${time.min ?? "0"} : ${time?.sec}'):Text("0${time.min ?? "0"} : 0${time?.sec}"))
+
                   ],
                 ),
                 Expanded(

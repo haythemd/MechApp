@@ -1,4 +1,4 @@
-part of 'reset_password_code_bloc.dart';
+part of 'confirmation_code_bloc.dart';
 
 abstract class ConfirmationCodeEvent {
 

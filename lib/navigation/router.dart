@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/modules/adSets/screens/ad_set_screen.dart';
 import 'package:mechalodon_mobile/modules/ads/screens/ads_screen.dart';
 import 'package:mechalodon_mobile/modules/campaigns/sceens/campaigns_screen.dart';
-import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/screens/reset_password_confirmation_code_mobile.dart';
+import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/screens/confirmation_code_screen.dart';
 import 'package:mechalodon_mobile/modules/dashboard/screens/dashboard_screen.dart';
 import 'package:mechalodon_mobile/modules/login/screens/login_screen.dart';
 import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/screens/reset_password_screen.dart';
