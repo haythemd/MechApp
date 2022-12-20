@@ -147,7 +147,7 @@ class _ConfirmationCodeMobileViewState
                         : CountdownTimer(
                             controller: controller,
                             widgetBuilder: (BuildContext ctx,
-                                    CurrentRemainingTime? time) =>time!.sec!>9?Text('0${time.min ?? "0"} : ${time?.sec}'):Text("0${time.min ?? "0"} : 0${time?.sec}"))
+                                    CurrentRemainingTime? time) =>time!.sec!>9?Text('0${time.min ?? "0"} : ${time?.sec}',style: MechTextStyle.h5.copyWith(color: Colors.black,fontSize: 15),):Text("0${time.min ?? "0"} : 0${time?.sec}",style: MechTextStyle.h5.copyWith(color: Colors.black,fontSize: 15)))
 
                   ],
                 ),
