@@ -23,8 +23,8 @@ class ConfirmationCodeMobileView extends StatefulWidget {
 
 class _ConfirmationCodeMobileViewState
     extends State<ConfirmationCodeMobileView> {
-  Timer timer = Timer(Duration(seconds: 2),(){});
-  late CountdownTimerController controller ;
+  Timer timer = Timer(Duration(seconds: 2), () {});
+  late CountdownTimerController controller;
   bool hasError = false;
   bool codeResent = false;
   String currentText = '';
@@ -48,7 +48,7 @@ class _ConfirmationCodeMobileViewState
               children: [
                 GestureDetector(
                     onTap: () {
-                      context.canPop()?context.pop():null;
+                      context.canPop() ? context.pop() : null;
                     },
                     child: Container(
                         width: 32,
@@ -69,12 +69,12 @@ class _ConfirmationCodeMobileViewState
                 const SizedBox(
                   height: 56,
                 ),
-                 Text(
+                Text(
                   s.resetPasswordText,
                   style: MechTextStyle.subtitle,
                 ),
-                 Padding(
-                  padding: const EdgeInsets.only(top: 10.0,bottom: 30),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10.0, bottom: 30),
                   child: Text(
                     s.confirmCodePageTitle,
                     style: MechTextStyle.title,
@@ -93,7 +93,6 @@ class _ConfirmationCodeMobileViewState
                         obscuringCharacter: '*',
                         blinkWhenObscuring: true,
                         animationType: AnimationType.fade,
-
                         pinTheme: PinTheme(
                             shape: PinCodeFieldShape.box,
                             borderRadius: MechBorderRadius.radius,
@@ -110,7 +109,6 @@ class _ConfirmationCodeMobileViewState
                         enableActiveFill: true,
                         controller: codeController,
                         keyboardType: TextInputType.number,
-
                         onCompleted: (v) {
                           debugPrint("Completed");
                           //Send Request Here!!!!! !
@@ -131,10 +129,11 @@ class _ConfirmationCodeMobileViewState
                   child: Text(
                     hasError ? s.incorrectCodeAlertText : "",
                     style: const TextStyle(
-                        color: MechColor.error,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                    fontFamily: "Helvetica",),
+                      color: MechColor.error,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: "Helvetica",
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -147,16 +146,27 @@ class _ConfirmationCodeMobileViewState
                       "Didn't get a code? ",
                       style: MechTextStyle.subheading5,
                     ),
-                   !codeResent? TextButton(
-                        onPressed: () {
-                          setState(() {
-                            controller = CountdownTimerController(endTime: DateTime.now().millisecondsSinceEpoch + 1000*180)..start();
-                            codeResent = true;
-                          });
-                        },
-                        child: Text(s.resendButtonText,
-                            style: MechTextStyle.secondaryButton.copyWith(decoration: TextDecoration.underline,))) : CountdownTimer(controller: controller,
-                   widgetBuilder: (BuildContext ctx, CurrentRemainingTime? time)=> Text("0${time!.min} : ${time.sec}"))
+                    !codeResent
+                        ? TextButton(
+                            onPressed: () {
+                              setState(() {
+                                controller = CountdownTimerController(
+                                    endTime:
+                                        DateTime.now().millisecondsSinceEpoch +
+                                            1000 * 180)
+                                  ..start();
+                                codeResent = true;
+                              });
+                            },
+                            child: Text(s.resendButtonText,
+                                style: MechTextStyle.secondaryButton.copyWith(
+                                  decoration: TextDecoration.underline,
+                                )))
+                        : CountdownTimer(
+                            controller: controller,
+                            widgetBuilder: (BuildContext ctx,
+                                    CurrentRemainingTime? time) =>
+                                Text("0${time!.min} : ${time.sec}"))
                   ],
                 ),
                 Expanded(
@@ -166,23 +176,28 @@ class _ConfirmationCodeMobileViewState
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                      Container(
-                        height: 60,
-                        width: 165,
-                        decoration: const BoxDecoration(
+                    Container(
+                      height: 60,
+                      width: 165,
+                      decoration: const BoxDecoration(
                           borderRadius: MechBorderRadius.radius),
-                        child:  Center(child: Text(s.backButtonText)),
-                      ),
+                      child: Center(child: Text(s.backButtonText)),
+                    ),
                     GestureDetector(
-                      onTap: ()=> setState(() {
-                        hasError=true;
+                      onTap: () => setState(() {
+                        hasError = true;
                       }),
                       child: Container(
                         height: 60,
                         width: 165,
-                        decoration: const BoxDecoration(color: Colors.black,
+                        decoration: const BoxDecoration(
+                            color: Colors.black,
                             borderRadius: MechBorderRadius.radius),
-                        child:  Center(child: Text(s.nextButtonText,style: MechTextStyle.primaryButton,)),
+                        child: Center(
+                            child: Text(
+                          s.nextButtonText,
+                          style: MechTextStyle.primaryButton,
+                        )),
                       ),
                     )
                   ],
