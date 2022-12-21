@@ -5,6 +5,7 @@ import 'package:mechalodon_mobile/modules/ads/repo/ads_repository.dart';
 import 'package:mechalodon_mobile/modules/adSets/bloc/ad_set_bloc.dart';
 import 'package:mechalodon_mobile/modules/adSets/repo/ad_set_repository.dart';
 import 'package:mechalodon_mobile/modules/campaigns/repository/campaigns_repository.dart';
+import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/repository/confirmation_code_repository.dart';
 import 'package:mechalodon_mobile/modules/dashboard/bloc/dashboard_bloc.dart';
 import 'package:mechalodon_mobile/modules/campaigns/bloc/bloc/campaigns_bloc.dart';
 import 'package:mechalodon_mobile/modules/login/bloc/login_bloc.dart';
@@ -14,6 +15,7 @@ import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/repo
 import 'package:mechalodon_mobile/modules/reset_password/send_reset_sms/bloc/bloc/send_reset_sms_bloc.dart';
 import 'package:mechalodon_mobile/services/auth_service.dart';
 import 'package:mechalodon_mobile/services/graphql_service.dart';
+import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/bloc/confirmation_code_bloc.dart';
 
 final serviceLocator = GetIt.instance;
 
@@ -29,6 +31,7 @@ Future<void> initServiceLocator() async {
   serviceLocator.registerFactory<AdsBloc>(() => AdsBloc());
   serviceLocator.registerFactory<AdSetBloc>(() => AdSetBloc());
   serviceLocator.registerFactory<CampaignsBloc>(() => CampaignsBloc());
+  serviceLocator.registerFactory<ConfirmationCodeBloc>(() => ConfirmationCodeBloc());
   serviceLocator.registerFactory<DashboardBloc>(() => DashboardBloc());
   serviceLocator.registerFactory<LoginBloc>(() => LoginBloc());
   serviceLocator.registerFactory<ResetPasswordBloc>(() => ResetPasswordBloc());
@@ -39,6 +42,7 @@ Future<void> initServiceLocator() async {
   serviceLocator.registerFactory<AdSetRepository>(() => AdSetRepository());
   serviceLocator
       .registerFactory<CampaignsRepository>(() => CampaignsRepository());
+  serviceLocator.registerFactory<ConfirmationCodeRepository>(() => ConfirmationCodeRepository());
   serviceLocator.registerFactory<LoginRepository>(() => LoginRepository());
   serviceLocator.registerFactory<ResetPasswordRepository>(
       () => ResetPasswordRepository());

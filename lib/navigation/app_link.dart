@@ -8,7 +8,8 @@ enum MechPage {
   adSets,
   ads,
   ad,
-  sms
+  sms,
+  confirmCode
 }
 
 extension PageExt on MechPage {
@@ -34,6 +35,8 @@ extension PageExt on MechPage {
         return '/ad';
       case MechPage.sms:
         return '/sms';
+      case MechPage.confirmCode:
+        return '/confirmCode';
     }
   }
 
@@ -59,6 +62,8 @@ extension PageExt on MechPage {
         return 'ad';
       case MechPage.sms:
         return 'sms';
+      case MechPage.confirmCode:
+        return 'confirmCode';
     }
   }
 }
