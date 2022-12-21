@@ -1,19 +1,15 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_countdown_timer/countdown_timer_controller.dart';
 import 'package:flutter_countdown_timer/current_remaining_time.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
-import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/bloc/confirmation_code_bloc.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-
 import 'package:mechalodon_mobile/generated/l10n.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
-
-import '../../../../utils/mech_widgets.dart';
+import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
 class ConfirmationCodeMobileView extends StatefulWidget {
   const ConfirmationCodeMobileView({Key? key}) : super(key: key);
@@ -25,7 +21,7 @@ class ConfirmationCodeMobileView extends StatefulWidget {
 
 class _ConfirmationCodeMobileViewState
     extends State<ConfirmationCodeMobileView> {
-  Timer timer = Timer(Duration(seconds: 2), () {});
+  Timer timer = Timer(const Duration(seconds: 2), () {});
   late CountdownTimerController controller;
   bool hasError = false;
   bool codeResent = false;
@@ -103,16 +99,13 @@ class _ConfirmationCodeMobileViewState
                       ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                  child: Text(
-                    hasError ? s.incorrectCodeAlertText : "",
-                    style: const TextStyle(
-                      color: MechColor.error,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: "Helvetica",
-                    ),
+                Text(
+                  hasError ? s.incorrectCodeAlertText : "",
+                  style: const TextStyle(
+                    color: MechColor.darkRed,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "Helvetica",
                   ),
                 ),
                 const SizedBox(
