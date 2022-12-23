@@ -7,11 +7,9 @@ import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 
 class MechNavBar extends StatefulWidget {
-  const MechNavBar({Key? key, required this.selectedIndex, required this.body})
-      : super(key: key);
+  const MechNavBar({Key? key, required this.child}) : super(key: key);
 
-  final int selectedIndex;
-  final Widget body;
+  final Widget child;
 
   @override
   State<MechNavBar> createState() => _MechNavBarState();
@@ -20,43 +18,101 @@ class MechNavBar extends StatefulWidget {
 class _MechNavBarState extends State<MechNavBar> {
   final s = serviceLocator<S>();
 
+  int selectedIndex = 0;
+  String dashboardPath = MechPage.dashboard.path();
+  String campaignsPath = MechPage.campaigns.path();
+  // String profilePath = MechPage.profile.name();
+
+  void selectScreen(int index) {
+    switch (index) {
+      case 0:
+        _refreshSelection(index);
+        context.go(dashboardPath);
+        break;
+      case 1:
+        _refreshSelection(index);
+        context.go(campaignsPath);
+        break;
+      // case 2:
+      //   _refreshSelection(index);
+      //   context.goNamed(profilePath);
+      //   break;
+      default:
+        _refreshSelection(index);
+        context.go(dashboardPath);
+        break;
+    }
+  }
+
+  void _refreshSelection(int index) {
+    _savePath(selectedIndex);
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
+  void _savePath(int forScreen) {
+    String path = GoRouter.of(context).location;
+    switch (forScreen) {
+      case 0:
+        dashboardPath = path;
+        break;
+      case 1:
+        campaignsPath = path;
+        break;
+      case 2:
+        // profilePath = path;
+        break;
+      default:
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      widget.body,
-      Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            height: 78,
-            width: double.infinity,
-            color: Theme.of(context).primaryColor,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 42, right: 42),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _MechNavItem(
+    return Stack(
+      children: [
+        widget.child,
+        Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: 78,
+              width: double.infinity,
+              color: Theme.of(context).primaryColor,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 42, right: 42),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _MechNavItem(
                         icon: MechIcons.apps,
                         title: s.navBarDashboardButton,
-                        isSelected: widget.selectedIndex == 0,
-                        page: MechPage.dashboard),
-                    _MechNavItem(
+                        isSelected: selectedIndex == 0,
+                        index: 0,
+                        onTap: selectScreen,
+                      ),
+                      _MechNavItem(
                         icon: MechIcons.megaphone,
                         title: s.navBarCampaignButton,
-                        isSelected: widget.selectedIndex == 1,
-                        page: MechPage.campaigns),
-                    _MechNavItem(
+                        isSelected: selectedIndex == 1,
+                        index: 1,
+                        onTap: selectScreen,
+                      ),
+                      _MechNavItem(
                         icon: MechIcons.user,
                         title: s.navBarProfileButton,
-                        isSelected: widget.selectedIndex == 2,
-                        page: MechPage.dashboard),
-                  ],
+                        isSelected: selectedIndex == 2,
+                        index: 2,
+                        onTap: selectScreen,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ))
-    ]);
+            )),
+      ],
+    );
   }
 }
 
@@ -73,21 +129,22 @@ class _MechNavItem extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.isSelected,
-    required this.page,
+    required this.index,
+    required this.onTap,
   }) : super(key: key);
 
   final IconData icon;
   final String title;
   final bool isSelected;
-  final MechPage page;
+  final int index;
+  final ValueChanged<int> onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         if (!isSelected) {
-          print(page.path());
-          context.go(page.path());
+          onTap(index);
         }
       },
       child: Column(
