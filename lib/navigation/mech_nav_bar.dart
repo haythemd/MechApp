@@ -80,7 +80,7 @@ class _MechNavBarState extends State<MechNavBar> {
               width: double.infinity,
               color: Theme.of(context).primaryColor,
               child: Padding(
-                padding: const EdgeInsets.only(left: 42, right: 42),
+                padding: const EdgeInsets.only(left: 30, right: 30,bottom: 20),
                 child: Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -147,26 +147,29 @@ class _MechNavItem extends StatelessWidget {
           onTap(index);
         }
       },
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            size: 23,
-            color: !isSelected
-                ? Theme.of(context).unselectedWidgetColor
-                : Theme.of(context).textSelectionTheme.selectionColor,
-          ),
-          const SizedBox(height: 5),
-          Text(
-            title,
-            style: MechTextStyle.h5.copyWith(
-                fontWeight: !isSelected ? FontWeight.w400 : FontWeight.w700,
-                color: !isSelected
-                    ? Theme.of(context).unselectedWidgetColor
-                    : Theme.of(context).textSelectionTheme.selectionColor),
-          ),
-        ],
+      child: Container(
+        width: 80,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              size: 23,
+              color: !isSelected
+                  ? Theme.of(context).unselectedWidgetColor
+                  : Theme.of(context).textSelectionTheme.selectionColor,
+            ),
+            const SizedBox(height: 5),
+            Text(
+              title,
+              style: MechTextStyle.h5.copyWith(
+                  fontWeight: !isSelected ? FontWeight.w400 : FontWeight.w700,
+                  color: !isSelected
+                      ? Theme.of(context).unselectedWidgetColor
+                      : Theme.of(context).textSelectionTheme.selectionColor),
+            ),
+          ],
+        ),
       ),
     );
   }
