@@ -16,22 +16,22 @@ class MechNavBar extends StatefulWidget {
 }
 
 class _MechNavBarState extends State<MechNavBar> {
-  final s = serviceLocator<S>();
+  final _s = serviceLocator<S>();
 
-  int selectedIndex = 0;
-  String dashboardPath = MechPage.dashboard.path();
-  String campaignsPath = MechPage.campaigns.path();
+  int _selectedIndex = 0;
+  String _dashboardPath = MechPage.dashboard.path();
+  String _campaignsPath = MechPage.campaigns.path();
   // String profilePath = MechPage.profile.name();
 
-  void selectScreen(int index) {
+  void _selectScreen(int index) {
     switch (index) {
       case 0:
         _refreshSelection(index);
-        context.go(dashboardPath);
+        context.go(_dashboardPath);
         break;
       case 1:
         _refreshSelection(index);
-        context.go(campaignsPath);
+        context.go(_campaignsPath);
         break;
       // case 2:
       //   _refreshSelection(index);
@@ -39,15 +39,15 @@ class _MechNavBarState extends State<MechNavBar> {
       //   break;
       default:
         _refreshSelection(index);
-        context.go(dashboardPath);
+        context.go(_dashboardPath);
         break;
     }
   }
 
   void _refreshSelection(int index) {
-    _savePath(selectedIndex);
+    _savePath(_selectedIndex);
     setState(() {
-      selectedIndex = index;
+      _selectedIndex = index;
     });
   }
 
@@ -55,10 +55,10 @@ class _MechNavBarState extends State<MechNavBar> {
     String path = GoRouter.of(context).location;
     switch (forScreen) {
       case 0:
-        dashboardPath = path;
+        _dashboardPath = path;
         break;
       case 1:
-        campaignsPath = path;
+        _campaignsPath = path;
         break;
       case 2:
         // profilePath = path;
@@ -87,24 +87,24 @@ class _MechNavBarState extends State<MechNavBar> {
                     children: [
                       _MechNavItem(
                         icon: MechIcons.apps,
-                        title: s.navBarDashboardButton,
-                        isSelected: selectedIndex == 0,
+                        title: _s.navBarDashboardButton,
+                        isSelected: _selectedIndex == 0,
                         index: 0,
-                        onTap: selectScreen,
+                        onTap: _selectScreen,
                       ),
                       _MechNavItem(
                         icon: MechIcons.megaphone,
-                        title: s.navBarCampaignButton,
-                        isSelected: selectedIndex == 1,
+                        title: _s.navBarCampaignButton,
+                        isSelected: _selectedIndex == 1,
                         index: 1,
-                        onTap: selectScreen,
+                        onTap: _selectScreen,
                       ),
                       _MechNavItem(
                         icon: MechIcons.user,
-                        title: s.navBarProfileButton,
-                        isSelected: selectedIndex == 2,
+                        title: _s.navBarProfileButton,
+                        isSelected: _selectedIndex == 2,
                         index: 2,
-                        onTap: selectScreen,
+                        onTap: _selectScreen,
                       ),
                     ],
                   ),
