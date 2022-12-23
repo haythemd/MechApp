@@ -7,7 +7,6 @@ import 'package:mechalodon_mobile/modules/marketing/models/ad_model.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/overall_stats_widget.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/stat_card_widget.dart';
 import 'package:mechalodon_mobile/navigation/app_link.dart';
-import 'package:mechalodon_mobile/navigation/mech_nav_bar.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_widgets.dart';
@@ -36,9 +35,7 @@ class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
     return Scaffold(
         backgroundColor: MechColor.background,
         appBar: MechWidgets.appBar(title: widget.adId ?? "Adsets", context: context),
-        body: MechNavBar(
-            selectedIndex: 1,
-            body: BlocBuilder<B, AdState>(builder: (context, state) {
+        body: BlocBuilder<B, AdState>(builder: (context, state) {
               if (state is AdInitial) {
                 BlocProvider.of<B>(context).add(LoadAds(adId: widget.adId));
               } else if (state is AdLoading) {
@@ -93,7 +90,7 @@ class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
                 );
               }
               return Container();
-            })));
+            }));
   }
 
   Widget _statCardBuilder(

@@ -10,32 +10,30 @@ class MechWidgets {
       leadingWidth: 100,
       leading:
           // created a rounded back chevron button that is black but 3% opacity 1 pixel border
-          Expanded(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: 32,
-              width: 32,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                border: Border.all(
-                  color: Colors.black.withOpacity(0.03),
-                  width: 1,
-                ),
-              ),
-              child: InkWell(
-                highlightColor: Colors.transparent,
-                  child: const Icon(
-                    Icons.chevron_left,
-                    color: MechColor.primary,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 32,
+                width: 32,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  border: Border.all(
+                    color: Colors.black.withOpacity(0.03),
+                    width: 1,
                   ),
-                  onTap: () => context.pop()),
-            ),
-          ],
-        ),
-      ),
+                ),
+                child: InkWell(
+                  highlightColor: Colors.transparent,
+                    child: const Icon(
+                      Icons.chevron_left,
+                      color: MechColor.primary,
+                    ),
+                    onTap: () => context.pop()),
+              ),
+            ],
+          ),
       title: Text(
         title,
         style: MechTextStyle.subtitle,

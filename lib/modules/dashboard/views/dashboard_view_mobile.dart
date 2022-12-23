@@ -7,7 +7,6 @@ import 'package:mechalodon_mobile/modules/dashboard/models/dashboard_model.dart'
 import 'package:mechalodon_mobile/modules/dashboard/widgets/date_switcher_widget.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/metric_widget.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/title_metric_widget.dart';
-import 'package:mechalodon_mobile/navigation/mech_nav_bar.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
@@ -46,9 +45,7 @@ class _DashBoardMobileViewState extends State<DashBoardMobileView> {
             )
           ],
         ),
-        body: MechNavBar(
-            selectedIndex: 0,
-            body: BlocBuilder<DashboardBloc, DashboardState>(
+        body: BlocBuilder<DashboardBloc, DashboardState>(
                 builder: (context, state) {
               if (state is DashboardInitial) {
                 BlocProvider.of<DashboardBloc>(context)
@@ -89,7 +86,7 @@ class _DashBoardMobileViewState extends State<DashBoardMobileView> {
               } else {
                 return Container();
               }
-              })),
+              }),
     );
   }
 
