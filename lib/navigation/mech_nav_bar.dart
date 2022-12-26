@@ -21,7 +21,7 @@ class _MechNavBarState extends State<MechNavBar> {
   int _selectedIndex = 0;
   String _dashboardPath = MechPage.dashboard.path();
   String _campaignsPath = MechPage.campaigns.path();
-  // String profilePath = MechPage.profile.name();
+  String profilePath = MechPage.profile.name();
 
   void _selectScreen(int index) {
     switch (index) {
@@ -33,10 +33,10 @@ class _MechNavBarState extends State<MechNavBar> {
         _refreshSelection(index);
         context.go(_campaignsPath);
         break;
-      // case 2:
-      //   _refreshSelection(index);
-      //   context.goNamed(profilePath);
-      //   break;
+      case 2:
+        _refreshSelection(index);
+        context.goNamed(profilePath);
+        break;
       default:
         _refreshSelection(index);
         context.go(_dashboardPath);
@@ -61,7 +61,7 @@ class _MechNavBarState extends State<MechNavBar> {
         _campaignsPath = path;
         break;
       case 2:
-        // profilePath = path;
+        profilePath = path;
         break;
       default:
         break;

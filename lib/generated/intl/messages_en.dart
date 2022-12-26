@@ -20,6 +20,8 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(percentage) => "${percentage}% Completed";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "backButtonText": MessageLookupByLibrary.simpleMessage("back"),
@@ -27,8 +29,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("An email must be provided"),
         "blankPasswordErrorMessage":
             MessageLookupByLibrary.simpleMessage("A password must be provided"),
+        "completedCapitalText": m0,
         "confirmCodePageTitle": MessageLookupByLibrary.simpleMessage(
             "Check Your Phone For Verification"),
+        "connectNowButtonText":
+            MessageLookupByLibrary.simpleMessage("Connect now"),
+        "cookiePolicyText":
+            MessageLookupByLibrary.simpleMessage("Cookie policy"),
         "createAccountButtonTitle":
             MessageLookupByLibrary.simpleMessage("Create Account"),
         "didntGetCodeText":
@@ -69,6 +76,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Password Matched"),
         "phoneNumberExample":
             MessageLookupByLibrary.simpleMessage("e.g. 808-445-3444"),
+        "privacyPolicyCapitalText":
+            MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "privacyPolicyText":
+            MessageLookupByLibrary.simpleMessage("Privacy policy"),
+        "profileIntegrationText":
+            MessageLookupByLibrary.simpleMessage("Integration"),
+        "profileIntegrationsText":
+            MessageLookupByLibrary.simpleMessage("Integrations"),
+        "profileTitleText": MessageLookupByLibrary.simpleMessage("Profile"),
         "reEnterNewPasswordText":
             MessageLookupByLibrary.simpleMessage("Re Enter New Password"),
         "resendButtonText": MessageLookupByLibrary.simpleMessage("Resend"),
@@ -83,6 +99,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendCodeReloadText":
             MessageLookupByLibrary.simpleMessage("Send code reload in"),
         "submitButtonText": MessageLookupByLibrary.simpleMessage("Submit"),
+        "termsOfServiceText":
+            MessageLookupByLibrary.simpleMessage("Terms of service"),
         "welcomeTitle": MessageLookupByLibrary.simpleMessage("Welcome")
       };
 }

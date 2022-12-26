@@ -51,6 +51,20 @@ class MechTextStyle {
       fontWeight: FontWeight.w700,
       color: MechColor.lightPrimary);
 
+  static const blackSmallTitle = TextStyle(
+    fontSize: 16,
+        fontFamily: 'Helvetica',
+    fontWeight: FontWeight.w400,
+    color: Color(0xFF0A0615)
+  );
+  static const blackDescriptionTitle = TextStyle(
+      fontSize: 18,
+      fontFamily: 'Helvetica',
+      fontWeight: FontWeight.w400,
+      color: MechColor.primary
+  );
+
+
     static const h5 = TextStyle(
       fontFamily: 'Helvetica',
       fontSize: 12,

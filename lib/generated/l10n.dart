@@ -399,6 +399,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Integrations`
+  String get profileIntegrationsText {
+    return Intl.message(
+      'Integrations',
+      name: 'profileIntegrationsText',
+      desc: ' Profile View integration text - Plural',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profileTitleText {
+    return Intl.message(
+      'Profile',
+      name: 'profileTitleText',
+      desc: ' Profile title text ',
+      args: [],
+    );
+  }
+
+  /// `Integration`
+  String get profileIntegrationText {
+    return Intl.message(
+      'Integration',
+      name: 'profileIntegrationText',
+      desc: ' Profile View integration text',
+      args: [],
+    );
+  }
+
+  /// `Terms of service`
+  String get termsOfServiceText {
+    return Intl.message(
+      'Terms of service',
+      name: 'termsOfServiceText',
+      desc: ' Terms of service text',
+      args: [],
+    );
+  }
+
+  /// `Cookie policy`
+  String get cookiePolicyText {
+    return Intl.message(
+      'Cookie policy',
+      name: 'cookiePolicyText',
+      desc: ' Cookie policy text',
+      args: [],
+    );
+  }
+
+  /// `Privacy policy`
+  String get privacyPolicyText {
+    return Intl.message(
+      'Privacy policy',
+      name: 'privacyPolicyText',
+      desc: ' Privacy policy text',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get privacyPolicyCapitalText {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyPolicyCapitalText',
+      desc: ' Privacy policy text in Capital letters',
+      args: [],
+    );
+  }
+
+  /// `Connect now`
+  String get connectNowButtonText {
+    return Intl.message(
+      'Connect now',
+      name: 'connectNowButtonText',
+      desc: ' Connect now button text',
+      args: [],
+    );
+  }
+
+  /// `{percentage}% Completed`
+  String completedCapitalText(int percentage) {
+    return Intl.message(
+      '$percentage% Completed',
+      name: 'completedCapitalText',
+      desc: ' Completed text',
+      args: [percentage],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

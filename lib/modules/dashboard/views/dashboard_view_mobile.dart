@@ -2,11 +2,13 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/modules/dashboard/bloc/dashboard_bloc.dart';
 import 'package:mechalodon_mobile/modules/dashboard/models/dashboard_model.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/date_switcher_widget.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/metric_widget.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/title_metric_widget.dart';
+import 'package:mechalodon_mobile/navigation/app_link.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
@@ -36,7 +38,9 @@ class _DashBoardMobileViewState extends State<DashBoardMobileView> {
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.pushNamed(MechPage.profile.name());
+                  },
                   icon: const Icon(
                     MechIcons.download,
                     color: MechColor.inactive,

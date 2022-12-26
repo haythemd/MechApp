@@ -10,6 +10,8 @@ import 'package:mechalodon_mobile/modules/dashboard/bloc/dashboard_bloc.dart';
 import 'package:mechalodon_mobile/modules/campaigns/bloc/bloc/campaigns_bloc.dart';
 import 'package:mechalodon_mobile/modules/login/bloc/login_bloc.dart';
 import 'package:mechalodon_mobile/modules/login/repository/login_repository.dart';
+import 'package:mechalodon_mobile/modules/profile/bloc/profile_bloc.dart';
+import 'package:mechalodon_mobile/modules/profile/repository/profile_repository.dart';
 import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/bloc/reset_password_bloc.dart';
 import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/repository/reset_password_repository.dart';
 import 'package:mechalodon_mobile/modules/reset_password/send_reset_sms/bloc/bloc/send_reset_sms_bloc.dart';
@@ -34,6 +36,7 @@ Future<void> initServiceLocator() async {
   serviceLocator.registerFactory<ConfirmationCodeBloc>(() => ConfirmationCodeBloc());
   serviceLocator.registerFactory<DashboardBloc>(() => DashboardBloc());
   serviceLocator.registerFactory<LoginBloc>(() => LoginBloc());
+  serviceLocator.registerFactory<ProfileBloc>(() => ProfileBloc());
   serviceLocator.registerFactory<ResetPasswordBloc>(() => ResetPasswordBloc());
   serviceLocator.registerFactory<SendResetSMSBloc>(() => SendResetSMSBloc());
 
@@ -44,6 +47,7 @@ Future<void> initServiceLocator() async {
       .registerFactory<CampaignsRepository>(() => CampaignsRepository());
   serviceLocator.registerFactory<ConfirmationCodeRepository>(() => ConfirmationCodeRepository());
   serviceLocator.registerFactory<LoginRepository>(() => LoginRepository());
+  serviceLocator.registerFactory<ProfileRepository>(() => ProfileRepository());
   serviceLocator.registerFactory<ResetPasswordRepository>(
       () => ResetPasswordRepository());
 }

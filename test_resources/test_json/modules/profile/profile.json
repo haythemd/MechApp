@@ -1,0 +1,17 @@
+{
+  "userID": "02462696",
+  "integrations": [
+    {
+      "platform": "Facebook",
+      "isConnected": true
+    },
+    {
+      "platform": "Pinterest",
+      "isConnected": true
+    },
+    {
+      "platform": "Tiktok",
+      "isConnected": false
+    }
+  ]
+}

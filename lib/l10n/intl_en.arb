@@ -38,11 +38,11 @@
     "emailAddressInputFieldHintText": "Enter Your Email",
     "@emailAddressInputFieldHintText": {
         "description": "hint text for email input field"
-    },    
+    },
     "passwordInputFieldHintText": "••••••••••••••",
     "@passwordInputFieldHintText": {
         "description": "hint text for password input field"
-    },    
+    },
     "resetPasswordButtonText": "Forgot Password?",
     "@resetPasswordButtonText": {
         "description": "reset password button text"
@@ -58,11 +58,11 @@
     "loginButtonTitle": "Login",
     "@loginButtonTitle": {
         "description": "Login button title"
-    },  
+    },
     "createAccountButtonTitle": "Create Account",
     "@createAccountButtonTitle": {
         "description": "Create account button title"
-    },    
+    },
     "or": "or",
     "@or": {
         "description": "the word 'or' to be added to Or Create Account"
@@ -75,67 +75,111 @@
     "@invalidEmailError": {
         "description": "error message for email field"
     },
-    "blankPasswordErrorMessage" : "A password must be provided",
-    "@blankPasswordErrorMessage" : {
+    "blankPasswordErrorMessage": "A password must be provided",
+    "@blankPasswordErrorMessage": {
         "description": "blank password error message"
     },
-    "resetPasswordBannerText" : "Input Your\nAccount Details",
-    "@resetPassworBannerText" : {
+    "resetPasswordBannerText": "Input Your\nAccount Details",
+    "@resetPassworBannerText": {
         "description": " Reset page banner text"
     },
-
-    "enterNewPasswordText" : "Enter New Password",
-    "@enterNewPasswordText" : {
+    "enterNewPasswordText": "Enter New Password",
+    "@enterNewPasswordText": {
         "description": " Enter New Password text"
     },
-    "reEnterNewPasswordText" : "Re Enter New Password",
-    "@reEnterNewPasswordText" : {
+    "reEnterNewPasswordText": "Re Enter New Password",
+    "@reEnterNewPasswordText": {
         "description": "Re Enter New Password text"
     },
-    "submitButtonText" : "Submit",
-    "@submitButtonText" : {
+    "submitButtonText": "Submit",
+    "@submitButtonText": {
         "description": "Submit Button Text"
     },
-    "resetPasswordText" : "Reset Password",
-    "@resetPasswordText" : {
-        "description" : "Reset Password text"
+    "resetPasswordText": "Reset Password",
+    "@resetPasswordText": {
+        "description": "Reset Password text"
     },
-    "didntGetCodeText" : "Didn't get a code?",
-    "@didntGetCodeText" : {
-        "description" : "Didn't get a code text"
+    "didntGetCodeText": "Didn't get a code?",
+    "@didntGetCodeText": {
+        "description": "Didn't get a code text"
     },
     "sendCodeReloadText": "Send code reload in",
-    "@sendCodeReloadText" : {
+    "@sendCodeReloadText": {
         "description": " Send Code Reloads in text"
     },
-    "resendButtonText" : "Resend",
-    "@resendButtonText" : {
+    "resendButtonText": "Resend",
+    "@resendButtonText": {
         "description": "RESEND Button Text"
     },
-    "backButtonText" : "back",
-    "@backButtonText" : {
+    "backButtonText": "back",
+    "@backButtonText": {
         "description": "back Button Text"
     },
-    "incorrectCodeAlertText" : "Incorrect Code! Please input the code again",
-    "@incorrectCodeAlertText" : {
+    "incorrectCodeAlertText": "Incorrect Code! Please input the code again",
+    "@incorrectCodeAlertText": {
         "description": "Incorrect Code Alert Text"
     },
-    "confirmCodePageTitle" : "Check Your Phone For Verification",
+    "confirmCodePageTitle": "Check Your Phone For Verification",
     "@confirmCodePageTitle": {
-        "description" : "Confirm Code Page title"
+        "description": "Confirm Code Page title"
     },
-    "nextButtonText" : "Next",
-    "@nextButtonText" : {
+    "nextButtonText": "Next",
+    "@nextButtonText": {
         "description": "Next Button Text"
     },
-    "navBarDashboardButton" : "Dashboard",
-    "@navBarDashboardButton" : {
-        "description" : "Dashboard - button description navbar"
-    }, "navBarCampaignButton" : "Campaign",
-    "@navBarCampaignButton" : {
-        "description" : "Campaign - button description navbar"
-    }, "navBarProfileButton" : "Profile",
-    "@navBarProfileButton" : {
-        "description" : "Profile - button description navbar"
+    "navBarDashboardButton": "Dashboard",
+    "@navBarDashboardButton": {
+        "description": "Dashboard - button description navbar"
+    },
+    "navBarCampaignButton": "Campaign",
+    "@navBarCampaignButton": {
+        "description": "Campaign - button description navbar"
+    },
+    "navBarProfileButton": "Profile",
+    "@navBarProfileButton": {
+        "description": "Profile - button description navbar"
+    },
+    "profileIntegrationsText": "Integrations",
+    "@profileIntegrationsText": {
+        "description": " Profile View integration text - Plural"
+    },
+    "profileTitleText": "Profile",
+    "@profileTitleText": {
+        "description": " Profile title text "
+    },
+    "profileIntegrationText": "Integration",
+    "@profileIntegrationText": {
+        "description": " Profile View integration text"
+    },
+    "termsOfServiceText": "Terms of service",
+    "@termsOfServiceText": {
+        "description": " Terms of service text"
+    },
+    "cookiePolicyText": "Cookie policy",
+    "@cookiePolicyText": {
+        "description": " Cookie policy text"
+    },
+    "privacyPolicyText": "Privacy policy",
+    "@privacyPolicyText": {
+        "description": " Privacy policy text"
+    },
+    "privacyPolicyCapitalText": "Privacy Policy",
+    "@privacyPolicyCapitalText": {
+        "description": " Privacy policy text in Capital letters"
+    },
+    "connectNowButtonText": "Connect now",
+    "@connectNowButtonText": {
+        "description": " Connect now button text"
+    },
+    "completedCapitalText": "{percentage}% Completed",
+    "@completedCapitalText": {
+        "description": " Completed text",
+        "placeholders": {
+            "percentage": {
+                "type": "int",
+                "example": "60"
+            }
+        }
     }
 }
+

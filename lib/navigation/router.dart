@@ -6,6 +6,7 @@ import 'package:mechalodon_mobile/modules/campaigns/sceens/campaigns_screen.dart
 import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/screens/confirmation_code_screen.dart';
 import 'package:mechalodon_mobile/modules/dashboard/screens/dashboard_screen.dart';
 import 'package:mechalodon_mobile/modules/login/screens/login_screen.dart';
+import 'package:mechalodon_mobile/modules/profile/screens/profile_screen.dart';
 import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/screens/reset_password_screen.dart';
 import 'package:mechalodon_mobile/modules/reset_password/send_reset_sms/screens/send_reset_sms_screen.dart';
 import 'package:mechalodon_mobile/modules/welcome/welcome_screen.dart';
@@ -46,6 +47,11 @@ class MechRouter {
                 name: MechPage.dashboard.name(),
                 path: MechPage.dashboard.path(),
                 builder: (context, state) => const DashboardScreen(),
+              ),
+              GoRoute(
+                name: MechPage.profile.name(),
+                path: MechPage.profile.path(),
+                builder: (context, state) => const ProfileScreen(),
               ),
               GoRoute(
                   name: MechPage.campaigns.name(),
