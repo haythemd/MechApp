@@ -54,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Input Your Phone Number"),
         "incorrectCodeAlertText": MessageLookupByLibrary.simpleMessage(
             "Incorrect Code! Please input the code again"),
+        "innovationStation":
+            MessageLookupByLibrary.simpleMessage("Innovation Station"),
         "invalidEmailError": MessageLookupByLibrary.simpleMessage(
             "Please provide a valid email"),
         "loginButtonTitle": MessageLookupByLibrary.simpleMessage("Login"),
@@ -64,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "navBarDashboardButton":
             MessageLookupByLibrary.simpleMessage("Dashboard"),
         "navBarProfileButton": MessageLookupByLibrary.simpleMessage("Profile"),
+        "newFeatures":
+            MessageLookupByLibrary.simpleMessage("Features coming soon"),
         "nextButtonText": MessageLookupByLibrary.simpleMessage("Next"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
         "passwordConfirmationError": MessageLookupByLibrary.simpleMessage(
@@ -99,8 +103,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendCodeReloadText":
             MessageLookupByLibrary.simpleMessage("Send code reload in"),
         "submitButtonText": MessageLookupByLibrary.simpleMessage("Submit"),
+        "suggestAFeature":
+            MessageLookupByLibrary.simpleMessage("Suggest a feature"),
         "termsOfServiceText":
             MessageLookupByLibrary.simpleMessage("Terms of service"),
+        "voteOnFutureInnovations":
+            MessageLookupByLibrary.simpleMessage("Vote on future innovations"),
         "welcomeTitle": MessageLookupByLibrary.simpleMessage("Welcome")
       };
 }

@@ -489,6 +489,46 @@ class S {
       args: [percentage],
     );
   }
+
+  /// `Innovation Station`
+  String get innovationStation {
+    return Intl.message(
+      'Innovation Station',
+      name: 'innovationStation',
+      desc: 'innovation station - Title',
+      args: [],
+    );
+  }
+
+  /// `Features coming soon`
+  String get newFeatures {
+    return Intl.message(
+      'Features coming soon',
+      name: 'newFeatures',
+      desc: 'innovation station - Features coming soon',
+      args: [],
+    );
+  }
+
+  /// `Suggest a feature`
+  String get suggestAFeature {
+    return Intl.message(
+      'Suggest a feature',
+      name: 'suggestAFeature',
+      desc: 'innovation station - Suggest a feature',
+      args: [],
+    );
+  }
+
+  /// `Vote on future innovations`
+  String get voteOnFutureInnovations {
+    return Intl.message(
+      'Vote on future innovations',
+      name: 'voteOnFutureInnovations',
+      desc: 'innovation station - Vote on future innovations',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

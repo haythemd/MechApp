@@ -180,6 +180,22 @@
                 "example": "60"
             }
         }
+    },
+    "innovationStation": "Innovation Station",
+    "@innovationStation": {
+        "description": "innovation station - Title"
+    },
+    "newFeatures": "Features coming soon",
+    "@newFeatures": {
+        "description": "innovation station - Features coming soon"
+    },
+    "suggestAFeature": "Suggest a feature",
+    "@suggestAFeature": {
+        "description": "innovation station - Suggest a feature"
+    },
+    "voteOnFutureInnovations": "Vote on future innovations",
+    "@voteOnFutureInnovations": {
+        "description": "innovation station - Vote on future innovations"
     }
 }
 
