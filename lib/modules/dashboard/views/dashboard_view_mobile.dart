@@ -65,12 +65,15 @@ class _DashBoardMobileViewState extends State<DashBoardMobileView> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       _headerTotals(state.data),
-                      const Padding(
-                        padding: EdgeInsets.all(23.0),
-                        child: Icon(
-                          MechIcons.facebook,
-                          size: 40,
-                        ),
+                      // const Padding(
+                      //   padding: EdgeInsets.all(23.0),
+                      //   child: Icon(
+                      //     MechIcons.facebook,
+                      //     size: 40,
+                      //   ),
+                      // ),
+                      const SizedBox(
+                        height: 20,
                       ),
                       DateSwitcherWidget(
                         selectedPeriod: state.reportingPeriod,
