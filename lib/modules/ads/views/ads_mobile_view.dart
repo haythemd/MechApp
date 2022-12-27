@@ -6,6 +6,7 @@ import 'package:mechalodon_mobile/modules/marketing/bloc/ad_state.dart';
 import 'package:mechalodon_mobile/modules/marketing/models/ad_model.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/overall_stats_widget.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/stat_card_widget.dart';
+import 'package:mechalodon_mobile/navigation/app_link.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_widgets.dart';
@@ -14,9 +15,11 @@ import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
 class AdsMobileView<B extends Bloc<AdEvent, AdState>,
     C extends Bloc<AdEvent, AdState>> extends StatefulWidget {
-  const AdsMobileView({Key? key, this.adId}) : super(key: key);
+  const AdsMobileView({Key? key, required this.adId, required this.parentPath})
+      : super(key: key);
 
-  final String? adId;
+  final String parentPath;
+  final String adId;
 
   @override
   State<AdsMobileView<B, C>> createState() => _AdsMobileViewState();
@@ -33,62 +36,63 @@ class _AdsMobileViewState<B extends Bloc<AdEvent, AdState>,
     super.build(context);
     return Scaffold(
         backgroundColor: MechColor.background,
-        appBar: MechWidgets.appBar(title: widget.adId ?? "Ads", context: context),
+        appBar: MechWidgets.appBar(title: widget.adId, context: context),
         body: BlocBuilder<B, AdState>(builder: (context, state) {
-              if (state is AdInitial) {
-                BlocProvider.of<B>(context).add(LoadAds(adId: widget.adId));
-              } else if (state is AdLoading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else if (state is AdSuccess) {
-                return Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      OverAllStats(stats: state.marketing),
-                      Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+          if (state is AdInitial) {
+            BlocProvider.of<B>(context).add(LoadAds(adId: widget.adId));
+          } else if (state is AdLoading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (state is AdSuccess) {
+            return Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  OverAllStats(stats: state.marketing),
+                  Expanded(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(
-                                  "Ads",
-                                  style: MechTextStyle.subheading3,
-                                ),
-                                InkWell(
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: const [
-                                      Icon(Icons.sort),
-                                      Text("Sort")
-                                    ],
-                                  ),
-                                ),
-                              ],
+                            const Text(
+                              "Ads",
+                              style: MechTextStyle.subheading3,
                             ),
-                            Expanded(
-                                child: Padding(
-                              padding: const EdgeInsets.only(top: 20.0),
-                              child: _statCardBuilder(state.marketing.stats,
-                                  (value) {
-                                context.go('/campaigns/${value.id}/adSets');
-                              }),
-                            ))
+                            InkWell(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: const [
+                                  Icon(Icons.sort),
+                                  Text("Sort")
+                                ],
+                              ),
+                            ),
                           ],
                         ),
-                      ),
-                    ],
+                        Expanded(
+                            child: Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child:
+                              _statCardBuilder(state.marketing.stats, (value) {
+                            final String path = '${widget.parentPath}${MechPage.ads.path()}/${value.name}';
+                            context.go(path, extra: path);
+                          }),
+                        ))
+                      ],
+                    ),
                   ),
-                );
-              }
-              return Container();
-            }));
+                ],
+              ),
+            );
+          }
+          return Container();
+        }));
   }
 
   Widget _statCardBuilder(

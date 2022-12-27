@@ -13,9 +13,7 @@ import 'package:mechalodon_mobile/styles/style.dart';
 
 class CampaignsMobileView<B extends Bloc<AdEvent, AdState>,
     C extends Bloc<AdEvent, AdState>> extends StatefulWidget {
-  const CampaignsMobileView({Key? key, this.adId}) : super(key: key);
-
-  final String? adId;
+  const CampaignsMobileView({Key? key}) : super(key: key);
 
   @override
   State<CampaignsMobileView<B, C>> createState() => _CampaignsMobileViewState();
@@ -40,7 +38,7 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
         ),
         body: BlocBuilder<B, AdState>(builder: (context, state) {
               if (state is AdInitial) {
-                BlocProvider.of<B>(context).add(LoadAds(adId: widget.adId));
+                BlocProvider.of<B>(context).add(LoadAds(adId: null));
               } else if (state is AdLoading) {
                 return const Center(
                   child: CircularProgressIndicator(),
@@ -81,7 +79,8 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
                               padding: const EdgeInsets.only(top: 20.0),
                               child: _statCardBuilder(state.marketing.stats,
                                   (value) {
-                                context.push('${MechPage.campaigns.path()}${MechPage.adSets.path()}/${value.name}');
+                                final String path = '${MechPage.campaigns.path()}/${value.name}';
+                                context.push(path ,extra: path);
                               }),
                             ))
                           ],

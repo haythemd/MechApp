@@ -54,36 +54,44 @@ class MechRouter {
                 builder: (context, state) => const ProfileScreen(),
               ),
               GoRoute(
+                path: MechPage.campaigns.path(),
+                builder: ((context, state) => const CampaignsScreen()),
+              ),
+              GoRoute(
                   name: MechPage.campaigns.name(),
-                  path: MechPage.campaigns.path(),
-                  builder: ((context, state) => const CampaignsScreen()),
+                  path: "${MechPage.campaigns.path()}/:campaignId",
+                  builder: ((context, state) {
+                    var id = state.params["campaignId"] ?? "";
+                      return AdSetScreen(
+                        adSetId: id,
+                        parentPath: state.extra as String,
+                      );                    
+                  }),
                   routes: [
                     GoRoute(
-                        path: "${MechPage.adSets.name()}/:campaignId",
-                        builder: ((context, state) {
-                          var id = state.params["campaignId"] ?? "";
-                          return AdSetScreen(
-                            adSetId: id,
-                          );
-                        }),
-                        routes: [
-                          GoRoute(
-                              path: "${MechPage.ads.name()}/:adSetId",
-                              builder: ((context, state) {
-                                var id = state.params["adSetId"] ?? "";
-                                return AdsScreen(
-                                  adsId: id,
-                                );
-                              }))
-                        ])
+                      name: MechPage.adSets.name(),
+                      path: "${MechPage.adSets.name()}/:adSetId",
+                      builder: (context, state) {
+                        var id = state.params["adSetId"] ?? "";
+                        var parentPath = state.extra as String;
+                        return AdsScreen(
+                          adsId: id,
+                          parentPath: parentPath,
+                        );
+                      },
+                      // routes: [
+                      // GoRoute(
+                      //     path: "${MechPage.ads.name()}/:adsId:adsetId",
+                      //     builder: ((context, state) {
+                      //       var id = state.params["adsId"] ?? "";
+                      //       return AdScreen(
+                      //         adsId: id,
+                      //         parentPath: state.extra as String,
+                      //       );
+                      //     }))
+                      // ]
+                    ),
                   ]),
-              GoRoute(
-                name: MechPage.adSets.name(),
-                path: MechPage.adSets.path(),
-                builder: (context, state) => const AdSetScreen(
-                  adSetId: '',
-                ),
-              ),
             ]),
         GoRoute(
           name: MechPage.welcome.name(),
