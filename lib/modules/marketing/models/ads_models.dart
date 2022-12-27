@@ -30,4 +30,16 @@ AdsModels(
       _$AdsModelsFromJson(json);
 
   Map<String, dynamic> toJson() => _$AdsModelsToJson(this);
+
+  Map<String,num> getMetrics(){
+    return {
+      "Spend":totalSpend,
+      "Orders":totalOrders,
+      "CPP":totalCpp,
+      "CTR":totalCtr,
+      "CPC":totalCpc,
+      "Revenue":totalRevenue,
+    };
+
+  }
 }

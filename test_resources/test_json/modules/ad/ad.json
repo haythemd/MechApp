@@ -1,0 +1,46 @@
+{
+  "adMetrics": {
+    "id": "21533",
+    "name": "Gardener",
+    "totalSpend": 15444.32,
+    "totalOrders": 22,
+    "totalCpp": 555.0,
+    "totalCtr": 1,
+    "totalCpc": 3.44,
+    "totalRevenue": 2.54,
+    "stats": [
+      {
+        "id": "1",
+        "name": "1",
+        "spend": 1.9,
+        "orders": 2,
+        "cpp": 9523
+      }
+]
+  },
+  "creatives": [
+    {
+      "name": "Creative 2",
+      "photoUrl": "url",
+      "metrics": {
+        "id": "21533",
+        "name": "Gardener",
+        "totalSpend": 15444.32,
+        "totalOrders": 22,
+        "totalCpp": 555.0,
+        "totalCtr": 1,
+        "totalCpc": 3.44,
+        "totalRevenue": 2.54,
+        "stats": [
+          {
+            "id": "1",
+            "name": "1",
+            "spend": 1.9,
+            "orders": 2,
+            "cpp": 9523
+          }
+        ]
+      }
+    }
+  ]
+}

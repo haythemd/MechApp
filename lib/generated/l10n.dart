@@ -400,6 +400,76 @@ class S {
     );
   }
 
+  /// `Creatives`
+  String get creativesTitleText {
+    return Intl.message(
+      'Creatives',
+      name: 'creativesTitleText',
+      desc: ' Creatives plural and in Capitals',
+      args: [],
+    );
+  }
+
+  /// `Add New`
+  String get addNewButtonText {
+    return Intl.message(
+      'Add New',
+      name: 'addNewButtonText',
+      desc: ' Add New Text Button',
+      args: [],
+    );
+  }
+
+  /// `sort`
+  String get sortText {
+    return Intl.message(
+      'sort',
+      name: 'sortText',
+      desc: ' Show Metrics Button text',
+      args: [],
+    );
+  }
+
+  /// `Show Metrics`
+  String get showMetricsTextButton {
+    return Intl.message(
+      'Show Metrics',
+      name: 'showMetricsTextButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Spend`
+  String get spendMetricText {
+    return Intl.message(
+      'Spend',
+      name: 'spendMetricText',
+      desc: ' Spend text - capital',
+      args: [],
+    );
+  }
+
+  /// `Orders`
+  String get ordersMetricText {
+    return Intl.message(
+      'Orders',
+      name: 'ordersMetricText',
+      desc: ' Orders text - Capital and Plural',
+      args: [],
+    );
+  }
+
+  /// `CPP`
+  String get cppMetricText {
+    return Intl.message(
+      'CPP',
+      name: 'cppMetricText',
+      desc: ' CPP metric Text',
+      args: [],
+    );
+  }
+
   /// `Integrations`
   String get profileIntegrationsText {
     return Intl.message(

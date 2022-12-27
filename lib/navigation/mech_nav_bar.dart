@@ -70,9 +70,9 @@ class _MechNavBarState extends State<MechNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
-        widget.child,
+        Expanded(child: Container(child: widget.child)),
         Align(
             alignment: Alignment.bottomCenter,
             child: Container(

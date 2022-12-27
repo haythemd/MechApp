@@ -13,6 +13,8 @@ import 'package:mechalodon_mobile/modules/welcome/welcome_screen.dart';
 import 'package:mechalodon_mobile/navigation/app_link.dart';
 import 'package:mechalodon_mobile/navigation/mech_nav_bar.dart';
 
+import '../modules/ad/screens/ad_screen.dart';
+
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 class MechRouter {
@@ -79,17 +81,17 @@ class MechRouter {
                           parentPath: parentPath,
                         );
                       },
-                      // routes: [
-                      // GoRoute(
-                      //     path: "${MechPage.ads.name()}/:adsId:adsetId",
-                      //     builder: ((context, state) {
-                      //       var id = state.params["adsId"] ?? "";
-                      //       return AdScreen(
-                      //         adsId: id,
-                      //         parentPath: state.extra as String,
-                      //       );
-                      //     }))
-                      // ]
+                       routes: [
+                       GoRoute(
+                           path: "${MechPage.ads.name()}/:adsId",
+                           builder: ((context, state) {
+                             var id = state.params["adsId"] ?? "";
+                             return AdScreen(
+                               adId: id,
+                               parentPath: state.extra as String,
+                             );
+                           }))
+                       ]
                     ),
                   ]),
             ]),

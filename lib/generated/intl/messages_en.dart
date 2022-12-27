@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addNewButtonText": MessageLookupByLibrary.simpleMessage("Add New"),
         "backButtonText": MessageLookupByLibrary.simpleMessage("back"),
         "blankEmailErrorMessage":
             MessageLookupByLibrary.simpleMessage("An email must be provided"),
@@ -36,8 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Connect now"),
         "cookiePolicyText":
             MessageLookupByLibrary.simpleMessage("Cookie policy"),
+        "cppMetricText": MessageLookupByLibrary.simpleMessage("CPP"),
         "createAccountButtonTitle":
             MessageLookupByLibrary.simpleMessage("Create Account"),
+        "creativesTitleText": MessageLookupByLibrary.simpleMessage("Creatives"),
         "didntGetCodeText":
             MessageLookupByLibrary.simpleMessage("Didn\'t get a code?"),
         "emailAddressInputFieldHintText":
@@ -70,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Features coming soon"),
         "nextButtonText": MessageLookupByLibrary.simpleMessage("Next"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
+        "ordersMetricText": MessageLookupByLibrary.simpleMessage("Orders"),
         "passwordConfirmationError": MessageLookupByLibrary.simpleMessage(
             "Please make sure your password match"),
         "passwordInputFieldHintText":
@@ -102,6 +106,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Send Code"),
         "sendCodeReloadText":
             MessageLookupByLibrary.simpleMessage("Send code reload in"),
+        "showMetricsTextButton":
+            MessageLookupByLibrary.simpleMessage("Show Metrics"),
+        "sortText": MessageLookupByLibrary.simpleMessage("sort"),
+        "spendMetricText": MessageLookupByLibrary.simpleMessage("Spend"),
         "submitButtonText": MessageLookupByLibrary.simpleMessage("Submit"),
         "suggestAFeature":
             MessageLookupByLibrary.simpleMessage("Suggest a feature"),

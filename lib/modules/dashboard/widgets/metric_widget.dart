@@ -9,8 +9,9 @@ class MechMetricWidget extends StatelessWidget {
     required this.title,
     required this.value,
     required this.type,
+    this.titleOnTop = true,
   }) : super(key: key);
-
+  final bool titleOnTop;
   final String title;
   final double value;
   final MetricType type;
@@ -25,13 +26,14 @@ class MechMetricWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Column(
+          verticalDirection: titleOnTop?VerticalDirection.down:VerticalDirection.up,
           mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 title,
-                style: MechTextStyle.subheading5,
+                style: MechTextStyle.subheading5,maxLines: 1,textScaleFactor: 0.9,
               ),
               const SizedBox(
                 height: 5,

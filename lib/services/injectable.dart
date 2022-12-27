@@ -19,6 +19,10 @@ import 'package:mechalodon_mobile/services/auth_service.dart';
 import 'package:mechalodon_mobile/services/graphql_service.dart';
 import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/bloc/confirmation_code_bloc.dart';
 
+import 'package:mechalodon_mobile/modules/ad/bloc/ad_bloc.dart';
+
+import 'package:mechalodon_mobile/modules/ad/repo/ad_repository.dart';
+
 final serviceLocator = GetIt.instance;
 
 Future<void> initServiceLocator() async {
@@ -31,6 +35,7 @@ Future<void> initServiceLocator() async {
 
   /// Blocs (please keep these Alphabetical)
   serviceLocator.registerFactory<AdsBloc>(() => AdsBloc());
+  serviceLocator.registerFactory<AdBloc>(() => AdBloc());
   serviceLocator.registerFactory<AdSetBloc>(() => AdSetBloc());
   serviceLocator.registerFactory<CampaignsBloc>(() => CampaignsBloc());
   serviceLocator.registerFactory<ConfirmationCodeBloc>(() => ConfirmationCodeBloc());
@@ -42,6 +47,7 @@ Future<void> initServiceLocator() async {
 
   /// Repositories (please keep these Alphabetical)
   serviceLocator.registerFactory<AdsRepository>(() => AdsRepository());
+  serviceLocator.registerFactory<AdRepository>(() => AdRepository());
   serviceLocator.registerFactory<AdSetRepository>(() => AdSetRepository());
   serviceLocator
       .registerFactory<CampaignsRepository>(() => CampaignsRepository());

@@ -20,4 +20,6 @@ class AdModel {
       _$AdModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$AdModelToJson(this);
+
+
 }

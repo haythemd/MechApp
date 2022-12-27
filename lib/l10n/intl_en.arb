@@ -127,6 +127,45 @@
     "@nextButtonText": {
         "description": "Next Button Text"
     },
+    "navBarDashboardButton" : "Dashboard",
+    "@navBarDashboardButton" : {
+        "description" : "Dashboard - button description navbar"
+    }, "navBarCampaignButton" : "Campaign",
+    "@navBarCampaignButton" : {
+        "description" : "Campaign - button description navbar"
+    },
+    "navBarProfileButton" : "Profile",
+    "@navBarProfileButton" : {
+        "description" : "Profile - button description navbar"
+    },
+    "creativesTitleText" : "Creatives",
+    "@creativesTitleText" :{
+        "description" : " Creatives plural and in Capitals"
+    },
+    "addNewButtonText" : "Add New",
+    "@addNewButtonText" :{
+        "description" : " Add New Text Button"
+    },
+    "sortText" : "sort",
+    "@sortText" :{
+        "description" : " sort text - lowcase"
+    },
+    "showMetricsTextButton" : "Show Metrics",
+    "@sortText" :{
+        "description" : " Show Metrics Button text"
+    },
+    "spendMetricText" : "Spend",
+    "@spendMetricText" :{
+        "description" : " Spend text - capital"
+    },
+    "ordersMetricText" : "Orders",
+    "@ordersMetricText" :{
+        "description" : " Orders text - Capital and Plural"
+    },
+    "cppMetricText" : "CPP",
+    "@cppMetricText" :{
+        "description" : " CPP metric Text"
+    },
     "navBarDashboardButton": "Dashboard",
     "@navBarDashboardButton": {
         "description": "Dashboard - button description navbar"
