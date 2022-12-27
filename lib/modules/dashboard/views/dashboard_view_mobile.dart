@@ -8,7 +8,7 @@ import 'package:mechalodon_mobile/modules/dashboard/models/dashboard_model.dart'
 import 'package:mechalodon_mobile/modules/dashboard/widgets/date_switcher_widget.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/metric_widget.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/title_metric_widget.dart';
-import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
@@ -39,7 +39,7 @@ class _DashBoardMobileViewState extends State<DashBoardMobileView> {
               padding: const EdgeInsets.only(right: 8.0),
               child: IconButton(
                   onPressed: () {
-                    context.pushNamed(MechPage.profile.name());
+                    context.go(PageLink.profile);
                   },
                   icon: const Icon(
                     MechIcons.download,

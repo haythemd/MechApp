@@ -6,7 +6,7 @@ import 'package:mechalodon_mobile/modules/marketing/bloc/ad_state.dart';
 import 'package:mechalodon_mobile/modules/marketing/models/ad_model.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/overall_stats_widget.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/stat_card_widget.dart';
-import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
@@ -14,11 +14,10 @@ import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
 class AdSetMobileView<B extends Bloc<AdEvent, AdState>,
     C extends Bloc<AdEvent, AdState>> extends StatefulWidget {
-  const AdSetMobileView({Key? key, required this.parentPath, required this.adId})
+      final String adId;
+    
+  const AdSetMobileView({Key? key, required this.adId})
       : super(key: key);
-
-  final String parentPath;
-  final String adId;
 
   @override
   State<AdSetMobileView<B, C>> createState() => _AdSetMobileViewState();
@@ -32,7 +31,6 @@ class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
 
   @override
   Widget build(BuildContext context) {
-    print(widget.parentPath);
     super.build(context);
     return Scaffold(
         backgroundColor: MechColor.background,
@@ -81,9 +79,7 @@ class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
                           padding: const EdgeInsets.only(top: 20.0),
                           child:
                               _statCardBuilder(state.marketing.stats, (value) {
-                            final String path =
-                                '${widget.parentPath}${MechPage.adSets.path()}/${value.name}';
-                            context.go(path, extra: path);
+                            context.push(PageLink.adSetsPath(adSetId: value.name));
                           }),
                         ))
                       ],

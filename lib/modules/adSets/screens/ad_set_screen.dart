@@ -8,10 +8,9 @@ import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/utils/responsive.dart';
 
 class AdSetScreen extends StatelessWidget {
-  const AdSetScreen({Key? key, required this.adSetId, required this.parentPath}) : super(key: key);
+  const AdSetScreen({Key? key, required this.adSetId}) : super(key: key);
 
   final String adSetId;
-  final String parentPath;
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +19,12 @@ class AdSetScreen extends StatelessWidget {
       child: Responsive(
           mobile: AdSetMobileView<AdSetBloc, AdsBloc>(
             adId: adSetId,
-            parentPath: parentPath,
           ),
           desktop: AdSetMobileView<AdSetBloc, AdsBloc>(
             adId: adSetId,
-            parentPath: parentPath,
           ),
           tablet: AdSetMobileView<AdSetBloc, AdsBloc>(
             adId: adSetId,
-            parentPath: parentPath,
           )),
     );
   }

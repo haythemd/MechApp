@@ -8,17 +8,17 @@ import 'package:mechalodon_mobile/modules/ad/bloc/ad_bloc.dart';
 
 class AdScreen extends StatelessWidget {
 
-  final String adId;
-  const AdScreen({Key? key, required this.adId, required String parentPath}) : super(key: key);
+  final String? adId;
+  const AdScreen({Key? key, required this.adId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => serviceLocator<AdBloc>(),
       child:  Responsive(
-          mobile: AdMobile(id: adId,),
-          desktop: AdMobile(id: adId),
-          tablet: AdMobile(id: adId)),
+          mobile: AdMobile(adId: adId,),
+          desktop: AdMobile(adId: adId),
+          tablet: AdMobile(adId: adId)),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/components/buttons/primary_button.dart';
-import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 
 class WelcomeViewMobile extends StatelessWidget {
@@ -54,7 +54,7 @@ class WelcomeViewMobile extends StatelessWidget {
                       MechActionButton(
                         title: "Login",
                         onTap: () {
-                          context.push(MechPage.login.path());
+                          context.push(PageLink.login);
                         },
                         isPrimary: false,
                       ),

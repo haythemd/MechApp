@@ -6,7 +6,7 @@ import 'package:mechalodon_mobile/modules/marketing/bloc/ad_state.dart';
 import 'package:mechalodon_mobile/modules/marketing/models/ad_model.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/overall_stats_widget.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/stat_card_widget.dart';
-import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 
 // This same view will be used for campaigns, ads, and adsets.
@@ -37,61 +37,61 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
           ),
         ),
         body: BlocBuilder<B, AdState>(builder: (context, state) {
-              if (state is AdInitial) {
-                BlocProvider.of<B>(context).add(LoadAds(adId: null));
-              } else if (state is AdLoading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else if (state is AdSuccess) {
-                return Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      OverAllStats(stats: state.marketing),
-                      Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+          if (state is AdInitial) {
+            BlocProvider.of<B>(context).add(LoadAds(adId: null));
+          } else if (state is AdLoading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (state is AdSuccess) {
+            return Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  OverAllStats(stats: state.marketing),
+                  Expanded(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(
-                                  "Campaigns",
-                                  style: MechTextStyle.subheading3,
-                                ),
-                                InkWell(
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: const [
-                                      Icon(Icons.sort),
-                                      Text("Sort")
-                                    ],
-                                  ),
-                                ),
-                              ],
+                            const Text(
+                              "Campaigns",
+                              style: MechTextStyle.subheading3,
                             ),
-                            Expanded(
-                                child: Padding(
-                              padding: const EdgeInsets.only(top: 20.0),
-                              child: _statCardBuilder(state.marketing.stats,
-                                  (value) {
-                                final String path = '${MechPage.campaigns.path()}/${value.name}';
-                                context.push(path ,extra: path);
-                              }),
-                            ))
+                            InkWell(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: const [
+                                  Icon(Icons.sort),
+                                  Text("Sort")
+                                ],
+                              ),
+                            ),
                           ],
                         ),
-                      ),
-                    ],
+                        Expanded(
+                            child: Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child:
+                              _statCardBuilder(state.marketing.stats, (value) {
+                            context.push(
+                                PageLink.campaignsPath(campaignId: value.name));
+                          }),
+                        ))
+                      ],
+                    ),
                   ),
-                );
-              }
-              return Container();
-            }));
+                ],
+              ),
+            );
+          }
+          return Container();
+        }));
   }
 
   Widget _statCardBuilder(

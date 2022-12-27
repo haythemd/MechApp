@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/components/buttons/primary_button.dart';
 import 'package:mechalodon_mobile/generated/l10n.dart';
 import 'package:mechalodon_mobile/modules/reset_password/send_reset_sms/bloc/bloc/send_reset_sms_bloc.dart';
-import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
@@ -60,7 +60,7 @@ class SendResetSMSView extends StatelessWidget {
         builder: (context, state) {
           if (state is TextMessageSentSuccess) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              context.push(MechPage.resetPassword.path());
+              context.push(PageLink.resetPassword);
               // TODO replace with confirmation page
             });
           }

@@ -6,7 +6,7 @@ import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/bloc
 import 'package:mechalodon_mobile/styles/style.dart';
 
 import 'package:mechalodon_mobile/generated/l10n.dart';
-import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
 import 'package:mechalodon_mobile/utils/validators.dart';
@@ -41,7 +41,7 @@ class _ResetPasswordMobileViewState extends State<ResetPasswordMobileView> {
           builder: (context, state) {
         if (state is ResetPasswordSuccess) {
           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-            context.go(MechPage.login.path());
+            context.go(PageLink.login);
           });
         }
         return Stack(

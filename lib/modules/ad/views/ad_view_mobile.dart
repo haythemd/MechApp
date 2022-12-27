@@ -14,36 +14,40 @@ import 'package:mechalodon_mobile/generated/l10n.dart';
 import '../../marketing/widgets/overall_stats_widget.dart';
 
 class AdMobile extends StatefulWidget {
-  final String id;
-  const AdMobile({Key? key, required this.id}) : super(key: key);
+  const AdMobile({Key? key, required this.adId}) : super(key: key);
+
+  final String? adId;
 
   @override
   State<AdMobile> createState() => _AdMobileState();
 }
 
 class _AdMobileState extends State<AdMobile> {
-   var s = serviceLocator<S>();
+  var s = serviceLocator<S>();
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AdBloc, AdState>(builder: (context, state) {
       if (state is AdInitial) {
-        BlocProvider.of<AdBloc>(context).add(LoadAd(id: widget.id));
+        BlocProvider.of<AdBloc>(context)
+            .add(LoadAd(id: widget.adId ?? 'Ad'));
       }
       if (state is AdSuccess) {
-
         return Scaffold(
           backgroundColor: Colors.white,
-          appBar: MechWidgets.appBar(title: state.ad.adMetrics.name ?? 'Ad', context: context,trailing: Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  MechIcons.download,
-                  color: MechColor.inactive,
-                  size: 23,
-                )),
-          )),
+          appBar: MechWidgets.appBar(
+              title: state.ad.adMetrics.name ?? 'Ad',
+              context: context,
+              trailing: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      MechIcons.download,
+                      color: MechColor.inactive,
+                      size: 23,
+                    )),
+              )),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18),
             child: SingleChildScrollView(
@@ -54,22 +58,29 @@ class _AdMobileState extends State<AdMobile> {
                     height: 24,
                     child: Row(
                       children: [
-                        Text(s.creativesTitleText,
+                        Text(
+                          s.creativesTitleText,
                           style: MechTextStyle.subheading3
                               .copyWith(color: Colors.black),
                         ),
                         Expanded(child: Container()),
                         Padding(
                           padding: const EdgeInsets.only(right: 6.0),
-                          child: InkWell(onTap: (){},child: SvgPicture.asset("assets/icons/sort.svg"),),
+                          child: InkWell(
+                            onTap: () {},
+                            child: SvgPicture.asset("assets/icons/sort.svg"),
+                          ),
                         ),
-                         Text(s.sortText,style: MechTextStyle.subheading3
-                             .copyWith(color: const Color(0xFF323232)),)
+                        Text(
+                          s.sortText,
+                          style: MechTextStyle.subheading3
+                              .copyWith(color: const Color(0xFF323232)),
+                        )
                       ],
                     ),
                   ),
                   ...state.ad.creatives!.map(
-                    (e) => MechAnimatedCard(creative:e),
+                    (e) => MechAnimatedCard(creative: e),
                   )
                 ],
               ),
@@ -83,6 +94,4 @@ class _AdMobileState extends State<AdMobile> {
       return const MechLoadingWidget();
     });
   }
-  
-
 }

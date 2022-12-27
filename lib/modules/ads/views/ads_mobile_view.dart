@@ -6,7 +6,7 @@ import 'package:mechalodon_mobile/modules/marketing/bloc/ad_state.dart';
 import 'package:mechalodon_mobile/modules/marketing/models/ad_model.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/overall_stats_widget.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/stat_card_widget.dart';
-import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_widgets.dart';
@@ -15,12 +15,9 @@ import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
 class AdsMobileView<B extends Bloc<AdEvent, AdState>,
     C extends Bloc<AdEvent, AdState>> extends StatefulWidget {
-  const AdsMobileView({Key? key, required this.adId, required this.parentPath})
-      : super(key: key);
+  const AdsMobileView({Key? key, required this.adId}) : super(key: key);
 
-  final String parentPath;
   final String adId;
-
   @override
   State<AdsMobileView<B, C>> createState() => _AdsMobileViewState();
 }
@@ -80,8 +77,7 @@ class _AdsMobileViewState<B extends Bloc<AdEvent, AdState>,
                           padding: const EdgeInsets.only(top: 20.0),
                           child:
                               _statCardBuilder(state.marketing.stats, (value) {
-                            final String path = '${widget.parentPath}${MechPage.ads.path()}/${value.name}';
-                            context.go(path, extra: path);
+                            context.go(PageLink.adsPath(adId: value.name));
                           }),
                         ))
                       ],

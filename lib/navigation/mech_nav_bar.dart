@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/generated/l10n.dart';
-import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
@@ -19,9 +19,9 @@ class _MechNavBarState extends State<MechNavBar> {
   final _s = serviceLocator<S>();
 
   int _selectedIndex = 0;
-  String _dashboardPath = MechPage.dashboard.path();
-  String _campaignsPath = MechPage.campaigns.path();
-  String profilePath = MechPage.profile.path();
+  String _dashboardPath = PageLink.dashboard;
+  String _campaignsPath = PageLink.campaigns;
+  String profilePath = PageLink.profile;
 
   void _selectScreen(int index) {
     switch (index) {
@@ -80,7 +80,7 @@ class _MechNavBarState extends State<MechNavBar> {
               width: double.infinity,
               color: Theme.of(context).primaryColor,
               child: Padding(
-                padding: const EdgeInsets.only(left: 30, right: 30,bottom: 20),
+                padding: const EdgeInsets.only(left: 30, right: 30, bottom: 20),
                 child: Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -119,7 +119,7 @@ class _MechNavBarState extends State<MechNavBar> {
 class MechNavItem {
   final IconData icon;
   final String title;
-  final MechPage page;
+  final PageLink page;
   MechNavItem({required this.icon, required this.page, required this.title});
 }
 

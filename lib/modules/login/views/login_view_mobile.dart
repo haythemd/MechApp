@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/components/buttons/primary_button.dart';
 import 'package:mechalodon_mobile/generated/l10n.dart';
 import 'package:mechalodon_mobile/modules/login/bloc/login_bloc.dart';
-import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
@@ -177,7 +177,7 @@ class _LoginViewMobileState extends State<LoginViewMobile> {
                                     child: TextButton(
                                         onPressed: () {
                                           context.push(
-                                              MechPage.enterPhone.path());
+                                              PageLink.enterPhone);
                                         },
                                         child: Text(
                                           s.resetPasswordButtonText,

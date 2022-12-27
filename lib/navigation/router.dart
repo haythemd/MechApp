@@ -10,7 +10,7 @@ import 'package:mechalodon_mobile/modules/profile/screens/profile_screen.dart';
 import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/screens/reset_password_screen.dart';
 import 'package:mechalodon_mobile/modules/reset_password/send_reset_sms/screens/send_reset_sms_screen.dart';
 import 'package:mechalodon_mobile/modules/welcome/welcome_screen.dart';
-import 'package:mechalodon_mobile/navigation/app_link.dart';
+import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/navigation/mech_nav_bar.dart';
 
 import '../modules/ad/screens/ad_screen.dart';
@@ -37,7 +37,7 @@ class MechRouter {
 
   GoRouter _initializeRouter() {
     return GoRouter(
-      initialLocation: MechPage.dashboard.path(),
+      initialLocation: PageLink.dashboard,
       routes: [
         ShellRoute(
             navigatorKey: _rootNavigatorKey,
@@ -46,80 +46,66 @@ class MechRouter {
             },
             routes: [
               GoRoute(
-                name: MechPage.dashboard.name(),
-                path: MechPage.dashboard.path(),
+                path: PageLink.dashboard,
                 builder: (context, state) => const DashboardScreen(),
               ),
               GoRoute(
-                name: MechPage.profile.name(),
-                path: MechPage.profile.path(),
+                path: PageLink.profile,
                 builder: (context, state) => const ProfileScreen(),
               ),
               GoRoute(
-                path: MechPage.campaigns.path(),
+                path: PageLink.campaigns,
                 builder: ((context, state) => const CampaignsScreen()),
               ),
               GoRoute(
-                  name: MechPage.campaigns.name(),
-                  path: "${MechPage.campaigns.path()}/:campaignId",
+                  path: "${PageLink.campaigns}/:campaignId",
                   builder: ((context, state) {
-                    var id = state.params["campaignId"] ?? "";
+                      var id = state.params['campaignId'];
                       return AdSetScreen(
-                        adSetId: id,
-                        parentPath: state.extra as String,
+                        adSetId: id ?? '',
                       );                    
                   }),
                   routes: [
                     GoRoute(
-                      name: MechPage.adSets.name(),
-                      path: "${MechPage.adSets.name()}/:adSetId",
+                      path: "${PageLink.adSets}/:adSetId",
                       builder: (context, state) {
-                        var id = state.params["adSetId"] ?? "";
-                        var parentPath = state.extra as String;
+                        var id = state.params['adSetId'];
                         return AdsScreen(
-                          adsId: id,
-                          parentPath: parentPath,
+                          adsId: id ?? '',
                         );
                       },
                        routes: [
                        GoRoute(
-                           path: "${MechPage.ads.name()}/:adsId",
+                           path: "${PageLink.ads}/:adsId",
                            builder: ((context, state) {
-                             var id = state.params["adsId"] ?? "";
-                             return AdScreen(
-                               adId: id,
-                               parentPath: state.extra as String,
-                             );
+                              var id = state.params['adsId'];
+                             return AdScreen(adId: id,);
                            }))
                        ]
                     ),
                   ]),
             ]),
         GoRoute(
-          name: MechPage.welcome.name(),
-          path: MechPage.welcome.path(),
+          path: PageLink.welcome,
           builder: (context, state) => const WelcomeScreen(),
         ),
         GoRoute(
-          name: MechPage.login.name(),
-          path: MechPage.login.path(),
+          path: PageLink.login,
           builder: (context, state) => const LoginScreen(),
         ),
         GoRoute(
-          name: MechPage.sms.name(),
-          path: MechPage.sms.path(),
+          path: PageLink.sms,
           builder: (context, state) => const SendResetSMSScreen(),
         ),
         GoRoute(
-            name: MechPage.resetPassword.name(),
-            path: MechPage.resetPassword.path(),
+            path: PageLink.resetPassword,
             builder: (context, state) => const ResetPasswordScreen()),
         GoRoute(
-            name: MechPage.confirmCode.name(),
-            path: MechPage.confirmCode.path(),
+            path: PageLink.confirmCode,
             builder: (context, state) =>
                 const ResetPasswordCodeConfirmationScreen()),
       ],
     );
   }
 }
+
