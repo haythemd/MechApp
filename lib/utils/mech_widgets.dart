@@ -8,6 +8,7 @@ class MechWidgets {
       String? subtitle,
       required BuildContext context,
       bool showBackButton = true,
+      VoidCallback? onBackPressed,
       Widget? trailing}) {
     {
       return AppBar(
@@ -37,7 +38,13 @@ class MechWidgets {
                               Icons.chevron_left,
                               color: MechColor.primary,
                             ),
-                            onTap: () => context.pop()),
+                            onTap: () {
+                              if (onBackPressed != null) {
+                                onBackPressed();
+                              } else {
+                                context.pop();
+                              }
+                            }),
                       ),
                     ],
                   )
@@ -51,7 +58,7 @@ class MechWidgets {
                   fontWeight: FontWeight.bold, color: MechColor.labelColor),
             ),
             if (subtitle != null)
-              SizedBox(
+              const SizedBox(
                 height: 3,
               ),
             if (subtitle != null)

@@ -24,12 +24,19 @@ class _MechNavBarState extends State<MechNavBar> {
   String profilePath = PageLink.profile;
 
   void _selectScreen(int index) {
+    if (_selectedIndex == index && index != 1) {
+      return;
+    }
     switch (index) {
       case 0:
         _refreshSelection(index);
         context.go(_dashboardPath);
         break;
       case 1:
+        if (_selectedIndex == 1) {
+          context.go(PageLink.campaigns);
+          return;
+        }
         _refreshSelection(index);
         context.go(_campaignsPath);
         break;
@@ -88,7 +95,6 @@ class _MechNavBarState extends State<MechNavBar> {
               ),
               height: 78,
               width: double.infinity,
-              
               child: Padding(
                 padding: const EdgeInsets.only(left: 30, right: 30, bottom: 20),
                 child: Center(
@@ -104,7 +110,7 @@ class _MechNavBarState extends State<MechNavBar> {
                       ),
                       _MechNavItem(
                         icon: MechIcons.megaphone,
-                        title: _s.navBarCampaignButton,
+                        title: _s.navBarManagerButton,
                         isSelected: _selectedIndex == 1,
                         index: 1,
                         onTap: _selectScreen,
@@ -153,9 +159,7 @@ class _MechNavItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        if (!isSelected) {
           onTap(index);
-        }
       },
       child: Container(
         width: 60,

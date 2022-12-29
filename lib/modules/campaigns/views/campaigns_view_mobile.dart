@@ -32,7 +32,8 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
     super.build(context);
     return Scaffold(
         backgroundColor: MechColor.background,
-        appBar: MechWidgets.appBar(title: "CAMPAIGNS", context: context,showBackButton: false),
+        appBar: MechWidgets.appBar(
+            title: "Manager", context: context, showBackButton: false),
         body: BlocBuilder<B, AdState>(builder: (context, state) {
           if (state is AdInitial) {
             BlocProvider.of<B>(context).add(LoadAds(adId: null));
@@ -45,6 +46,22 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 OverAllStats(stats: state.marketing),
+                const SizedBox(
+                  height: 5,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        "Campaigns",
+                        style: MechTextStyle.subheading3,
+                      ),
+                    ],
+                  ),
+                ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 18.0),
@@ -75,7 +92,9 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
     return SingleChildScrollView(
         child: Column(
       children: [
-        const SizedBox(height: 10,),
+        const SizedBox(
+          height: 10,
+        ),
         for (var stat in stats)
           StatCard(
             model: stat,

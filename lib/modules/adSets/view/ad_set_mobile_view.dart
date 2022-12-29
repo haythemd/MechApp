@@ -34,7 +34,12 @@ class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
     return Scaffold(
         backgroundColor: MechColor.background,
         appBar: MechWidgets.appBar(
-            subtitle: widget.adId, title: 'ADSETS', context: context),
+            onBackPressed: () {
+              context.go(PageLink.campaigns);
+            },
+            subtitle: widget.adId,
+            title: 'CAMPAIGN',
+            context: context),
         body: BlocBuilder<B, AdState>(builder: (context, state) {
           if (state is AdInitial) {
             BlocProvider.of<B>(context).add(LoadAds(adId: widget.adId));
@@ -47,6 +52,22 @@ class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 OverAllStats(stats: state.marketing),
+                const SizedBox(
+                  height: 5,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        "Adsets",
+                        style: MechTextStyle.subheading3,
+                      ),
+                    ],
+                  ),
+                ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 18.0),

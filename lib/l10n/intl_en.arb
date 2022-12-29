@@ -130,9 +130,9 @@
     "navBarDashboardButton" : "Dashboard",
     "@navBarDashboardButton" : {
         "description" : "Dashboard - button description navbar"
-    }, "navBarCampaignButton" : "Campaign",
-    "@navBarCampaignButton" : {
-        "description" : "Campaign - button description navbar"
+    }, "navBarManagerButton" : "Manager",
+    "@navBarManagerButton" : {
+        "description" : "Ad Manager - button description navbar"
     },
     "navBarProfileButton" : "Profile",
     "@navBarProfileButton" : {
@@ -151,7 +151,7 @@
         "description" : " sort text - lowcase"
     },
     "showMetricsTextButton" : "Show Metrics",
-    "@sortText" :{
+    "@showMetricsTextButton" :{
         "description" : " Show Metrics Button text"
     },
     "spendMetricText" : "Spend",
@@ -165,18 +165,6 @@
     "cppMetricText" : "CPP",
     "@cppMetricText" :{
         "description" : " CPP metric Text"
-    },
-    "navBarDashboardButton": "Dashboard",
-    "@navBarDashboardButton": {
-        "description": "Dashboard - button description navbar"
-    },
-    "navBarCampaignButton": "Campaign",
-    "@navBarCampaignButton": {
-        "description": "Campaign - button description navbar"
-    },
-    "navBarProfileButton": "Profile",
-    "@navBarProfileButton": {
-        "description": "Profile - button description navbar"
     },
     "profileIntegrationsText": "Integrations",
     "@profileIntegrationsText": {

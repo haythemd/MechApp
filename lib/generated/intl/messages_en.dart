@@ -64,10 +64,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginButtonTitle": MessageLookupByLibrary.simpleMessage("Login"),
         "loginViewTitle":
             MessageLookupByLibrary.simpleMessage("Make your ads work"),
-        "navBarCampaignButton":
-            MessageLookupByLibrary.simpleMessage("Campaign"),
         "navBarDashboardButton":
             MessageLookupByLibrary.simpleMessage("Dashboard"),
+        "navBarManagerButton": MessageLookupByLibrary.simpleMessage("Manager"),
         "navBarProfileButton": MessageLookupByLibrary.simpleMessage("Profile"),
         "newFeatures":
             MessageLookupByLibrary.simpleMessage("Features coming soon"),

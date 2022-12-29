@@ -380,12 +380,12 @@ class S {
     );
   }
 
-  /// `Campaign`
-  String get navBarCampaignButton {
+  /// `Manager`
+  String get navBarManagerButton {
     return Intl.message(
-      'Campaign',
-      name: 'navBarCampaignButton',
-      desc: 'Campaign - button description navbar',
+      'Manager',
+      name: 'navBarManagerButton',
+      desc: 'Ad Manager - button description navbar',
       args: [],
     );
   }
@@ -425,7 +425,7 @@ class S {
     return Intl.message(
       'sort',
       name: 'sortText',
-      desc: ' Show Metrics Button text',
+      desc: ' sort text - lowcase',
       args: [],
     );
   }
@@ -435,7 +435,7 @@ class S {
     return Intl.message(
       'Show Metrics',
       name: 'showMetricsTextButton',
-      desc: '',
+      desc: ' Show Metrics Button text',
       args: [],
     );
   }

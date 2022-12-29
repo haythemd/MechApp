@@ -35,7 +35,7 @@ class _AdMobileState extends State<AdMobile> {
         return Scaffold(
           backgroundColor: Colors.white,
           appBar: MechWidgets.appBar(
-              title: 'CREATIVES',
+              title: 'AD',
               subtitle: widget.adId ?? 'Ad',
               context: context,
               trailing: Padding(
@@ -51,6 +51,22 @@ class _AdMobileState extends State<AdMobile> {
           body: Column(
             children: [
               OverAllStats(stats: state.ad.adMetrics),
+              const SizedBox(
+                  height: 5,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        "Creatives",
+                        style: MechTextStyle.subheading3,
+                      ),
+                    ],
+                  ),
+                ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal:18.0),
