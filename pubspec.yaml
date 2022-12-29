@@ -49,6 +49,7 @@ dependencies:
   graphql: ^5.1.1
   pin_code_fields: ^7.4.0
   flutter_countdown_timer: ^4.1.0
+  flip_card: ^0.6.0
 
 dev_dependencies:
 
