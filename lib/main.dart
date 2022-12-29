@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mechalodon_mobile/navigation/router.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -15,6 +16,9 @@ class MechalodonApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+      ]);
     MechRouter router = MechRouter();
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
