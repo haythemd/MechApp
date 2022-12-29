@@ -24,12 +24,15 @@ class _MechAnimatedCardState extends State<MechAnimatedCard>
 
   @override
   Widget build(BuildContext context) {
-    return FlipCard(controller: _flipCardController, front: _frontOfCard(), back: _backOfCard());
+    return FlipCard(
+        controller: _flipCardController,
+        front: _frontOfCard(),
+        back: _backOfCard());
   }
 
   Widget _frontOfCard() {
     return Container(
-      margin: const EdgeInsets.only(top: 18, bottom: 6),
+      margin: const EdgeInsets.only( bottom: 6),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 18),
       height: 410,
       width: double.infinity,
@@ -65,8 +68,7 @@ class _MechAnimatedCardState extends State<MechAnimatedCard>
                 Text(
                   s.showMetricsTextButton,
                   style: MechTextStyle.subheading3.copyWith(
-                      fontSize: 12,
-                      decoration: TextDecoration.underline),
+                      fontSize: 12, decoration: TextDecoration.underline),
                 )
               ],
             ),
@@ -128,41 +130,17 @@ class _MechAnimatedCardState extends State<MechAnimatedCard>
       decoration: const BoxDecoration(
           color: Color(0xFFE9E9E9), borderRadius: MechBorderRadius.radius),
       child: GridView(
+        physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisSpacing: 10, mainAxisSpacing: 10, crossAxisCount: 3),
         children: [
-          ...widget.creative.metrics
-              .getMetrics()
-              .keys
-              .map((e) => MechMetricWidget(
-                    title: e,
-                    type: MetricType.moneyShort,
-                    value:
-                        widget.creative.metrics.getMetrics()[e]?.toDouble() ??
-                            0,
-                    titleOnTop: false,
-                  )),
-          // This will later be implemented so that the user can add in new metrics they want to track
-          // Padding(
-          //   padding: const EdgeInsets.all(8.0),
-          //   child: GestureDetector(
-          //     onTap: () {},
-          //     child: Container(
-          //       decoration: const BoxDecoration(
-          //           borderRadius: BorderRadius.all(Radius.circular(15)),
-          //           color: MechColor.foreground),
-          //       width: 90,
-          //       height: 90,
-          //       child: Padding(
-          //         padding: const EdgeInsets.all(18.0),
-          //         child: Column(mainAxisAlignment: MainAxisAlignment.center, children:  [
-          //           const Icon(Icons.add),
-          //           Text(s.addNewButtonText, style: MechTextStyle.subheading3.copyWith(color: const Color(0xFF323232),fontSize: 12),)
-          //         ]),
-          //       ),
-          //     ),
-          //   ),
-          // )
+          ...widget.creative.metrics.getMetrics().keys.map((e) =>
+              MechMetricWidget(
+                title: e,
+                type: MetricType.moneyShort,
+                value: widget.creative.metrics.getMetrics()[e]?.toDouble() ?? 0,
+                titleOnTop: false,
+              )),
         ],
       ),
     );

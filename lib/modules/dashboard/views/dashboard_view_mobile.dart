@@ -2,16 +2,15 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/modules/dashboard/bloc/dashboard_bloc.dart';
 import 'package:mechalodon_mobile/modules/dashboard/models/dashboard_model.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/date_switcher_widget.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/metric_widget.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/title_metric_widget.dart';
-import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
+import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
 class DashBoardMobileView extends StatefulWidget {
   const DashBoardMobileView({Key? key}) : super(key: key);
@@ -29,26 +28,7 @@ class _DashBoardMobileViewState extends State<DashBoardMobileView> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: MechColor.background,
-        appBar: AppBar(
-          title: const Text(
-            "MECHALODON",
-            style: MechTextStyle.subtitle,
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: IconButton(
-                  onPressed: () {
-                    context.go(PageLink.profile);
-                  },
-                  icon: const Icon(
-                    MechIcons.download,
-                    color: MechColor.inactive,
-                    size: 23,
-                  )),
-            )
-          ],
-        ),
+        appBar: MechWidgets.appBar(title: "MECHALODON", context: context,showBackButton: false),
         body: BlocBuilder<DashboardBloc, DashboardState>(
                 builder: (context, state) {
               if (state is DashboardInitial) {
@@ -56,22 +36,15 @@ class _DashBoardMobileViewState extends State<DashBoardMobileView> {
                     .add(LoadDashboardData(selectedPeriodInDays));
               }
               if (state is DashboardLoading) {
-                return Center(child: const MechLoadingWidget());
+                return const Center(child: MechLoadingWidget());
               } else if (state is DashboardSuccess) {
                 return Padding(
-                  padding: const EdgeInsets.all(18.0),
+                  padding: const  EdgeInsets.only(top:18.0, left: 18.0, right: 18.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       _headerTotals(state.data),
-                      // const Padding(
-                      //   padding: EdgeInsets.all(23.0),
-                      //   child: Icon(
-                      //     MechIcons.facebook,
-                      //     size: 40,
-                      //   ),
-                      // ),
                       const SizedBox(
                         height: 20,
                       ),
@@ -85,6 +58,9 @@ class _DashBoardMobileViewState extends State<DashBoardMobileView> {
                                 .add(LoadDashboardData(selectedPeriodInDays));
                           }
                         },
+                      ),
+                            const SizedBox(
+                        height: 20,
                       ),
                       Expanded(child: _bottomMetrics(state.data))
                     ],

@@ -15,6 +15,7 @@ import 'package:mechalodon_mobile/modules/profile/repository/profile_repository.
 import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/bloc/reset_password_bloc.dart';
 import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/repository/reset_password_repository.dart';
 import 'package:mechalodon_mobile/modules/reset_password/send_reset_sms/bloc/bloc/send_reset_sms_bloc.dart';
+import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/services/auth_service.dart';
 import 'package:mechalodon_mobile/services/graphql_service.dart';
 import 'package:mechalodon_mobile/modules/reset_password/confirmation_screen/bloc/confirmation_code_bloc.dart';
@@ -30,6 +31,7 @@ Future<void> initServiceLocator() async {
   serviceLocator.registerLazySingleton<S>(() => S());
 
   /// Services
+  serviceLocator.registerLazySingleton<PageLink>(() => PageLink());
   serviceLocator.registerLazySingleton<AuthService>(() => AuthService());
   serviceLocator.registerLazySingleton<GraphQLService>(() => GraphQLService());
 

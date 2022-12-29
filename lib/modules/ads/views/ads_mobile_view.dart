@@ -7,7 +7,6 @@ import 'package:mechalodon_mobile/modules/marketing/models/ad_model.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/overall_stats_widget.dart';
 import 'package:mechalodon_mobile/modules/marketing/widgets/stat_card_widget.dart';
 import 'package:mechalodon_mobile/navigation/page_links.dart';
-import 'package:mechalodon_mobile/styles/mech_icons_icons.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
@@ -33,7 +32,7 @@ class _AdsMobileViewState<B extends Bloc<AdEvent, AdState>,
     super.build(context);
     return Scaffold(
         backgroundColor: MechColor.background,
-        appBar: MechWidgets.appBar(title: widget.adId, context: context),
+        appBar: MechWidgets.appBar(subtitle: widget.adId, title: 'ADS',context: context),
         body: BlocBuilder<B, AdState>(builder: (context, state) {
           if (state is AdInitial) {
             BlocProvider.of<B>(context).add(LoadAds(adId: widget.adId));
@@ -42,67 +41,46 @@ class _AdsMobileViewState<B extends Bloc<AdEvent, AdState>,
               child: CircularProgressIndicator(),
             );
           } else if (state is AdSuccess) {
-            return Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  OverAllStats(stats: state.marketing),
-                  Expanded(
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                OverAllStats(stats: state.marketing),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal:18.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              "Ads",
-                              style: MechTextStyle.subheading3,
-                            ),
-                            InkWell(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: const [
-                                  Icon(Icons.sort),
-                                  Text("Sort")
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
                         Expanded(
-                            child: Padding(
-                          padding: const EdgeInsets.only(top: 20.0),
-                          child:
-                              _statCardBuilder(state.marketing.stats, (value) {
-                            context.go(PageLink.adsPath(adId: value.name));
-                          }),
-                        ))
+                            child: _statCardBuilder(state.marketing.stats, (value) {
+                            context.push(PageLink.adsPath(adId: value.name));
+                          }))
                       ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             );
           }
           return Container();
         }));
   }
 
-  Widget _statCardBuilder(
+   Widget _statCardBuilder(
       List<AdModel> stats, ValueChanged<AdModel> onStatCardPressed) {
     super.build(context);
-    return ListView.builder(
-        shrinkWrap: true,
-        itemCount: stats.length,
-        itemBuilder: (context, index) {
-          return StatCard(
+    return SingleChildScrollView(
+        child: Column(
+      children: [
+        const SizedBox(height: 10,),
+        for (var stat in stats)
+          StatCard(
+            model: stat,
             onStatCardPressed: onStatCardPressed,
-            model: stats[index],
-          );
-        });
+          )
+      ],
+    ));
   }
 
   @override

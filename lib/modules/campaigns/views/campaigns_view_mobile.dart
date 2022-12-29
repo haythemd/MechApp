@@ -8,6 +8,7 @@ import 'package:mechalodon_mobile/modules/marketing/widgets/overall_stats_widget
 import 'package:mechalodon_mobile/modules/marketing/widgets/stat_card_widget.dart';
 import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
+import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
 // This same view will be used for campaigns, ads, and adsets.
 
@@ -28,14 +29,10 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
         backgroundColor: MechColor.background,
-        appBar: AppBar(
-          title: const Text(
-            "CAMPAIGN",
-            style: MechTextStyle.subtitle,
-          ),
-        ),
+        appBar: MechWidgets.appBar(title: "CAMPAIGNS", context: context,showBackButton: false),
         body: BlocBuilder<B, AdState>(builder: (context, state) {
           if (state is AdInitial) {
             BlocProvider.of<B>(context).add(LoadAds(adId: null));
@@ -44,50 +41,28 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
               child: CircularProgressIndicator(),
             );
           } else if (state is AdSuccess) {
-            return Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  OverAllStats(stats: state.marketing),
-                  Expanded(
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                OverAllStats(stats: state.marketing),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              "Campaigns",
-                              style: MechTextStyle.subheading3,
-                            ),
-                            InkWell(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: const [
-                                  Icon(Icons.sort),
-                                  Text("Sort")
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
                         Expanded(
-                            child: Padding(
-                          padding: const EdgeInsets.only(top: 20.0),
-                          child:
-                              _statCardBuilder(state.marketing.stats, (value) {
-                            context.push(
-                                PageLink.campaignsPath(campaignId: value.name));
-                          }),
-                        ))
+                            child: _statCardBuilder(state.marketing.stats,
+                                (value) {
+                          context.push(
+                              PageLink.campaignsPath(campaignId: value.name));
+                        }))
                       ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             );
           }
           return Container();
@@ -97,15 +72,17 @@ class _CampaignsMobileViewState<B extends Bloc<AdEvent, AdState>,
   Widget _statCardBuilder(
       List<AdModel> stats, ValueChanged<AdModel> onStatCardPressed) {
     super.build(context);
-    return ListView.builder(
-        shrinkWrap: true,
-        itemCount: stats.length,
-        itemBuilder: (context, index) {
-          return StatCard(
+    return SingleChildScrollView(
+        child: Column(
+      children: [
+        const SizedBox(height: 10,),
+        for (var stat in stats)
+          StatCard(
+            model: stat,
             onStatCardPressed: onStatCardPressed,
-            model: stats[index],
-          );
-        });
+          )
+      ],
+    ));
   }
 
   @override

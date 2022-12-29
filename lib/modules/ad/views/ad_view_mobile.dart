@@ -29,14 +29,14 @@ class _AdMobileState extends State<AdMobile> {
   Widget build(BuildContext context) {
     return BlocBuilder<AdBloc, AdState>(builder: (context, state) {
       if (state is AdInitial) {
-        BlocProvider.of<AdBloc>(context)
-            .add(LoadAd(id: widget.adId ?? 'Ad'));
+        BlocProvider.of<AdBloc>(context).add(LoadAd(id: widget.adId ?? 'Ad'));
       }
       if (state is AdSuccess) {
         return Scaffold(
           backgroundColor: Colors.white,
           appBar: MechWidgets.appBar(
-              title: state.ad.adMetrics.name ?? 'Ad',
+              title: 'CREATIVES',
+              subtitle: widget.adId ?? 'Ad',
               context: context,
               trailing: Padding(
                 padding: const EdgeInsets.only(right: 8.0),
@@ -48,43 +48,28 @@ class _AdMobileState extends State<AdMobile> {
                       size: 23,
                     )),
               )),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  OverAllStats(stats: state.ad.adMetrics),
-                  SizedBox(
-                    height: 24,
-                    child: Row(
-                      children: [
-                        Text(
-                          s.creativesTitleText,
-                          style: MechTextStyle.subheading3
-                              .copyWith(color: Colors.black),
-                        ),
-                        Expanded(child: Container()),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 6.0),
-                          child: InkWell(
-                            onTap: () {},
-                            child: SvgPicture.asset("assets/icons/sort.svg"),
-                          ),
-                        ),
-                        Text(
-                          s.sortText,
-                          style: MechTextStyle.subheading3
-                              .copyWith(color: const Color(0xFF323232)),
-                        )
-                      ],
-                    ),
+          body: Column(
+            children: [
+              OverAllStats(stats: state.ad.adMetrics),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal:18.0),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: state.ad.creatives?.length,
+                    itemBuilder: (context, index) {
+                      if (state.ad.creatives?[index] != null) {
+                        return MechAnimatedCard(
+                          creative: state.ad.creatives![index],
+                        );
+                      } else {
+                        return Container();
+                      }
+                    },
                   ),
-                  ...state.ad.creatives!.map(
-                    (e) => MechAnimatedCard(creative: e),
-                  )
-                ],
+                ),
               ),
-            ),
+            ],
           ),
         );
       }

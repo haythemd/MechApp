@@ -71,6 +71,20 @@ class MechTextStyle {
       letterSpacing: .5,
       fontWeight: FontWeight.w700,
       color: MechColor.lightPrimary);
+    
+    static const h7 = TextStyle(
+      fontFamily: 'Helvetica',
+      fontSize: 10,
+      letterSpacing: .5,
+      fontWeight: FontWeight.w700,
+      color: MechColor.labelColor);
+
+        static const h9 = TextStyle(
+      fontFamily: 'Helvetica',
+      fontSize: 9,
+      letterSpacing: .5,
+      fontWeight: FontWeight.w400,
+      color: MechColor.labelColor);
 
   static const secondaryButton = TextStyle(
       fontSize: 17, fontWeight: FontWeight.w700, color: MechColor.primary);

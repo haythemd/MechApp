@@ -10,6 +10,7 @@ class PageLink {
   static String? _adsId;
 
 
+
   static const String welcome = '/';
   static const String login = '/login';
   static const String enterPhone = '/enter-phone';

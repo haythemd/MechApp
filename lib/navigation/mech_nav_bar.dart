@@ -76,9 +76,19 @@ class _MechNavBarState extends State<MechNavBar> {
         Align(
             alignment: Alignment.bottomCenter,
             child: Container(
+              decoration: BoxDecoration(
+                // only top border light black
+                color: Theme.of(context).primaryColor,
+                border: const Border(
+                  top: BorderSide(
+                    color: Color.fromARGB(255, 230, 230, 230),
+                    width: .3,
+                  ),
+                ),
+              ),
               height: 78,
               width: double.infinity,
-              color: Theme.of(context).primaryColor,
+              
               child: Padding(
                 padding: const EdgeInsets.only(left: 30, right: 30, bottom: 20),
                 child: Center(
@@ -148,7 +158,7 @@ class _MechNavItem extends StatelessWidget {
         }
       },
       child: Container(
-        width: 80,
+        width: 60,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -162,7 +172,7 @@ class _MechNavItem extends StatelessWidget {
             const SizedBox(height: 5),
             Text(
               title,
-              style: MechTextStyle.h5.copyWith(
+              style: MechTextStyle.h7.copyWith(
                   fontWeight: !isSelected ? FontWeight.w400 : FontWeight.w700,
                   color: !isSelected
                       ? Theme.of(context).unselectedWidgetColor

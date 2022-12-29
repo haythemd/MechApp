@@ -14,10 +14,9 @@ import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 
 class AdSetMobileView<B extends Bloc<AdEvent, AdState>,
     C extends Bloc<AdEvent, AdState>> extends StatefulWidget {
-      final String adId;
-    
-  const AdSetMobileView({Key? key, required this.adId})
-      : super(key: key);
+  final String adId;
+
+  const AdSetMobileView({Key? key, required this.adId}) : super(key: key);
 
   @override
   State<AdSetMobileView<B, C>> createState() => _AdSetMobileViewState();
@@ -35,7 +34,7 @@ class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
     return Scaffold(
         backgroundColor: MechColor.background,
         appBar: MechWidgets.appBar(
-            title: widget.adId, context: context),
+            subtitle: widget.adId, title: 'ADSETS', context: context),
         body: BlocBuilder<B, AdState>(builder: (context, state) {
           if (state is AdInitial) {
             BlocProvider.of<B>(context).add(LoadAds(adId: widget.adId));
@@ -44,49 +43,28 @@ class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
               child: CircularProgressIndicator(),
             );
           } else if (state is AdSuccess) {
-            return Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  OverAllStats(stats: state.marketing),
-                  Expanded(
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                OverAllStats(stats: state.marketing),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              "AdSets",
-                              style: MechTextStyle.subheading3,
-                            ),
-                            InkWell(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: const [
-                                  Icon(Icons.sort),
-                                  Text("Sort")
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
                         Expanded(
-                            child: Padding(
-                          padding: const EdgeInsets.only(top: 20.0),
-                          child:
-                              _statCardBuilder(state.marketing.stats, (value) {
-                            context.push(PageLink.adSetsPath(adSetId: value.name));
-                          }),
-                        ))
+                            child: _statCardBuilder(state.marketing.stats,
+                                (value) {
+                          context
+                              .push(PageLink.adSetsPath(adSetId: value.name));
+                        }))
                       ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             );
           }
           return Container();
@@ -96,15 +74,19 @@ class _AdSetMobileViewState<B extends Bloc<AdEvent, AdState>,
   Widget _statCardBuilder(
       List<AdModel> stats, ValueChanged<AdModel> onStatCardPressed) {
     super.build(context);
-    return ListView.builder(
-        shrinkWrap: true,
-        itemCount: stats.length,
-        itemBuilder: (context, index) {
-          return StatCard(
+    return SingleChildScrollView(
+        child: Column(
+      children: [
+        const SizedBox(
+          height: 10,
+        ),
+        for (var stat in stats)
+          StatCard(
+            model: stat,
             onStatCardPressed: onStatCardPressed,
-            model: stats[index],
-          );
-        });
+          )
+      ],
+    ));
   }
 
   @override

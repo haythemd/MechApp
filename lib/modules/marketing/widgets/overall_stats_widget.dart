@@ -60,26 +60,29 @@ class _OverAllStatsState extends State<OverAllStats> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              "Overall Stats",
-              style: MechTextStyle.subheading3,
-            ),
-            InkWell(
-                child: Text(
-                  isExpanded ? "Close" : "Expand",
-                  style: MechTextStyle.subheading5
-                      .copyWith(decoration: TextDecoration.underline),
-                ),
-                onTap: () {
-                  setState(() {
-                    isExpanded = !isExpanded;
-                  });
-                }),
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal:18.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                "Totals",
+                style: MechTextStyle.subheading3,
+              ),
+              InkWell(
+                  child: Text(
+                    isExpanded ? "Close" : "Expand",
+                    style: MechTextStyle.subheading5
+                        .copyWith(decoration: TextDecoration.underline),
+                  ),
+                  onTap: () {
+                    setState(() {
+                      isExpanded = !isExpanded;
+                    });
+                  }),
+            ],
+          ),
         ),
         AnimatedContainer(
           onEnd: () {
