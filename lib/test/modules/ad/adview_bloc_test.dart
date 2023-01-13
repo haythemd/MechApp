@@ -34,7 +34,7 @@ void main() async {
           return bloc;
         },
         act: (bloc) =>
-            bloc.add(LoadAd(id: '')),
+            bloc.add(LoadAd(id: '',periodInDays: 1)),
         expect: () => [isA<AdLoading>(), isA<AdSuccess>()]);
 
     blocTest<AdBloc, AdState>(
@@ -46,7 +46,7 @@ void main() async {
           return bloc;
         },
         act: (bloc) =>
-            bloc.add(LoadAd(id: "")),
+            bloc.add(LoadAd(id: "",periodInDays: 1)),
         expect: () => [isA<AdLoading>(), isA<AdError>()]);
   });
 }

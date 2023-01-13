@@ -24,12 +24,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "ProfileViewTitle": MessageLookupByLibrary.simpleMessage("PROFILE"),
         "addNewButtonText": MessageLookupByLibrary.simpleMessage("Add New"),
         "backButtonText": MessageLookupByLibrary.simpleMessage("back"),
         "blankEmailErrorMessage":
             MessageLookupByLibrary.simpleMessage("An email must be provided"),
         "blankPasswordErrorMessage":
             MessageLookupByLibrary.simpleMessage("A password must be provided"),
+        "campaignsSectionTitle":
+            MessageLookupByLibrary.simpleMessage("Campaigns"),
         "completedCapitalText": m0,
         "confirmCodePageTitle": MessageLookupByLibrary.simpleMessage(
             "Check Your Phone For Verification"),
@@ -64,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "loginButtonTitle": MessageLookupByLibrary.simpleMessage("Login"),
         "loginViewTitle":
             MessageLookupByLibrary.simpleMessage("Make your ads work"),
+        "managerViewTitle": MessageLookupByLibrary.simpleMessage("MANAGER"),
         "navBarDashboardButton":
             MessageLookupByLibrary.simpleMessage("Dashboard"),
         "navBarManagerButton": MessageLookupByLibrary.simpleMessage("Manager"),

@@ -13,5 +13,6 @@ class AdError extends AdState {
 
 class AdSuccess extends AdState {
   final DetailedAdModel ad;
-  AdSuccess(this.ad);
+  final int reportingPeriod;
+  AdSuccess(this.ad, this.reportingPeriod);
 }

@@ -390,6 +390,36 @@ class S {
     );
   }
 
+  /// `MANAGER`
+  String get managerViewTitle {
+    return Intl.message(
+      'MANAGER',
+      name: 'managerViewTitle',
+      desc: 'Ad Manager - page title',
+      args: [],
+    );
+  }
+
+  /// `Campaigns`
+  String get campaignsSectionTitle {
+    return Intl.message(
+      'Campaigns',
+      name: 'campaignsSectionTitle',
+      desc: 'Campaigns - section title',
+      args: [],
+    );
+  }
+
+  /// `PROFILE`
+  String get ProfileViewTitle {
+    return Intl.message(
+      'PROFILE',
+      name: 'ProfileViewTitle',
+      desc: 'Profile - page title',
+      args: [],
+    );
+  }
+
   /// `Profile`
   String get navBarProfileButton {
     return Intl.message(

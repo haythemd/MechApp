@@ -129,18 +129,27 @@ class _MechAnimatedCardState extends State<MechAnimatedCard>
       height: 410,
       decoration: const BoxDecoration(
           color: Color(0xFFE9E9E9), borderRadius: MechBorderRadius.radius),
-      child: GridView(
-        physics: const NeverScrollableScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisSpacing: 10, mainAxisSpacing: 10, crossAxisCount: 3),
+      child: Column(
         children: [
-          ...widget.creative.metrics.getMetrics().keys.map((e) =>
-              MechMetricWidget(
-                title: e,
-                type: MetricType.moneyShort,
-                value: widget.creative.metrics.getMetrics()[e]?.toDouble() ?? 0,
-                titleOnTop: false,
-              )),
+          Text(widget.creative.name,
+              style: MechTextStyle.subheading5.copyWith(fontSize: 18)),
+             const SizedBox(height: 10,),
+          Expanded(
+            child: GridView(
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisSpacing: 10, mainAxisSpacing: 10, crossAxisCount: 3),
+              children: [
+                ...widget.creative.metrics.getMetrics().keys.map((e) =>
+                    MechMetricWidget(
+                      title: e,
+                      type: MetricType.moneyShort,
+                      value: widget.creative.metrics.getMetrics()[e]?.toDouble() ?? 0,
+                      titleOnTop: false,
+                    )),
+              ],
+            ),
+          ),
         ],
       ),
     );

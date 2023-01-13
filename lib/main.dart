@@ -16,11 +16,17 @@ class MechalodonApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      SystemChrome.setPreferredOrientations([
-        DeviceOrientation.portraitUp,
-      ]);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+
     MechRouter router = MechRouter();
     return MaterialApp.router(
+      builder: (context, child) {
+          return MediaQuery(
+              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+              child: child ?? Container());
+      },
       debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
         S.delegate,
@@ -39,11 +45,11 @@ class MechalodonApp extends StatelessWidget {
           unselectedWidgetColor: MechColor.inactive,
           appBarTheme: const AppBarTheme(
               backgroundColor: Colors.white,
-              titleTextStyle: const TextStyle(color: Colors.black),elevation: 0),textSelectionTheme: const TextSelectionThemeData(
-                selectionColor: MechColor.primary,
-                
-              )),
-              
+              titleTextStyle: const TextStyle(color: Colors.black),
+              elevation: 0),
+          textSelectionTheme: const TextSelectionThemeData(
+            selectionColor: MechColor.primary,
+          )),
       routeInformationProvider: router.infoProvider,
       routerDelegate: router.delegate,
       routeInformationParser: router.infoParser,

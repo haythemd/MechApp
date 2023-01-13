@@ -37,7 +37,7 @@ class _ProfileViewMobileState extends State<ProfileViewMobile> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: MechWidgets.appBar(
-          title: s.profileTitleText, context: context, showBackButton: false),
+          title: s.ProfileViewTitle, context: context, showBackButton: false),
       body: BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
         if (state is ProfileError) {
           return Text(

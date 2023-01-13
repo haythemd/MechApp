@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mechalodon_mobile/modules/ad/models/ad_view_model.dart';
+import 'package:mechalodon_mobile/modules/dashboard/widgets/date_switcher_widget.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
@@ -24,14 +26,18 @@ class AdMobile extends StatefulWidget {
 
 class _AdMobileState extends State<AdMobile> {
   var s = serviceLocator<S>();
-
+  int selectedPeriodInDays = 1;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AdBloc, AdState>(builder: (context, state) {
       if (state is AdInitial) {
-        BlocProvider.of<AdBloc>(context).add(LoadAd(id: widget.adId ?? 'Ad'));
+        BlocProvider.of<AdBloc>(context).add(LoadAd(
+          id: widget.adId ?? 'Ad',
+          periodInDays: selectedPeriodInDays,
+        ));
       }
       if (state is AdSuccess) {
+        selectedPeriodInDays = state.reportingPeriod;
         return Scaffold(
           backgroundColor: Colors.white,
           appBar: MechWidgets.appBar(
@@ -48,10 +54,11 @@ class _AdMobileState extends State<AdMobile> {
                       size: 23,
                     )),
               )),
-          body: Column(
-            children: [
-              OverAllStats(stats: state.ad.adMetrics),
-              const SizedBox(
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                OverAllStats(stats: state.ad.adMetrics),
+                const SizedBox(
                   height: 5,
                 ),
                 Padding(
@@ -59,33 +66,32 @@ class _AdMobileState extends State<AdMobile> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
+                    children: [
+                      const Text(
                         "Creatives",
                         style: MechTextStyle.subheading3,
+                      ),
+                      DateSwitcherWidget(
+                        selectedPeriod: state.reportingPeriod,
+                        numberOfDaysChanged: (i) {
+                          if (selectedPeriodInDays != i) {
+                            // if the time period changes load new data.
+                            selectedPeriodInDays = i;
+                            BlocProvider.of<AdBloc>(context).add(LoadAd(
+                                id: widget.adId ?? 'Ad',
+                                periodInDays: selectedPeriodInDays));
+                          }
+                        },
                       ),
                     ],
                   ),
                 ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:18.0),
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: state.ad.creatives?.length,
-                    itemBuilder: (context, index) {
-                      if (state.ad.creatives?[index] != null) {
-                        return MechAnimatedCard(
-                          creative: state.ad.creatives![index],
-                        );
-                      } else {
-                        return Container();
-                      }
-                    },
-                  ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: _creativeBuilder(state.ad.creatives ?? [])
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       }
@@ -94,5 +100,23 @@ class _AdMobileState extends State<AdMobile> {
       }
       return const MechLoadingWidget();
     });
+  }
+
+  Widget _creativeBuilder(List<Creative> creatives) {
+    var creativeWidgets = [];
+    for (var creative in creatives) {
+      creativeWidgets.add(MechAnimatedCard(
+        creative: creative,
+      ));
+    }
+    return Column(
+      children: [
+        const SizedBox(
+          height: 10,
+        ),
+        ...creativeWidgets,
+        SizedBox(height: 90,)
+      ],
+    );
   }
 }

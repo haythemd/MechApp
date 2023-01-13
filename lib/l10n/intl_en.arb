@@ -134,6 +134,18 @@
     "@navBarManagerButton" : {
         "description" : "Ad Manager - button description navbar"
     },
+    "managerViewTitle" : "MANAGER",
+    "@managerViewTitle" : {
+        "description" : "Ad Manager - page title"
+    },
+    "campaignsSectionTitle" : "Campaigns",
+    "@campaignsSectionTitle" : {
+        "description" : "Campaigns - section title"
+    },
+    "ProfileViewTitle" : "PROFILE",
+    "@ProfileViewTitle" : {
+        "description" : "Profile - page title"
+    },
     "navBarProfileButton" : "Profile",
     "@navBarProfileButton" : {
         "description" : "Profile - button description navbar"

@@ -11,10 +11,11 @@ class AdBloc extends Bloc<AdEvent, AdState> {
     on<LoadAd>(_onLoadAd);
   }
 
+  var reportingPeriodInDays = 1;
   void _onLoadAd(LoadAd event, Emitter<AdState> emit) async {
 
     emit(AdLoading());
-
+    reportingPeriodInDays = event.periodInDays;
     var repo = serviceLocator<AdRepository>();
     DetailedAdModel? ads =
         await repo.loadAd("");
@@ -22,6 +23,6 @@ class AdBloc extends Bloc<AdEvent, AdState> {
       emit(AdError('User was not found'));
       return;
     }
-    emit(AdSuccess(ads));
+    emit(AdSuccess(ads, reportingPeriodInDays));
   }
 }

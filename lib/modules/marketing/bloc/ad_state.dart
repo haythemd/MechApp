@@ -8,8 +8,8 @@ class AdLoading extends AdState {}
 
 class AdSuccess extends AdState {
   final AdsModels marketing;
-
-  AdSuccess({required this.marketing});
+  final int reportingPeriod;
+  AdSuccess({required this.marketing, required this.reportingPeriod});
 }
 
 class AdError extends AdState {

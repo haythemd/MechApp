@@ -19,7 +19,6 @@ class DateSwitcherWidget extends StatefulWidget {
 class _DateSwitcherWidgetState extends State<DateSwitcherWidget> {
   @override
   Widget build(BuildContext context) {
-    print(widget.selectedPeriod);
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
