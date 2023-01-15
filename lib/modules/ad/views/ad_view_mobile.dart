@@ -5,6 +5,7 @@ import 'package:mechalodon_mobile/modules/ad/models/ad_view_model.dart';
 import 'package:mechalodon_mobile/modules/dashboard/widgets/date_switcher_widget.dart';
 import 'package:mechalodon_mobile/services/injectable.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
+import 'package:mechalodon_mobile/utils/csv_exportable.dart';
 import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
 import 'package:mechalodon_mobile/utils/mech_widgets.dart';
 import 'package:mechalodon_mobile/modules/ad/bloc/ad_bloc.dart';
@@ -47,7 +48,10 @@ class _AdMobileState extends State<AdMobile> {
               trailing: Padding(
                 padding: const EdgeInsets.only(right: 8.0),
                 child: IconButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                     await CSVUtil.exportCSV([state.ad]);
+
+                     },
                     icon: const Icon(
                       MechIcons.download,
                       color: MechColor.inactive,
