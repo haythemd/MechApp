@@ -5,8 +5,7 @@ Please include a summary of the changes and the related issue. Please also inclu
 Fixes # (issue)
 # Checklist:
 
-- [ ] I have performed a self-review of my code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
+- [ ] I have tested my code on simulator and have no bugs.
+- [ ] I have commented my code, particularly in hard-to-understand areas.
+- [ ] I have accomplished all the story AC in linear.
+- [ ] I have no changes in my PR that are unrelated to the story.

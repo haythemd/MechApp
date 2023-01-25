@@ -25,7 +25,7 @@ class _SuggestFeedbackMobileViewState extends State<SuggestFeedbackMobileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+        resizeToAvoidBottomInset: false,
         backgroundColor: MechColor.background,
         appBar: MechWidgets.appBar(
             onBackPressed: () {
