@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "ProfileViewTitle": MessageLookupByLibrary.simpleMessage("PROFILE"),
         "addNewButtonText": MessageLookupByLibrary.simpleMessage("Add New"),
+        "addSuggestions":
+            MessageLookupByLibrary.simpleMessage("Add Suggustions"),
         "backButtonText": MessageLookupByLibrary.simpleMessage("back"),
         "blankEmailErrorMessage":
             MessageLookupByLibrary.simpleMessage("An email must be provided"),
@@ -44,12 +46,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "createAccountButtonTitle":
             MessageLookupByLibrary.simpleMessage("Create Account"),
         "creativesTitleText": MessageLookupByLibrary.simpleMessage("Creatives"),
+        "customerFeedback":
+            MessageLookupByLibrary.simpleMessage("Customer Feedback"),
+        "customerFeedbackHint": MessageLookupByLibrary.simpleMessage(
+            "Which sections do you think we can improve our app?"),
         "didntGetCodeText":
             MessageLookupByLibrary.simpleMessage("Didn\'t get a code?"),
         "emailAddressInputFieldHintText":
             MessageLookupByLibrary.simpleMessage("Enter Your Email"),
         "emailAddressInputFieldTitle":
             MessageLookupByLibrary.simpleMessage("Email Address"),
+        "emptyFeedbackError":
+            MessageLookupByLibrary.simpleMessage("Please submit a feedback"),
         "enterNewPasswordText":
             MessageLookupByLibrary.simpleMessage("Enter New Password"),
         "enterPhoneNumberFieldTitle":

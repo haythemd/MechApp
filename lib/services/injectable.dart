@@ -15,6 +15,8 @@ import 'package:mechalodon_mobile/modules/profile/repository/profile_repository.
 import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/bloc/reset_password_bloc.dart';
 import 'package:mechalodon_mobile/modules/reset_password/enter_new_password/repository/reset_password_repository.dart';
 import 'package:mechalodon_mobile/modules/reset_password/send_reset_sms/bloc/bloc/send_reset_sms_bloc.dart';
+import 'package:mechalodon_mobile/modules/suggest_feedback/bloc/suggest_feedback_bloc.dart';
+import 'package:mechalodon_mobile/modules/suggest_feedback/repo/suggest_feedback_repository.dart';
 import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/services/auth_service.dart';
 import 'package:mechalodon_mobile/services/graphql_service.dart';
@@ -46,16 +48,17 @@ Future<void> initServiceLocator() async {
   serviceLocator.registerFactory<ProfileBloc>(() => ProfileBloc());
   serviceLocator.registerFactory<ResetPasswordBloc>(() => ResetPasswordBloc());
   serviceLocator.registerFactory<SendResetSMSBloc>(() => SendResetSMSBloc());
+  serviceLocator.registerFactory<SuggestFeedbackBloc>(() => SuggestFeedbackBloc());
 
   /// Repositories (please keep these Alphabetical)
   serviceLocator.registerFactory<AdsRepository>(() => AdsRepository());
   serviceLocator.registerFactory<AdRepository>(() => AdRepository());
   serviceLocator.registerFactory<AdSetRepository>(() => AdSetRepository());
-  serviceLocator
-      .registerFactory<CampaignsRepository>(() => CampaignsRepository());
+  serviceLocator.registerFactory<CampaignsRepository>(() => CampaignsRepository());
   serviceLocator.registerFactory<ConfirmationCodeRepository>(() => ConfirmationCodeRepository());
   serviceLocator.registerFactory<LoginRepository>(() => LoginRepository());
   serviceLocator.registerFactory<ProfileRepository>(() => ProfileRepository());
-  serviceLocator.registerFactory<ResetPasswordRepository>(
-      () => ResetPasswordRepository());
+  serviceLocator.registerFactory<ResetPasswordRepository>(() => ResetPasswordRepository());
+  serviceLocator.registerFactory<SuggestFeedbackRepository>(() => SuggestFeedbackRepository());
+
 }

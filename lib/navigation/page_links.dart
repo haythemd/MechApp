@@ -19,6 +19,7 @@ class PageLink {
   static const String sms = '/sms';
   static const String profile = '/profile';
   static const String confirmCode = '/confirmation-code';
+  static const String suggestFeedback ='/suggest-feedback';
   static const String campaigns = '/campaigns';
   static const String adSets = 'ad-sets';
   static const String ads = 'ads';

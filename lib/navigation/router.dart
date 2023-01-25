@@ -12,8 +12,8 @@ import 'package:mechalodon_mobile/modules/reset_password/send_reset_sms/screens/
 import 'package:mechalodon_mobile/modules/welcome/welcome_screen.dart';
 import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/navigation/mech_nav_bar.dart';
-
-import '../modules/ad/screens/ad_screen.dart';
+import 'package:mechalodon_mobile/modules/ad/screens/ad_screen.dart';
+import 'package:mechalodon_mobile/modules/suggest_feedback/screens/suggest_feedback_screen.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -52,6 +52,9 @@ class MechRouter {
               GoRoute(
                 path: PageLink.profile,
                 builder: (context, state) => const ProfileScreen(),
+              ),
+              GoRoute(path: PageLink.suggestFeedback,
+              builder: (context, state) => const SuggestFeedbackScreen()
               ),
               GoRoute(
                 path: PageLink.campaigns,

@@ -629,6 +629,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Customer Feedback`
+  String get customerFeedback {
+    return Intl.message(
+      'Customer Feedback',
+      name: 'customerFeedback',
+      desc: 'Customer Feedback title',
+      args: [],
+    );
+  }
+
+  /// `Which sections do you think we can improve our app?`
+  String get customerFeedbackHint {
+    return Intl.message(
+      'Which sections do you think we can improve our app?',
+      name: 'customerFeedbackHint',
+      desc: 'Customer Feedback hint text',
+      args: [],
+    );
+  }
+
+  /// `Add Suggustions`
+  String get addSuggestions {
+    return Intl.message(
+      'Add Suggustions',
+      name: 'addSuggestions',
+      desc: 'Add Suggustions text',
+      args: [],
+    );
+  }
+
+  /// `Please submit a feedback`
+  String get emptyFeedbackError {
+    return Intl.message(
+      'Please submit a feedback',
+      name: 'emptyFeedbackError',
+      desc: 'Empty Feedback Error text',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

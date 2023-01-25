@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mechalodon_mobile/navigation/router.dart';
@@ -37,6 +38,7 @@ class MechalodonApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       title: 'Flutter Demo',
       theme: ThemeData(
+        cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(),
           primaryColor: Colors.white,
           colorScheme: ColorScheme.fromSeed(
               seedColor: const Color.fromARGB(255, 255, 255, 255)),
@@ -47,9 +49,8 @@ class MechalodonApp extends StatelessWidget {
               backgroundColor: Colors.white,
               titleTextStyle: const TextStyle(color: Colors.black),
               elevation: 0),
-          textSelectionTheme: const TextSelectionThemeData(
-            selectionColor: MechColor.primary,
-          )),
+        textSelectionTheme: const TextSelectionThemeData(cursorColor: MechColor.primary,selectionHandleColor: MechColor.primary,selectionColor: const Color(0x55555555))
+          ),
       routeInformationProvider: router.infoProvider,
       routerDelegate: router.delegate,
       routeInformationParser: router.infoParser,

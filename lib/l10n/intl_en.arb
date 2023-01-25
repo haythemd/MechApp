@@ -235,6 +235,23 @@
     "voteOnFutureInnovations": "Vote on future innovations",
     "@voteOnFutureInnovations": {
         "description": "innovation station - Vote on future innovations"
+    },
+    "customerFeedback": "Customer Feedback",
+    "@customerFeedback": {
+        "description": "Customer Feedback title"
+    },
+    "customerFeedbackHint": "Which sections do you think we can improve our app?",
+    "@customerFeedbackHint": {
+        "description": "Customer Feedback hint text"
+    },
+    "addSuggestions": "Add Suggustions",
+    "@addSuggestions": {
+        "description": "Add Suggustions text"
+    },
+    "emptyFeedbackError": "Please submit a feedback",
+    "@emptyFeedbackError": {
+        "description": "Empty Feedback Error text"
     }
+
 }
 

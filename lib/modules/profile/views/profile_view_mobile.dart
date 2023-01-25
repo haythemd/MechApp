@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mechalodon_mobile/modules/profile/bloc/profile_bloc.dart';
+import 'package:mechalodon_mobile/navigation/page_links.dart';
 import 'package:mechalodon_mobile/styles/style.dart';
 import 'package:mechalodon_mobile/utils/mech_loading_widget.dart';
 import 'package:mechalodon_mobile/utils/mech_widgets.dart';
@@ -120,7 +122,9 @@ class _ProfileViewMobileState extends State<ProfileViewMobile> {
                         InfoPagesButtons(
                             text: s.newFeatures, onTap: () {}),
                         InfoPagesButtons(
-                            text: s.suggestAFeature, onTap: () {}),
+                            text: s.suggestAFeature, onTap: () {
+                              context.push(PageLink.suggestFeedback);
+                        }),
                         InfoPagesButtons(text: s.voteOnFutureInnovations, onTap: () {})
                       ],
                     ),
