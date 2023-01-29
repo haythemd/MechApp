@@ -97,7 +97,7 @@ class _OverAllStatsState extends State<OverAllStats> {
             });
           },
           duration: const Duration(milliseconds: 300),
-          height: isExpanded ? 280 : 140,
+          height: isExpanded ? 280 : 131,
           child: isExpanded
               ? GridView.count(
                   childAspectRatio: 1,
